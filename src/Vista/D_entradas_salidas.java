@@ -34,8 +34,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txt_codigo = new javax.swing.JTextField();
-        btn_home = new javax.swing.JButton();
+        txt_codigo_buscar = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -50,23 +49,21 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         spiner_unidades_entrantes_salientes = new javax.swing.JSpinner();
-        btn_home1 = new javax.swing.JButton();
-        btn_home2 = new javax.swing.JButton();
+        btn_buscar1 = new rsbuttom.RSButtonMetro();
+        btn_buscar2 = new rsbuttom.RSButtonMetro();
         jLabel7 = new javax.swing.JLabel();
+        btn_buscar = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Buscar por Código de catálago");
 
-        btn_home.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_home.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home.setText("Buscar");
-        btn_home.setBorder(null);
-        btn_home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_homeActionPerformed(evt);
+        txt_codigo_buscar.setForeground(new java.awt.Color(0, 0, 0));
+        txt_codigo_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        txt_codigo_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_codigo_buscarKeyPressed(evt);
             }
         });
 
@@ -78,6 +75,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         txt_nombre.setEditable(false);
         txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
+        txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Marca");
@@ -85,6 +83,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         txt_marca.setEditable(false);
         txt_marca.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_marca.setForeground(new java.awt.Color(0, 0, 0));
+        txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Descripción");
@@ -92,6 +91,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         txt_descripcion.setEditable(false);
         txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
+        txt_descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Cantidad Disponible:");
@@ -99,6 +99,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         txt_cantidad.setEditable(false);
         txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
+        txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("ID:");
@@ -106,6 +107,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         txt_ID.setEditable(false);
         txt_ID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
+        txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_IDActionPerformed(evt);
@@ -170,26 +172,28 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         spiner_unidades_entrantes_salientes.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spiner_unidades_entrantes_salientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        spiner_unidades_entrantes_salientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btn_home1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_home1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home1.setText("Agregar Unidades");
-        btn_home1.setBorder(null);
-        btn_home1.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setText("Agregar unidades");
+        btn_buscar1.setColorHover(new java.awt.Color(0, 0, 0));
+        btn_buscar1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_buscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_home1ActionPerformed(evt);
+                btn_buscar1ActionPerformed(evt);
             }
         });
 
-        btn_home2.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_home2.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home2.setText("Retirar Unidades");
-        btn_home2.setBorder(null);
-        btn_home2.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setText("Retirar Unidades");
+        btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
+        btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_home2ActionPerformed(evt);
+                btn_buscar2ActionPerformed(evt);
             }
         });
 
@@ -198,17 +202,16 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(spiner_unidades_entrantes_salientes, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_home2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(44, 44, 44)
+                            .addComponent(spiner_unidades_entrantes_salientes, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(26, 26, 26)
+                            .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,14 +219,25 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGap(24, 24, 24)
                 .addComponent(spiner_unidades_entrantes_salientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_home1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_home2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel7.setText("Cantidad a agregar:");
+        jLabel7.setText("Cantidad de unidades:");
+
+        btn_buscar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar.setText("Buscar");
+        btn_buscar.setColorHover(new java.awt.Color(0, 0, 0));
+        btn_buscar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,9 +249,9 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,9 +259,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                             .addComponent(jLabel5))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(52, 52, 52)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,8 +271,8 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -265,52 +281,73 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
-        // TODO add your handling code here:
-        //validamos campos nulos
-        Ctr_productos ctr=new Ctr_productos();
-        ctr.buscar_por_codigo(txt_codigo.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
-        
-        
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void btn_home1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_home1ActionPerformed
-        // TODO add your handling code here:
-        //agregamos unidades
-        if(Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())<=0){
-            JOptionPane.showMessageDialog(null,"No se puede ingresar esa cantidad");
-        }else{
-            int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())+Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
-            Ctr_productos ctr=new Ctr_productos();
-            ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
-            this.hide();
-        }
-        
-        
-    }//GEN-LAST:event_btn_home1ActionPerformed
-
-    private void btn_home2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_home2ActionPerformed
-        // TODO add your handling code here:
-        //retirar unidades
-        if(Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())>Integer.parseInt(this.txt_cantidad.getText()) || Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())<=0 ){
-            JOptionPane.showMessageDialog(null,"No se puede Retirar esa cantidad");
-        }else{
-            int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())-Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
-            Ctr_productos ctr=new Ctr_productos();
-            ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
-            this.hide();
-        }
-    }//GEN-LAST:event_btn_home2ActionPerformed
-
     private void txt_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_IDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_IDActionPerformed
+
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Ctr_productos ctr=new Ctr_productos();
+        ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())<=0){
+                JOptionPane.showMessageDialog(null,"No se puede ingresar esa cantidad");
+            }else{
+                int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())+Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
+                Ctr_productos ctr=new Ctr_productos();
+                ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
+                this.hide();
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error intentelo nuevamente");
+        }
+        
+    }//GEN-LAST:event_btn_buscar1ActionPerformed
+
+    private void btn_buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar2ActionPerformed
+        // TODO add your handling code here:
+        //retirar unidades
+        try{
+            if(Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())>Integer.parseInt(this.txt_cantidad.getText()) || Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())<=0 ){
+                JOptionPane.showMessageDialog(null,"No se puede Retirar esa cantidad");
+            }else{
+                int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())-Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
+                Ctr_productos ctr=new Ctr_productos();
+                ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
+                this.hide();
+            }
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,"Ha ocurrido un error intentelo nuevamente");
+        }
+        
+    }//GEN-LAST:event_btn_buscar2ActionPerformed
+
+    private void txt_codigo_buscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigo_buscarKeyPressed
+        // TODO add your handling code here:
+        //al presionar enter accedemos a las opciones de busqyeda de la capa controlador
+        if (evt.getKeyCode() == evt.VK_ENTER) {
+            if(this.txt_codigo_buscar.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Debes de insertar un código de busqueda");
+            }else{
+                //hacemos la busqyeda de los datos
+                Ctr_productos ctr=new Ctr_productos();
+                ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
+            }
+        }
+    }//GEN-LAST:event_txt_codigo_buscarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -356,9 +393,9 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_home;
-    private javax.swing.JButton btn_home1;
-    private javax.swing.JButton btn_home2;
+    private rsbuttom.RSButtonMetro btn_buscar;
+    private rsbuttom.RSButtonMetro btn_buscar1;
+    private rsbuttom.RSButtonMetro btn_buscar2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -372,7 +409,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     private javax.swing.JSpinner spiner_unidades_entrantes_salientes;
     private javax.swing.JTextField txt_ID;
     private javax.swing.JTextField txt_cantidad;
-    private javax.swing.JTextField txt_codigo;
+    private javax.swing.JTextField txt_codigo_buscar;
     private javax.swing.JTextField txt_descripcion;
     private javax.swing.JTextField txt_marca;
     private javax.swing.JTextField txt_nombre;
