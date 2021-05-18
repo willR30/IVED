@@ -40,12 +40,12 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         txt_descripcion = new javax.swing.JTextField();
         txt_cantidad = new javax.swing.JTextField();
-        btn_home = new javax.swing.JButton();
-        combo_marcas = new javax.swing.JComboBox<>();
+        combo_marcas = new javax.swing.JComboBox<String>();
         jLabel5 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
         txt_precio = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        btn_entrar = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -70,20 +70,11 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        btn_home.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_home.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home.setText("Agregar");
-        btn_home.setBorder(null);
-        btn_home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_homeActionPerformed(evt);
-            }
-        });
-
+        combo_marcas.setBackground(new java.awt.Color(255, 255, 255));
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
-        combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        combo_marcas.setForeground(new java.awt.Color(0, 0, 0));
+        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
+        combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setText("Código Catlago:");
@@ -96,6 +87,17 @@ public class D_nuevo_producto extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("Precio:");
+
+        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar.setText("Agregar");
+        btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,11 +117,10 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                             .addComponent(txt_descripcion)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                    .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -129,9 +130,10 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                                     .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_home, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                        .addGap(11, 11, 11))))
+                        .addGap(35, 35, 35)
+                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,18 +166,17 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                             .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(16, 16, 16))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
+    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         // TODO add your handling code here:
-        //validamos campos nulos
-        if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_cantidad.getText().isEmpty()||txt_codigo.getText().isEmpty()||this.txt_precio.getText().isEmpty()|| Float.parseFloat(this.txt_precio.getText())<0){
+         if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_cantidad.getText().isEmpty()||txt_codigo.getText().isEmpty()||this.txt_precio.getText().isEmpty()|| Float.parseFloat(this.txt_precio.getText())<0){
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
         }else{
            if(Integer.parseInt(this.txt_cantidad.getText())<0){
@@ -187,7 +188,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                this.hide();
            }
         }
-    }//GEN-LAST:event_btn_homeActionPerformed
+    }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,7 +233,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_home;
+    private rsbuttom.RSButtonMetro btn_entrar;
     private javax.swing.JComboBox<String> combo_marcas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

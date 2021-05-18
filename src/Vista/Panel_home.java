@@ -36,13 +36,16 @@ public class Panel_home extends javax.swing.JPanel {
         Jtable_productos = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
-        btn_buscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        btn_buscar1 = new javax.swing.JButton();
+        btn_buscar = new rsbuttom.RSButtonMetro();
+        btn_buscar2 = new rsbuttom.RSButtonMetro();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
-        Jtable_productos.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        Jtable_productos.setBackground(new java.awt.Color(255, 255, 255));
+        Jtable_productos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        Jtable_productos.setForeground(new java.awt.Color(0, 0, 0));
         Jtable_productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -54,7 +57,10 @@ public class Panel_home extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Jtable_productos.setAutoscrolls(false);
+        Jtable_productos.setGridColor(new java.awt.Color(255, 255, 255));
         Jtable_productos.setRowHeight(22);
+        Jtable_productos.setSelectionBackground(new java.awt.Color(51, 102, 255));
         Jtable_productos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Jtable_productosMouseClicked(evt);
@@ -62,37 +68,41 @@ public class Panel_home extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(Jtable_productos);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Productos Existentes");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Código:");
+
         btn_buscar.setBackground(new java.awt.Color(51, 102, 255));
-        btn_buscar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_buscar.setForeground(new java.awt.Color(255, 255, 255));
         btn_buscar.setText("Buscar");
-        btn_buscar.setBorder(null);
+        btn_buscar.setColorHover(new java.awt.Color(0, 0, 0));
+        btn_buscar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Código:");
-
-        btn_buscar1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_buscar1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_buscar1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_buscar1.setText("Listar");
-        btn_buscar1.setBorder(null);
-        btn_buscar1.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setText("Listar");
+        btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
+        btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscar1ActionPerformed(evt);
+                btn_buscar2ActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Haga doble click sobre un producto para editarlo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -100,40 +110,42 @@ public class Panel_home extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1235, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))))
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(477, 477, 477)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(493, 493, 493))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel2))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
-                .addGap(24, 24, 24))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -141,13 +153,13 @@ public class Panel_home extends javax.swing.JPanel {
         // TODO add your handling code here:
         if(evt.getClickCount()==2){
             int select =this.Jtable_productos.rowAtPoint(evt.getPoint());
-            
+
             int ID_producto=Integer.parseInt(this.Jtable_productos.getValueAt(select,0).toString());
             D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,ID_producto);
             d.setVisible(true);
-            
+
             while(d.isShowing()){
-                
+
             }
             Ctr_productos ctr=new Ctr_productos();
             ctr.llenar_tabla_grupos(Jtable_productos);
@@ -155,6 +167,7 @@ public class Panel_home extends javax.swing.JPanel {
     }//GEN-LAST:event_Jtable_productosMouseClicked
 
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        // TODO add your handling code here:
         // TODO add your handling code here:
         Ctr_productos ctr=new Ctr_productos();
         if(this.txt_codigo.getText().isEmpty()){
@@ -166,19 +179,20 @@ public class Panel_home extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btn_buscarActionPerformed
 
-    private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
+    private void btn_buscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar2ActionPerformed
         // TODO add your handling code here:
         Ctr_productos ctr=new Ctr_productos();
         ctr.llenar_tabla_grupos(Jtable_productos);
-    }//GEN-LAST:event_btn_buscar1ActionPerformed
+    }//GEN-LAST:event_btn_buscar2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Jtable_productos;
-    private javax.swing.JButton btn_buscar;
-    private javax.swing.JButton btn_buscar1;
+    private rsbuttom.RSButtonMetro btn_buscar;
+    private rsbuttom.RSButtonMetro btn_buscar2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_codigo;
     // End of variables declaration//GEN-END:variables

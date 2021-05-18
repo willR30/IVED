@@ -53,4 +53,31 @@ public class usuario_DAO_consultas {
          }
          return log;//retornamos el objeto
      }
+      public ArrayList<Mod_usuario> listar_usuario(){
+         ArrayList log =new ArrayList();//creamos el objeto
+         Mod_usuario login_usuario=null;
+         try{
+             Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+             String consulta="SELECT usuario,contra FROM usuario WHERE ID_usuario=3";
+             PreparedStatement ps=accesoDB.prepareStatement(consulta);
+             //pasamos los parametros a la consulta
+             
+             
+             //ejecutamos la consulta
+             ResultSet rs=ps.executeQuery();
+             
+             while(rs.next()){
+                 login_usuario=new Mod_usuario();
+                 login_usuario.setUsuario(rs.getString(1));
+                 
+                 log.add(login_usuario);
+             }
+             accesoDB.close();//cerramos la conexion a la base de datos
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);//hacemos visible la exceptin
+            
+         }
+         return log;//retornamos el objeto
+     }
+      
 }

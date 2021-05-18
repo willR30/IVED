@@ -56,11 +56,12 @@ public class D_editar_producto extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
         btn_home = new javax.swing.JButton();
-        combo_marcas = new javax.swing.JComboBox<>();
+        combo_marcas = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -120,7 +121,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         jPanel1.add(btn_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 155, 72));
 
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
+        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         jPanel1.add(combo_marcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 87, 212, -1));
 
@@ -137,22 +138,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
         jPanel1.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 224, 123, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 535, 266));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
