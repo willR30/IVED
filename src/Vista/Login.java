@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Ctr_configuraciones;
 import Controlador.Ctr_usuario;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -19,13 +20,28 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        initComponents();
+        
         //establecemos las propiedades iniciales para el formulario
-        this.setTitle("IVED-inicio de sesión");
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
-        //establecemos la imagen como incono del programa
-        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED.png")).getImage());
+        try{
+            Ctr_configuraciones ctr=new Ctr_configuraciones();//importamos y nos  conectamos al ctr
+            int validacion_usuario=ctr.validar_usuario_creado();
+            if(validacion_usuario==0){
+                JOptionPane.showMessageDialog(null,"El usuario no existe");
+                //en un caso de que el usuario no exista, mostramos el formulario en que va a poder crear el usuario
+                this.hide();
+                Crear_usuario registrarce=new Crear_usuario();
+                registrarce.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null,"El usuario Si existe");
+                mostrar_login();
+                //si el usuairo existe lo mandamos directamente al inicio de sescion de forma normal
+                //no hace nada y coninua con el programa
+            }
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null,ex);
+        }
+        
+        
     }
 
     /**
@@ -66,7 +82,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txt_contraseña.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_contraseña.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         txt_contraseña.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(36, 36, 36), 3));
         txt_contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -235,6 +251,19 @@ public class Login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void mostrar_login(){
+        initComponents();//iniciamos los componentes del formulario
+        establecer_propiedades_iniciales();//llamamos al metodo de las propiedades iniciales
+    }
+    public void establecer_propiedades_iniciales(){
+        this.setTitle("IVED-inicio de sesión");
+        this.setLocationRelativeTo(null);
+        this.setResizable(false);
+        //establecemos la imagen como incono del programa
+        
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED.png")).getImage());
+        
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -76,7 +76,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_home" min="-2" pref="314" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_entrar5" min="-2" pref="127" max="-2" attributes="0"/>
+                  <Component id="btn_marcas" min="-2" pref="127" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btn_entrar6" min="-2" pref="118" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -96,7 +96,7 @@
                       <Component id="btn_home" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_entrar4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btn_entrar5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_marcas" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_entrar6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btn_entrar7" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -186,12 +186,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_usuarioActionPerformed"/>
           </Events>
         </Component>
-        <Component class="rsbuttom.RSButtonMetro" name="btn_entrar5">
+        <Component class="rsbuttom.RSButtonMetro" name="btn_marcas">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gastos"/>
+            <Property name="text" type="java.lang.String" value="Marcas"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
@@ -203,7 +203,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_entrar5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_marcasActionPerformed"/>
           </Events>
         </Component>
         <Component class="rsbuttom.RSButtonMetro" name="btn_entrar6">

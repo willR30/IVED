@@ -41,7 +41,7 @@ public class home extends javax.swing.JFrame {
         btn_home = new rsbuttom.RSButtonMetro();
         btn_entradas = new rsbuttom.RSButtonMetro();
         btn_usuario = new rsbuttom.RSButtonMetro();
-        btn_entrar5 = new rsbuttom.RSButtonMetro();
+        btn_marcas = new rsbuttom.RSButtonMetro();
         btn_entrar6 = new rsbuttom.RSButtonMetro();
         btn_entrar7 = new rsbuttom.RSButtonMetro();
         panel_central = new javax.swing.JPanel();
@@ -105,14 +105,14 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        btn_entrar5.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar5.setText("Gastos");
-        btn_entrar5.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar5.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar5.addActionListener(new java.awt.event.ActionListener() {
+        btn_marcas.setBackground(new java.awt.Color(51, 102, 255));
+        btn_marcas.setText("Marcas");
+        btn_marcas.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_marcas.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_marcas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_marcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrar5ActionPerformed(evt);
+                btn_marcasActionPerformed(evt);
             }
         });
 
@@ -150,7 +150,7 @@ public class home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_entrar5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_entrar6, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -168,7 +168,7 @@ public class home extends javax.swing.JFrame {
                     .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_entrar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_entrar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_entrar6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_entrar7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -230,9 +230,9 @@ public class home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_usuarioActionPerformed
 
-    private void btn_entrar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar5ActionPerformed
+    private void btn_marcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_marcasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_entrar5ActionPerformed
+    }//GEN-LAST:event_btn_marcasActionPerformed
 
     private void btn_entrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar6ActionPerformed
         // TODO add your handling code here:
@@ -282,10 +282,10 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro btn_entradas;
     private rsbuttom.RSButtonMetro btn_entrar4;
-    private rsbuttom.RSButtonMetro btn_entrar5;
     private rsbuttom.RSButtonMetro btn_entrar6;
     private rsbuttom.RSButtonMetro btn_entrar7;
     private rsbuttom.RSButtonMetro btn_home;
+    private rsbuttom.RSButtonMetro btn_marcas;
     private rsbuttom.RSButtonMetro btn_usuario;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel panel_central;
