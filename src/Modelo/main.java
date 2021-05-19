@@ -29,7 +29,7 @@ public class main {
                 //en un caso de que el usuario no exista, mostramos el formulario en que va a poder crear el usuario
                 Crear_usuario registrarce=new Crear_usuario();
                 registrarce.setVisible(true);
-            }else{
+            }else if (validacion_usuario==1){
                 JOptionPane.showMessageDialog(null,"El usuario Si existe");
                 //si el usuairo existe lo mandamos directamente al inicio de sescion de forma normal
                 //hacemos visible el formulario de login que va a ser el primero que se vera 
