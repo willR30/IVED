@@ -20,6 +20,12 @@ public class Ctr_configuraciones {
         return usuarioValidacion;
         
     }
+    public void actualizar_validacion_de_usuario_existente(){
+        //aqui actualizamos la validacion el usuario
+        conf_DAO.actualizar_validacion_de_usuario_existente();//actualizamos el estado
+        
+    }
     
     
+        
 }

@@ -50,5 +50,25 @@ public class configuraciones_DAO_consultas {
         }
         return usuario_validacion;
     }
+    public void actualizar_validacion_de_usuario_existente(){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al ervidor
+            String consulta="UPDATE configuraciones SET usuario_creado=?";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos el parámetro de la consulta
+            pst.setInt(1,1);//establecemos que el usuario ya fué creado
+            
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+            if(numafectada!=0){
+                    JOptionPane.showMessageDialog(null, "Usuario actualizado");
+            }else{
+                    JOptionPane.showMessageDialog(null, "No se puedo completar");
+            }
+            pst.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visibles las exception
+        }
+    }
     
 }

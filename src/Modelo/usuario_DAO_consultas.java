@@ -80,4 +80,31 @@ public class usuario_DAO_consultas {
          return log;//retornamos el objeto
      }
       
+     public void Agregar_usuario(String user_name, String contraseña){
+         //este metodo va a agregar el usuario en el caso de que no exista
+         try{
+             Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+             String consulta="INSERT INTO usuario(ID_usuario,usuario,contra) VALUES (?,?,?)";
+             //pasamos los parametros de la cosulta 
+             PreparedStatement pst=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
+             pst.setString(1,"0");
+             pst.setString(2,user_name);
+             pst.setString(3,contraseña);
+             
+             int numafectada =pst.executeUpdate();
+            
+            if(numafectada<0){
+                JOptionPane.showMessageDialog(null,"Error al Agregar");
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Usuario Agregado");
+            }
+            pst.close();//cerramos la conexion
+             
+         }catch(Exception ex){
+             JOptionPane.showMessageDialog(null, ex);//hacemos visibles las exception
+         }
+         
+     }
+      
 }

@@ -23,4 +23,8 @@ public class Ctr_usuario {
         txt_usuario.setText(usuario_DAO.listar_usuario().get(0).getUsuario());
         txt_contraseña.setText(usuario_DAO.listar_usuario().get(0).getContra());
     }
+    public void agregar_usuario(String user_name,String contraseña){
+        //nos conectamos con la capa modelo y pasamos los parametros
+        usuario_DAO.Agregar_usuario(user_name, contraseña);
+    }
 }
