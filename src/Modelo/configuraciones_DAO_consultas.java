@@ -63,12 +63,35 @@ public class configuraciones_DAO_consultas {
             if(numafectada!=0){
                     JOptionPane.showMessageDialog(null, "Usuario actualizado");
             }else{
-                    JOptionPane.showMessageDialog(null, "No se puedo completar");
+                    JOptionPane.showMessageDialog(null, "No se puedo completarz");
             }
             pst.close();
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);//hacemos visibles las exception
         }
     }
+    public void Agregar_nombre_negocio(String Nombre){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor de la base de datos
+            String consulta="UPDATE configuraciones SET Nombre_negocio=?";//Tenemos un dato por defecto en la base de datos, asi que solo actualizamos , igual está validado desde la interfaz de crear usuario
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos los parametros de la cosnutla , en este caso el nomre del negocio
+            pst.setString(1, Nombre);
+            
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+            if(numafectada!=0){
+                    JOptionPane.showMessageDialog(null, "Nombre de negocio agregado");
+            }else{
+                    JOptionPane.showMessageDialog(null, "No se puedo agregar el nombre del negocio");
+            }
+            pst.close();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception encontrada
+        }
+        
+    }
+    //-------------------------------------------------------------------------------------------------------
     
 }

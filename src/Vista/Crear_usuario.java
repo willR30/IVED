@@ -153,7 +153,7 @@ public class Crear_usuario extends javax.swing.JFrame {
                             .addComponent(txt_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -307,6 +307,7 @@ public class Crear_usuario extends javax.swing.JFrame {
                 //todo bien
                 //aguí agrega al usuario
                 new Ctr_usuario().agregar_usuario(this.txt_user_name.getText().trim(), contra);//pasamos el usuario tomado del campo de texto y la contraseñe
+                new Ctr_configuraciones().agregar_nombre_negocio(this.txt_nombre_negocio.getText().trim());//capturamos y agregamos el nombre del negocio
                 JOptionPane.showMessageDialog(null,"Inicia Sesion");
                 new Ctr_configuraciones().actualizar_validacion_de_usuario_existente();//actualizamos el registro de usuario
                 this.hide();

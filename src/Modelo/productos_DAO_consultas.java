@@ -114,7 +114,7 @@ public class productos_DAO_consultas {
              pst.setInt(1,nueva_cantidad);
              pst.setInt(2, id);
              
-             int numafectada=pst.executeUpdate();//ejecutams la consulta
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
               
             if(numafectada!=0){
                     JOptionPane.showMessageDialog(null, "Unidades Actualizadas");

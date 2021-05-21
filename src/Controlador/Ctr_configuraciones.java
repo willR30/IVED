@@ -25,6 +25,10 @@ public class Ctr_configuraciones {
         conf_DAO.actualizar_validacion_de_usuario_existente();//actualizamos el estado
         
     }
+    //agregamos el nombre del negocio
+    public void agregar_nombre_negocio(String Nombre){
+        conf_DAO.Agregar_nombre_negocio(Nombre);//nos conectamos a la capa de modelo y psasmos el nombre como parametro
+    }
     
     
         
