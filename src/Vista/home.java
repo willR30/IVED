@@ -65,6 +65,7 @@ public class home extends javax.swing.JFrame {
         btn_entrar4.setText("Salir");
         btn_entrar4.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar4.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar4.setFocusPainted(false);
         btn_entrar4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_entrar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +77,7 @@ public class home extends javax.swing.JFrame {
         btn_home.setText("Entrdas y/o Salidas de productos");
         btn_home.setColorHover(new java.awt.Color(102, 102, 102));
         btn_home.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_home.setFocusPainted(false);
         btn_home.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +89,7 @@ public class home extends javax.swing.JFrame {
         btn_entradas.setText("Nuevo producto");
         btn_entradas.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entradas.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entradas.setFocusPainted(false);
         btn_entradas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_entradas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +101,7 @@ public class home extends javax.swing.JFrame {
         btn_usuario.setText("Configuraciones");
         btn_usuario.setColorHover(new java.awt.Color(102, 102, 102));
         btn_usuario.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_usuario.setFocusPainted(false);
         btn_usuario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +113,7 @@ public class home extends javax.swing.JFrame {
         btn_marcas.setText("Marcas");
         btn_marcas.setColorHover(new java.awt.Color(102, 102, 102));
         btn_marcas.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_marcas.setFocusPainted(false);
         btn_marcas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_marcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +125,7 @@ public class home extends javax.swing.JFrame {
         btn_entrar6.setText("Reportes");
         btn_entrar6.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar6.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar6.setFocusPainted(false);
         btn_entrar6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_entrar6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +137,7 @@ public class home extends javax.swing.JFrame {
         btn_entrar7.setText("Home");
         btn_entrar7.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar7.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar7.setFocusPainted(false);
         btn_entrar7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_entrar7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +239,8 @@ public class home extends javax.swing.JFrame {
 
     private void btn_marcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_marcasActionPerformed
         // TODO add your handling code here:
+        //abrir formulario 
+        new D_marcas(new javax.swing.JFrame(),true).setVisible(true);
     }//GEN-LAST:event_btn_marcasActionPerformed
 
     private void btn_entrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar6ActionPerformed
