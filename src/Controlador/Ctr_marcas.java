@@ -50,5 +50,11 @@ public class Ctr_marcas {
     public void nueva_marca(String nombre,String descripcion){
         marcas_DAO.nueva_marca(nombre, descripcion);
     }
+    public void editar_marca(String Nombre,String Descripcion,int ID_marca){
+        marcas_DAO.editar_marca(Nombre, Descripcion, ID_marca);//nos conectamos con la capa modelo y le pasamos los parametros del metodo
+    }
+    public void Eliminar_marca(int ID_marca){
+        marcas_DAO.elimiar_marca(ID_marca);
+    }
     
 }

@@ -155,7 +155,8 @@ public class Panel_home extends javax.swing.JPanel {
             int select =this.Jtable_productos.rowAtPoint(evt.getPoint());
 
             int ID_producto=Integer.parseInt(this.Jtable_productos.getValueAt(select,0).toString());
-            D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,ID_producto);
+            String Marca=this.Jtable_productos.getValueAt(select,2).toString();
+            D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,ID_producto,Marca);
             d.setVisible(true);
 
             while(d.isShowing()){

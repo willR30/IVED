@@ -6,6 +6,10 @@
 package Vista;
 
 import Controlador.Ctr_productos;
+import Modelo.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -19,16 +23,20 @@ public class D_editar_producto extends javax.swing.JDialog {
      * Creates new form D_editar_producto
      */
     private int ID;
-    public D_editar_producto(java.awt.Frame parent, boolean modal,int id) {
+    private String Marca;
+    public D_editar_producto(java.awt.Frame parent, boolean modal,int id,String marca) {
         super(parent, modal);
         initComponents();
         this.ID=id;
+        this.Marca=marca;
         this.setTitle("Editar propiedades de producto");
         this.setLocationRelativeTo(null);
         
         //--------------------
         Ctr_productos ctr=new Ctr_productos();
         ctr.buscar_por_ID(ID, txt_codigo, txt_nombre,this.combo_marcas , txt_descripcion, txt_cantidad,this.txt_precio);
+        this.llenar_combobox_marca();
+        this.combo_marcas.setSelectedItem(this.Marca);
         
     }
 
@@ -55,10 +63,11 @@ public class D_editar_producto extends javax.swing.JDialog {
         txt_cantidad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
-        btn_home = new javax.swing.JButton();
         combo_marcas = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
+        btn_entrar = new rsbuttom.RSButtonMetro();
+        btn_entrar1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,20 +117,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
         jPanel1.add(txt_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 15, 226, -1));
 
-        btn_home.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        btn_home.setForeground(new java.awt.Color(255, 255, 255));
-        btn_home.setText("Editar");
-        btn_home.setBorder(null);
-        btn_home.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_homeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_home, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 155, 72));
-
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         jPanel1.add(combo_marcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 87, 212, -1));
 
@@ -138,6 +134,32 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
         jPanel1.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 224, 123, -1));
 
+        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar.setText("Retirar de Stock");
+        btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar.setFocusPainted(false);
+        btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
+
+        btn_entrar1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar1.setText("Editar");
+        btn_entrar1.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar1.setFocusPainted(false);
+        btn_entrar1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 535, 266));
 
         pack();
@@ -147,10 +169,19 @@ public class D_editar_producto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigoActionPerformed
 
-    private void btn_homeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_homeActionPerformed
+    private void txt_precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioActionPerformed
         // TODO add your handling code here:
-        //validamos campos nulos
-        if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_codigo.getText().isEmpty()||txt_codigo.getText().isEmpty()||this.txt_precio.getText().isEmpty()){
+    }//GEN-LAST:event_txt_precioActionPerformed
+
+    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
+        //retirar del stock
+       
+    }//GEN-LAST:event_btn_entrarActionPerformed
+
+    private void btn_entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar1ActionPerformed
+        // TODO add your handling code here:
+        //editar un producto
+         if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_codigo.getText().isEmpty()||txt_codigo.getText().isEmpty()||this.txt_precio.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
         }else{
            if(Integer.parseInt(this.txt_cantidad.getText())<0){
@@ -163,17 +194,32 @@ public class D_editar_producto extends javax.swing.JDialog {
                this.hide();
            }
         }
-        
-
-    }//GEN-LAST:event_btn_homeActionPerformed
-
-    private void txt_precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_precioActionPerformed
+    }//GEN-LAST:event_btn_entrar1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public void llenar_combobox_marca(){
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+        Conexion cnx=new Conexion();
+        Connection conx=cnx.getConextion();//obtenemos la coneccion
+        //limpiamos el comobobox
+        this.combo_marcas.removeAllItems();
+        try{
+           String sql="SELECT Nombre_marca From marcas";
+           ps=conx.prepareStatement(sql);
+           rs =ps.executeQuery();//ejecutamos la consulta
+           
+           while(rs.next()){
+               this.combo_marcas.addItem(rs.getString(1));
+           }
+           rs.close();//cerramos la conexion
+        }catch(Exception ex){
+          JOptionPane.showMessageDialog(null, ex);
+        }
+        
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -214,7 +260,8 @@ public class D_editar_producto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_home;
+    private rsbuttom.RSButtonMetro btn_entrar;
+    private rsbuttom.RSButtonMetro btn_entrar1;
     private javax.swing.JComboBox<String> combo_marcas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

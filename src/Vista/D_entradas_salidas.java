@@ -55,6 +55,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         btn_buscar = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setFocusable(false);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Buscar por Código de catálago");
@@ -73,6 +74,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel2.setText("Nombre");
 
         txt_nombre.setEditable(false);
+        txt_nombre.setBackground(new java.awt.Color(255, 255, 255));
         txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -81,6 +83,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel3.setText("Marca");
 
         txt_marca.setEditable(false);
+        txt_marca.setBackground(new java.awt.Color(255, 255, 255));
         txt_marca.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_marca.setForeground(new java.awt.Color(0, 0, 0));
         txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -89,6 +92,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel4.setText("Descripción");
 
         txt_descripcion.setEditable(false);
+        txt_descripcion.setBackground(new java.awt.Color(255, 255, 255));
         txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
         txt_descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -97,6 +101,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel6.setText("Cantidad Disponible:");
 
         txt_cantidad.setEditable(false);
+        txt_cantidad.setBackground(new java.awt.Color(255, 255, 255));
         txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -105,6 +110,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel8.setText("ID:");
 
         txt_ID.setEditable(false);
+        txt_ID.setBackground(new java.awt.Color(255, 255, 255));
         txt_ID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
@@ -179,6 +185,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         btn_buscar1.setText("Agregar unidades");
         btn_buscar1.setColorHover(new java.awt.Color(0, 0, 0));
         btn_buscar1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setFocusable(false);
         btn_buscar1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +197,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         btn_buscar2.setText("Retirar Unidades");
         btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
         btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setFocusable(false);
         btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +240,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         btn_buscar.setText("Buscar");
         btn_buscar.setColorHover(new java.awt.Color(0, 0, 0));
         btn_buscar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar.setFocusable(false);
         btn_buscar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

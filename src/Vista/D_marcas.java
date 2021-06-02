@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Ctr_marcas;
+import Controlador.Ctr_productos;
 
 /**
  *
@@ -54,9 +55,17 @@ public class D_marcas extends javax.swing.JDialog {
             }
         ));
         tabla_marcas.setRowHeight(22);
+        tabla_marcas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_marcasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_marcas);
 
         btn_nueva_marca.setText("Nueva Marca");
+        btn_nueva_marca.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_nueva_marca.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_nueva_marca.setFocusable(false);
         btn_nueva_marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nueva_marcaActionPerformed(evt);
@@ -97,6 +106,24 @@ public class D_marcas extends javax.swing.JDialog {
         }
         new Ctr_marcas().llenar_tabla_marcas(tabla_marcas);
     }//GEN-LAST:event_btn_nueva_marcaActionPerformed
+
+    private void tabla_marcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_marcasMouseClicked
+        // TODO add your handling code here:
+        if(evt.getClickCount()==2){
+            int select =this.tabla_marcas.rowAtPoint(evt.getPoint());
+
+            int ID_producto=Integer.parseInt(this.tabla_marcas.getValueAt(select,0).toString());
+            String Nombre=this.tabla_marcas.getValueAt(select,1).toString();
+            String Descripcion=this.tabla_marcas.getValueAt(select,2).toString();
+            D_editar_eliminar_marca d=new D_editar_eliminar_marca(new javax.swing.JFrame(),true,Nombre,Descripcion,ID_producto);
+            d.setVisible(true);
+
+            while(d.isShowing()){
+                //no hace nada
+            }
+            new Ctr_marcas().llenar_tabla_marcas(tabla_marcas);
+        }
+    }//GEN-LAST:event_tabla_marcasMouseClicked
 
     /**
      * @param args the command line arguments

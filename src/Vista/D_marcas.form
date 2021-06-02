@@ -68,12 +68,22 @@
             </Property>
             <Property name="rowHeight" type="int" value="22"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabla_marcasMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
     <Component class="rsbuttom.RSButtonMetro" name="btn_nueva_marca">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nueva Marca"/>
+        <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="66" type="rgb"/>
+        </Property>
+        <Property name="colorNormal" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="66" red="33" type="rgb"/>
+        </Property>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nueva_marcaActionPerformed"/>

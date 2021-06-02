@@ -72,4 +72,48 @@ public class marcas_DAO_consultas {
         }
     }
     
+    public void editar_marca(String Nombre,String Descripcion, int ID_marca){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String Consulta="UPDATE marcas SET Nombre_marca=?,Descripcion_marca=?  WHERE ID_marca=?";
+            PreparedStatement pst=accesoDB.prepareCall(Consulta);
+            //pasamos los parametros de la consulta
+            pst.setString(1, Nombre);
+            pst.setString(2, Descripcion);
+            pst.setInt(3,ID_marca);
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+            if(numafectada!=0){
+                    JOptionPane.showMessageDialog(null, "Marca Actualizada");
+            }else{
+                    JOptionPane.showMessageDialog(null, "No se puedo completar");
+            }
+            pst.close();
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception
+        }
+    }
+    public void elimiar_marca(int ID_marca){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="DElETE FROM marcas WHERE ID_marca=?";
+            PreparedStatement pst=accesoDB.prepareCall(consulta);
+            //pasamos los parametros de la consutla
+            pst.setInt(1, ID_marca);
+            
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+              if(numafectada!=0){
+                    JOptionPane.showMessageDialog(null, "Marca Eliminada");
+              }else{
+                    JOptionPane.showMessageDialog(null, "Error al eliminar\n intente de nuevo");
+              }
+             pst.close();//cerramos la conexion con el servidor
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    
 }
