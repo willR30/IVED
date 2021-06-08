@@ -115,5 +115,27 @@ public class marcas_DAO_consultas {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
+    public ArrayList<Mod_marcas> ID_marca(String nombre){
+        ArrayList list_marca=new ArrayList();
+        Mod_marcas mod_marca;
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="SELECT ID_marca FROM  marcas WHERE Nombre_marca=?";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasmos los parametros de la consulta
+            pst.setString(1, nombre);
+            ResultSet rs=pst.executeQuery();//ejecutamos la consulta
+            while(rs.next()){
+                mod_marca=new Mod_marcas();
+                mod_marca.setID_marca(rs.getInt(1));
+                list_marca.add(mod_marca);//agregamos el objeto
+            }   
+            //cerramos la conexion
+            pst.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception que estmos trabajando
+        }
+        return list_marca;
+    }
     
 }

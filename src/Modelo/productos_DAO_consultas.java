@@ -25,20 +25,19 @@ public class productos_DAO_consultas {
             Mod_productos mdp;
             try{
                 Connection accesoDB=conx.getConextion();//nos conectamos al servidor
-                String consulta="SELECT * FROM productos ORDEr BY Nombre ASC";
+                String consulta="SELECT p.Codigo_Identificador,p.Nombre,mar.Nombre_marca,p.Descripcion,p.Cantidad,p.Precio FROM productos p INNER JOIN marcas mar ON mar.ID_marca=p.ID_marca";
                 PreparedStatement ps=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
                 
                 //ejecutamos la consulta
                 ResultSet rs=ps.executeQuery();
                 while(rs.next()){
                  mdp=new Mod_productos();
-                 mdp.setID_producto(rs.getInt(1));
+                 mdp.setCodigo_identificador(rs.getString(1));
                  mdp.setNombre(rs.getString(2));
                  mdp.setMarca(rs.getString(3));
                  mdp.setDescripcion(rs.getString(4));
                  mdp.setCantidad(rs.getInt(5));
-                 mdp.setCodigo_catalago(rs.getString(6));
-                 mdp.setPrecio(rs.getFloat(7));
+                 mdp.setPrecio(rs.getFloat(6));
                  lista_grupos.add(mdp);
                 }
                 ps.close();
@@ -50,20 +49,19 @@ public class productos_DAO_consultas {
         }
     //----------------------------------------------------------------------------------------------
     //agregar un  producto
-    public void agregar_producto(String Nombre,String Marca,String Descripcion,int Cantidad,String Codigo,float Precio){
+    public void agregar_producto(String Codigo_identificador,String Nombre,int ID_marca,String Descripcion,int Cantidad,float Precio){
         
-        String consulta="INSERT INTO productos(ID_producto,Nombre,Marca,Descripcion,Cantidad,Codigo_catalago ,Precio)VALUES(?,?,?,?,?,?,?)";
+        String consulta="INSERT INTO productos(Codigo_identificador,Nombre,ID_marca,Descripcion,Cantidad,Precio)VALUES(?,?,?,?,?,?)";
         try{
             Connection accesoDB=conx.getConextion();
             PreparedStatement pst=accesoDB.prepareStatement(consulta);
             
-            pst.setString(1,"0");
+            pst.setString(1,Codigo_identificador);
             pst.setString(2,Nombre);
-            pst.setString(3,Marca);
+            pst.setInt(3,ID_marca);
             pst.setString(4,Descripcion);
             pst.setInt(5,Cantidad);
-            pst.setString(6,Codigo);
-            pst.setFloat(7, Precio);
+            pst.setFloat(6,Precio);
             
             int numafectada =pst.executeUpdate();
             
@@ -78,23 +76,24 @@ public class productos_DAO_consultas {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-     public ArrayList<Mod_productos>buscar_por_codigo(String Codigo){
+    public ArrayList<Mod_productos>buscar_por_codigo(String Codigo){
             ArrayList lista_grupos=new ArrayList();
             Mod_productos mdp;
             try{
                 Connection accesoDB=conx.getConextion();//nos conectamos al servidor
-                String consulta="SELECT ID_producto,Nombre,Marca,Descripcion,Cantidad FROM productos WHERE Codigo_catalago=?";
+                String consulta="SELECT p.Codigo_Identificador,p.Nombre,mar.Nombre_marca,p.Descripcion,p.Cantidad,p.Precio FROM productos p INNER JOIN marcas mar ON mar.ID_marca=p.ID_marca WHERE p.Codigo_Identificador=?";
                 PreparedStatement pst=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
                 pst.setString(1, Codigo);//pasamos el parametro
                 //ejecutamos la consulta
                 ResultSet rs=pst.executeQuery();
                 while(rs.next()){
                  mdp=new Mod_productos();
-                 mdp.setID_producto(rs.getInt(1));
+                 mdp.setCodigo_identificador(rs.getString(1));
                  mdp.setNombre(rs.getString(2));
                  mdp.setMarca(rs.getString(3));
                  mdp.setDescripcion(rs.getString(4));
                  mdp.setCantidad(rs.getInt(5));
+                 mdp.setPrecio(rs.getFloat(6));
                  
                  lista_grupos.add(mdp);
                 }
@@ -106,13 +105,13 @@ public class productos_DAO_consultas {
             return lista_grupos;
         }
     //-------------------------------------------------------------------------------------------------------------
-     public void editar_catidad(int nueva_cantidad,int id){
-         String consulta="UPDATE productos SET Cantidad=? WHERE ID_producto=? ";
+     public void editar_catidad_unidades(int nueva_cantidad,String Codigo_identificador){
+         String consulta="UPDATE productos SET Cantidad=? WHERE Codigo_Identificador=? ";
          try{
              Connection accesoDB=conx.getConextion();
              PreparedStatement pst=accesoDB.prepareStatement(consulta);
              pst.setInt(1,nueva_cantidad);
-             pst.setInt(2, id);
+             pst.setString(2,Codigo_identificador);
              
             int numafectada=pst.executeUpdate();//ejecutams la consulta
               
@@ -126,24 +125,23 @@ public class productos_DAO_consultas {
              JOptionPane.showMessageDialog(null, ex);
          }
      }
-    public ArrayList<Mod_productos>buscar_por_ID(int ID){
+    public ArrayList<Mod_productos>buscar_por_ID(String Codigo_identificador){
             ArrayList lista_grupos=new ArrayList();
             Mod_productos mdp;
             try{
                 Connection accesoDB=conx.getConextion();//nos conectamos al servidor
-                String consulta="SELECT Nombre,Marca,Descripcion,Cantidad,Codigo_catalago,Precio FROM productos WHERE ID_producto=?";
+                String consulta="SELECT p.Codigo_Identificador,p.Nombre,mar.Nombre_marca,p.Descripcion,p.Cantidad,p.Precio FROM productos p INNER JOIN marcas mar ON mar.ID_marca=p.ID_marca WHERE p.Codigo_Identificador=?";
                 PreparedStatement pst=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
-                pst.setInt(1, ID);//pasamos el parametro
+                pst.setString(1,Codigo_identificador);//pasamos el parametro
                 //ejecutamos la consulta
                 ResultSet rs=pst.executeQuery();
                 while(rs.next()){
                  mdp=new Mod_productos();
-                 
-                 mdp.setNombre(rs.getString(1));
-                 mdp.setMarca(rs.getString(2));
-                 mdp.setDescripcion(rs.getString(3));
-                 mdp.setCantidad(rs.getInt(4));
-                 mdp.setCodigo_catalago(rs.getString(5));
+                 mdp.setCodigo_identificador(rs.getString(1));
+                 mdp.setNombre(rs.getString(2));
+                 mdp.setMarca(rs.getString(3));
+                 mdp.setDescripcion(rs.getString(4));
+                 mdp.setCantidad(rs.getInt(5));
                  mdp.setPrecio(rs.getFloat(6));
                  
                  lista_grupos.add(mdp);
@@ -155,17 +153,16 @@ public class productos_DAO_consultas {
             //retornamos el objeto
             return lista_grupos;
         }
-    public void editar_producto(String Nombre,String Marca,String Descripcion,String Codigo,int id,Float precio){
-         String consulta="UPDATE productos SET Nombre=?,Marca=?,Descripcion=?,Codigo_catalago=?,Precio=? WHERE ID_producto=? ";
+    public void editar_producto(String CodigoIdentificador,String Nombre,int ID_Marca,String Descripcion,String Codigo,Float precio){
+         String consulta="UPDATE productos SET Nombre=?,ID_marca=?,Descripcion=?,Precio=? WHERE Codigo_Identificador=? ";
          try{
              Connection accesoDB=conx.getConextion();
              PreparedStatement pst=accesoDB.prepareStatement(consulta);
              pst.setString(1,Nombre);
-             pst.setString(2,Marca);
+             pst.setInt(2, ID_Marca);
              pst.setString(3,Descripcion);
-             pst.setString(4, Codigo);
-             pst.setFloat(5,precio);
-             pst.setInt(6, id);
+             pst.setFloat(4,precio);
+             pst.setString(5,CodigoIdentificador);
              
              
              int numafectada=pst.executeUpdate();//ejecutams la consulta
@@ -180,26 +177,25 @@ public class productos_DAO_consultas {
              JOptionPane.showMessageDialog(null, ex);
          }
      }
-    //buscar prodcuto por codigo del catalago
-    public ArrayList<Mod_productos>listar_productos_cod_catalago(String codigo){
+    //buscar prodcuto por codigo del catalago*/
+    public ArrayList<Mod_productos>listar_productos_cod_Identificador(String codigo){
             ArrayList lista_grupos=new ArrayList();
             Mod_productos mdp;
             try{
                 Connection accesoDB=conx.getConextion();//nos conectamos al servidor
-                String consulta="SELECT * FROM productos WHERE Codigo_catalago=? ORDER BY Nombre ASC";
+                String consulta="SELECT p.Codigo_Identificador,p.Nombre,mar.Nombre_marca,p.Descripcion,p.Cantidad,p.Precio FROM productos p INNER JOIN marcas mar ON mar.ID_marca=p.ID_marca WHERE p.Codigo_Identificador=? ORDER BY Nombre ASC";
                 PreparedStatement ps=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
                 ps.setString(1, codigo);
                 //ejecutamos la consulta
                 ResultSet rs=ps.executeQuery();
                 while(rs.next()){
                  mdp=new Mod_productos();
-                 mdp.setID_producto(rs.getInt(1));
+                 mdp.setCodigo_identificador(rs.getString(1));
                  mdp.setNombre(rs.getString(2));
                  mdp.setMarca(rs.getString(3));
                  mdp.setDescripcion(rs.getString(4));
                  mdp.setCantidad(rs.getInt(5));
-                 mdp.setCodigo_catalago(rs.getString(6));
-                 mdp.setPrecio(rs.getFloat(7));
+                 mdp.setPrecio(rs.getFloat(6));
                  lista_grupos.add(mdp);
                 }
                 ps.close();

@@ -41,7 +41,7 @@ public class Panel_home extends javax.swing.JPanel {
         btn_buscar2 = new rsbuttom.RSButtonMetro();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(246, 246, 246));
 
         Jtable_productos.setBackground(new java.awt.Color(255, 255, 255));
         Jtable_productos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -69,13 +69,18 @@ public class Panel_home extends javax.swing.JPanel {
         jScrollPane1.setViewportView(Jtable_productos);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Productos Existentes");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyPressed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Código:");
 
         btn_buscar.setBackground(new java.awt.Color(51, 102, 255));
@@ -143,7 +148,7 @@ public class Panel_home extends javax.swing.JPanel {
                                 .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4))
         );
@@ -154,9 +159,9 @@ public class Panel_home extends javax.swing.JPanel {
         if(evt.getClickCount()==2){
             int select =this.Jtable_productos.rowAtPoint(evt.getPoint());
 
-            int ID_producto=Integer.parseInt(this.Jtable_productos.getValueAt(select,0).toString());
+            String Codigo_identificador=this.Jtable_productos.getValueAt(select,0).toString();
             String Marca=this.Jtable_productos.getValueAt(select,2).toString();
-            D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,ID_producto,Marca);
+            D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,Codigo_identificador,Marca);
             d.setVisible(true);
 
             while(d.isShowing()){
@@ -176,7 +181,7 @@ public class Panel_home extends javax.swing.JPanel {
             ctr.llenar_tabla_grupos(Jtable_productos);
         }else{
             
-            ctr.listar_por_codigo_catalgo(Jtable_productos,this.txt_codigo.getText().trim());
+           ctr.listar_por_codigo_Identifiacador(Jtable_productos,this.txt_codigo.getText().trim());
         }
     }//GEN-LAST:event_btn_buscarActionPerformed
 
@@ -185,6 +190,20 @@ public class Panel_home extends javax.swing.JPanel {
         Ctr_productos ctr=new Ctr_productos();
         ctr.llenar_tabla_grupos(Jtable_productos);
     }//GEN-LAST:event_btn_buscar2ActionPerformed
+
+    private void txt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == evt.VK_ENTER) {
+            Ctr_productos ctr=new Ctr_productos();
+            if(this.txt_codigo.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null,"Debes de ingresar el código de catálago de un producto");
+                ctr.llenar_tabla_grupos(Jtable_productos);
+            }else{
+
+               ctr.listar_por_codigo_Identifiacador(Jtable_productos,this.txt_codigo.getText().trim());
+            }
+        }
+    }//GEN-LAST:event_txt_codigoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

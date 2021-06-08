@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
 import Modelo.Conexion;
 import java.sql.Connection;
@@ -79,11 +80,10 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         combo_marcas.setBackground(new java.awt.Color(255, 255, 255));
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         combo_marcas.setForeground(new java.awt.Color(0, 0, 0));
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Código Catlago:");
+        jLabel5.setText("Código ID:");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -130,21 +130,22 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                         .addGap(51, 51, 51)
                         .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(6, 6, 6)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(68, 68, 68)
-                        .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
@@ -169,10 +170,8 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                         .addComponent(jLabel4))
                     .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(2, 2, 2)
-                        .addComponent(jLabel5))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +182,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                         .addGap(11, 11, 11)
                         .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -197,9 +196,13 @@ public class D_nuevo_producto extends javax.swing.JDialog {
            if(Integer.parseInt(this.txt_cantidad.getText())<0){
                JOptionPane.showMessageDialog(null,"No se admiten campos negativos");
            }else{
+               //obtenemos la el id de la marca
+               Ctr_marcas cm=new Ctr_marcas();
+               int ID_marca=cm.ID_marcca(this.combo_marcas.getSelectedItem().toString().trim());
+               
                Ctr_productos ctr=new Ctr_productos();
                float precio=Float.parseFloat(this.txt_precio.getText());
-               ctr.agregar_producto(this.txt_nombre.getText().trim(),this.combo_marcas.getSelectedItem().toString(),this.txt_descripcion.getText().trim(),Integer.parseInt(this.txt_cantidad.getText()),txt_codigo.getText(),precio);
+               ctr.agregar_producto(this.txt_codigo.getText().trim(),this.txt_nombre.getText().trim(),ID_marca,this.txt_descripcion.getText().trim(),Integer.parseInt(this.txt_cantidad.getText()),precio);
                this.hide();
            }
         }

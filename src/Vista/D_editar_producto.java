@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
 import Modelo.Conexion;
 import java.sql.Connection;
@@ -22,19 +23,19 @@ public class D_editar_producto extends javax.swing.JDialog {
     /**
      * Creates new form D_editar_producto
      */
-    private int ID;
+    private String Codigo_identificador;
     private String Marca;
-    public D_editar_producto(java.awt.Frame parent, boolean modal,int id,String marca) {
+    public D_editar_producto(java.awt.Frame parent, boolean modal,String Codigo,String marca) {
         super(parent, modal);
         initComponents();
-        this.ID=id;
+        this.Codigo_identificador=Codigo;
         this.Marca=marca;
         this.setTitle("Editar propiedades de producto");
         this.setLocationRelativeTo(null);
         
         //--------------------
         Ctr_productos ctr=new Ctr_productos();
-        ctr.buscar_por_ID(ID, txt_codigo, txt_nombre,this.combo_marcas , txt_descripcion, txt_cantidad,this.txt_precio);
+        ctr.buscar_por_ID(this.Codigo_identificador,this.txt_codigo,txt_nombre,this.combo_marcas , txt_descripcion, txt_cantidad,this.txt_precio);
         this.llenar_combobox_marca();
         this.combo_marcas.setSelectedItem(this.Marca);
         
@@ -72,7 +73,6 @@ public class D_editar_producto extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -110,6 +110,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_codigo.setForeground(new java.awt.Color(0, 0, 0));
+        txt_codigo.setEnabled(false);
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codigoActionPerformed(evt);
@@ -117,7 +118,9 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
         jPanel1.add(txt_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 15, 226, -1));
 
+        combo_marcas.setBackground(new java.awt.Color(255, 255, 255));
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        combo_marcas.setForeground(new java.awt.Color(0, 0, 0));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
         jPanel1.add(combo_marcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 87, 212, -1));
 
@@ -187,10 +190,13 @@ public class D_editar_producto extends javax.swing.JDialog {
            if(Integer.parseInt(this.txt_cantidad.getText())<0){
                JOptionPane.showMessageDialog(null,"No se admiten campos negativos");
            }else{
+               //capturamos el id de la marca para pasarlo al método
+               Ctr_marcas cm=new Ctr_marcas();
+               int id_marca=cm.ID_marcca(this.combo_marcas.getSelectedItem().toString().trim());
                Ctr_productos ctr=new Ctr_productos();
                //capturamos el precio del producto
                float precio=Float.parseFloat(this.txt_precio.getText().trim());
-               ctr.actualizar_producto(this.txt_nombre.getText(),this.combo_marcas.getSelectedItem().toString(), txt_descripcion.getText(), txt_codigo.getText(), ID,precio);
+               ctr.actualizar_producto(this.Codigo_identificador,this.txt_nombre.getText(),id_marca, txt_descripcion.getText(), txt_codigo.getText(),precio);
                this.hide();
            }
         }

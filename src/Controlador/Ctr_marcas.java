@@ -56,5 +56,9 @@ public class Ctr_marcas {
     public void Eliminar_marca(int ID_marca){
         marcas_DAO.elimiar_marca(ID_marca);
     }
+    public int ID_marcca(String Nombre_marca){
+        int ID_marca=marcas_DAO.ID_marca(Nombre_marca).get(0).getID_marca();
+        return ID_marca;
+    }
     
 }

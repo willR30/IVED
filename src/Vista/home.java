@@ -6,6 +6,7 @@
 package Vista;
 
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,7 +135,7 @@ public class home extends javax.swing.JFrame {
         });
 
         btn_entrar7.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar7.setText("Home");
+        btn_entrar7.setText("Ventas");
         btn_entrar7.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar7.setColorNormal(new java.awt.Color(51, 102, 255));
         btn_entrar7.setFocusPainted(false);
@@ -250,7 +251,7 @@ public class home extends javax.swing.JFrame {
     private void btn_entrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar7ActionPerformed
         // TODO add your handling code here:
         //regresamos al home
-        new CambiaPanel(panel_central,new Panel_home());//nos aeguramos de que la clase este bien escrita
+       JOptionPane.showMessageDialog(null,"Aui se mostrarán las ventas");
     }//GEN-LAST:event_btn_entrar7ActionPerformed
 
     /**

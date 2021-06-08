@@ -11,18 +11,18 @@ package Modelo;
  */
 public class Mod_productos {
     //establecemos las propiedades del objeto
-    private int ID_producto,Cantidad;
-    private String Nombre,Marca,Descripcion,Codigo_catalago;
+    private int Cantidad;
+    private int ID_marca;
+    private String Nombre,Marca,Descripcion,Codigo_identificador;
     private float Precio;
 
-    public int getID_producto() {
-        return ID_producto;
+    public int getID_marca() {
+        return ID_marca;
     }
 
-    public void setID_producto(int ID_producto) {
-        this.ID_producto = ID_producto;
+    public void setID_marca(int ID_marca) {
+        this.ID_marca = ID_marca;
     }
-
     public int getCantidad() {
         return Cantidad;
     }
@@ -55,20 +55,21 @@ public class Mod_productos {
         this.Descripcion = Descripcion;
     }
 
-    public String getCodigo_catalago() {
-        return Codigo_catalago;
-    }
-
-    public void setCodigo_catalago(String Codigo_catalago) {
-        this.Codigo_catalago = Codigo_catalago;
-    }
-
+    
     public float getPrecio() {
         return Precio;
     }
 
     public void setPrecio(float Precio) {
         this.Precio = Precio;
+    }
+
+    public String getCodigo_identificador() {
+        return Codigo_identificador;
+    }
+
+    public void setCodigo_identificador(String Codigo_identificador) {
+        this.Codigo_identificador = Codigo_identificador;
     }
     
 }

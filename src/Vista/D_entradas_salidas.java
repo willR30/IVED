@@ -290,7 +290,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -315,7 +315,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }else{
                 int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())+Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
                 Ctr_productos ctr=new Ctr_productos();
-                ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
+                ctr.actualizar_cantidad_unidades(nueva_cantidad,this.txt_ID.getText());
                 this.hide();
             }
             
@@ -334,7 +334,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }else{
                 int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())-Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
                 Ctr_productos ctr=new Ctr_productos();
-                ctr.actualizar_cantidad(nueva_cantidad,Integer.parseInt(this.txt_ID.getText()));
+                ctr.actualizar_cantidad_unidades(nueva_cantidad,this.txt_ID.getText());
                 this.hide();
             }
             
@@ -353,7 +353,9 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }else{
                 //hacemos la busqyeda de los datos
                 Ctr_productos ctr=new Ctr_productos();
-                ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
+                 ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);   
+                 
+       
             }
         }
     }//GEN-LAST:event_txt_codigo_buscarKeyPressed
