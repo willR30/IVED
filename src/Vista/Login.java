@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(36, 36, 36));
 
-        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar.setBackground(new java.awt.Color(255, 51, 102));
         btn_entrar.setText("Entrar");
         btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
@@ -231,7 +231,7 @@ public class Login extends javax.swing.JFrame {
         this.setResizable(false);
         //establecemos la imagen como incono del programa
         
-        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED.png")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         
     }
     public static void main(String args[]) {

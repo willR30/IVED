@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -23,7 +24,8 @@ public class home extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);//aqui ponemos por defecto maximizado este jframe
         this.setDefaultCloseOperation(0);//evitamos que se cierre el formulario al oprimirce la X
         this.setTitle("IVED-Home");
-        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED.png")).getImage());
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+        Mostrarlogo();
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
     }
 
@@ -45,7 +47,7 @@ public class home extends javax.swing.JFrame {
         btn_entrar9 = new rsbuttom.RSButtonMetro();
         btn_usuario1 = new rsbuttom.RSButtonMetro();
         btn_entrar5 = new rsbuttom.RSButtonMetro();
-        jPanel3 = new javax.swing.JPanel();
+        lbl_pic = new javax.swing.JLabel();
         panel_superior = new javax.swing.JPanel();
         panel_central = new javax.swing.JPanel();
 
@@ -148,17 +150,6 @@ public class home extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 154, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout Panel_lateralLayout = new javax.swing.GroupLayout(Panel_lateral);
         Panel_lateral.setLayout(Panel_lateralLayout);
         Panel_lateralLayout.setHorizontalGroup(
@@ -166,21 +157,21 @@ public class home extends javax.swing.JFrame {
             .addGroup(Panel_lateralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lbl_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
                     .addComponent(btn_entradas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_home1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_entrar8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_marcas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_entrar9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_usuario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_entrar5, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_entrar5, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Panel_lateralLayout.setVerticalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_lateralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_entrar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,6 +280,11 @@ public class home extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void Mostrarlogo(){
+        ImageIcon logo=new ImageIcon(getClass().getResource("/img/IVED_isotipo.png"));
+        ImageIcon icono=new ImageIcon(logo.getImage().getScaledInstance(this.lbl_pic.getWidth(),this.lbl_pic.getHeight(),Image.SCALE_DEFAULT));
+        this.lbl_pic.setIcon(icono);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -331,7 +327,7 @@ public class home extends javax.swing.JFrame {
     private rsbuttom.RSButtonMetro btn_marcas1;
     private rsbuttom.RSButtonMetro btn_usuario1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lbl_pic;
     private javax.swing.JPanel panel_central;
     private javax.swing.JPanel panel_superior;
     // End of variables declaration//GEN-END:variables

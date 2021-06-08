@@ -74,6 +74,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="lbl_pic" pref="168" max="32767" attributes="0"/>
                       <Component id="btn_entradas1" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_home1" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_entrar8" alignment="0" max="32767" attributes="0"/>
@@ -81,7 +82,6 @@
                       <Component id="btn_entrar9" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_usuario1" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_entrar5" alignment="1" pref="168" max="32767" attributes="0"/>
-                      <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -91,7 +91,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lbl_pic" min="-2" pref="154" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btn_entrar8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -259,21 +259,8 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_entrar5ActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel3">
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="154" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
+        <Component class="javax.swing.JLabel" name="lbl_pic">
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panel_superior">
