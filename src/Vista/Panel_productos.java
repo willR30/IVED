@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class Panel_home extends javax.swing.JPanel {
+public class Panel_productos extends javax.swing.JPanel {
 
     /**
      * Creates new form Panel_home
      */
-    public Panel_home() {
+    public Panel_productos() {
         initComponents();
         Ctr_productos ctr=new Ctr_productos();
         ctr.llenar_tabla_grupos(Jtable_productos);
@@ -34,14 +34,13 @@ public class Panel_home extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         Jtable_productos = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         txt_codigo = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btn_buscar = new rsbuttom.RSButtonMetro();
         btn_buscar2 = new rsbuttom.RSButtonMetro();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(246, 246, 246));
+        setBackground(new java.awt.Color(255, 255, 255));
 
         Jtable_productos.setBackground(new java.awt.Color(255, 255, 255));
         Jtable_productos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -57,20 +56,20 @@ public class Panel_home extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Jtable_productos.setAutoscrolls(false);
+        Jtable_productos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Jtable_productos.setFocusCycleRoot(true);
         Jtable_productos.setGridColor(new java.awt.Color(255, 255, 255));
         Jtable_productos.setRowHeight(22);
         Jtable_productos.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        Jtable_productos.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        Jtable_productos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        Jtable_productos.setShowVerticalLines(false);
         Jtable_productos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Jtable_productosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(Jtable_productos);
-
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Productos Existentes");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -79,6 +78,7 @@ public class Panel_home extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Código:");
@@ -114,9 +114,7 @@ public class Panel_home extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,12 +138,10 @@ public class Panel_home extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
@@ -210,7 +206,6 @@ public class Panel_home extends javax.swing.JPanel {
     private javax.swing.JTable Jtable_productos;
     private rsbuttom.RSButtonMetro btn_buscar;
     private rsbuttom.RSButtonMetro btn_buscar2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
