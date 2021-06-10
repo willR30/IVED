@@ -57,9 +57,10 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setFocusable(false);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Buscar por Código de catálago");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel1.setText("Codigo:");
 
+        txt_codigo_buscar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         txt_codigo_buscar.setForeground(new java.awt.Color(0, 0, 0));
         txt_codigo_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_codigo_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -70,48 +71,48 @@ public class D_entradas_salidas extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setText("Nombre");
 
         txt_nombre.setEditable(false);
         txt_nombre.setBackground(new java.awt.Color(255, 255, 255));
-        txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_nombre.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setText("Marca");
 
         txt_marca.setEditable(false);
         txt_marca.setBackground(new java.awt.Color(255, 255, 255));
-        txt_marca.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_marca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txt_marca.setForeground(new java.awt.Color(0, 0, 0));
         txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel4.setText("Descripción");
 
         txt_descripcion.setEditable(false);
         txt_descripcion.setBackground(new java.awt.Color(255, 255, 255));
-        txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_descripcion.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
         txt_descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setText("Cantidad Disponible:");
 
         txt_cantidad.setEditable(false);
         txt_cantidad.setBackground(new java.awt.Color(255, 255, 255));
-        txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_cantidad.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel8.setText("ID:");
 
         txt_ID.setEditable(false);
         txt_ID.setBackground(new java.awt.Color(255, 255, 255));
-        txt_ID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_ID.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_ID.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +173,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setText("Informacion de Producto:");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -233,11 +234,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGap(8, 8, 8))
         );
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setText("Cantidad de unidades:");
 
         btn_buscar.setBackground(new java.awt.Color(51, 102, 255));
-        btn_buscar.setText("Buscar");
+        btn_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/lupa.png"))); // NOI18N
         btn_buscar.setColorHover(new java.awt.Color(0, 0, 0));
         btn_buscar.setColorNormal(new java.awt.Color(51, 102, 255));
         btn_buscar.setFocusable(false);
@@ -255,13 +256,6 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,7 +265,14 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel7)
-                                .addGap(52, 52, 52)))))
+                                .addGap(52, 52, 52))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

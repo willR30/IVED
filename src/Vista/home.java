@@ -23,7 +23,7 @@ public class home extends javax.swing.JFrame {
         //propiedades iniciales
         this.setExtendedState(MAXIMIZED_BOTH);//aqui ponemos por defecto maximizado este jframe
         this.setDefaultCloseOperation(0);//evitamos que se cierre el formulario al oprimirce la X
-        this.setTitle("IVED-Home");
+        this.setTitle("Sistema de Invetariado Digital IVED");
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         Mostrarlogo();
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
@@ -40,14 +40,14 @@ public class home extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Panel_lateral = new javax.swing.JPanel();
-        btn_entrar8 = new rsbuttom.RSButtonMetro();
-        btn_entradas1 = new rsbuttom.RSButtonMetro();
-        btn_home1 = new rsbuttom.RSButtonMetro();
-        btn_marcas1 = new rsbuttom.RSButtonMetro();
-        btn_entrar9 = new rsbuttom.RSButtonMetro();
-        btn_usuario1 = new rsbuttom.RSButtonMetro();
-        btn_entrar5 = new rsbuttom.RSButtonMetro();
         lbl_pic = new javax.swing.JLabel();
+        rSButtonMetro1 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro2 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro3 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro4 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro5 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro6 = new rsbuttom.RSButtonMetro();
+        rSButtonMetro7 = new rsbuttom.RSButtonMetro();
         panel_superior = new javax.swing.JPanel();
         panel_central = new javax.swing.JPanel();
 
@@ -66,87 +66,108 @@ public class home extends javax.swing.JFrame {
 
         Panel_lateral.setBackground(new java.awt.Color(36, 36, 36));
 
-        btn_entrar8.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar8.setText("Ventas");
-        btn_entrar8.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar8.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar8.setFocusPainted(false);
-        btn_entrar8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar8.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro1.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
+        rSButtonMetro1.setText("        Ventas");
+        rSButtonMetro1.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro1.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro1.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro1.setFocusPainted(false);
+        rSButtonMetro1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        rSButtonMetro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrar8ActionPerformed(evt);
+                rSButtonMetro1ActionPerformed(evt);
             }
         });
 
-        btn_entradas1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entradas1.setText("Nuevo producto");
-        btn_entradas1.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entradas1.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entradas1.setFocusPainted(false);
-        btn_entradas1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entradas1.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro2.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        rSButtonMetro2.setText("  Nuevo Producto");
+        rSButtonMetro2.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro2.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro2.setFocusPainted(false);
+        rSButtonMetro2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entradas1ActionPerformed(evt);
+                rSButtonMetro2ActionPerformed(evt);
             }
         });
 
-        btn_home1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_home1.setText("Actualizar Stock");
-        btn_home1.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_home1.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_home1.setFocusPainted(false);
-        btn_home1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_home1.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro3.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Stock.png"))); // NOI18N
+        rSButtonMetro3.setText("   Actualizar Stock");
+        rSButtonMetro3.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro3.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro3.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro3.setFocusPainted(false);
+        rSButtonMetro3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_home1ActionPerformed(evt);
+                rSButtonMetro3ActionPerformed(evt);
             }
         });
 
-        btn_marcas1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_marcas1.setText("Marcas");
-        btn_marcas1.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_marcas1.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_marcas1.setFocusPainted(false);
-        btn_marcas1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_marcas1.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro4.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Marcas.png"))); // NOI18N
+        rSButtonMetro4.setText("        Marcas");
+        rSButtonMetro4.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro4.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro4.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro4.setFocusPainted(false);
+        rSButtonMetro4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_marcas1ActionPerformed(evt);
+                rSButtonMetro4ActionPerformed(evt);
             }
         });
 
-        btn_entrar9.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar9.setText("Reportes");
-        btn_entrar9.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar9.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar9.setFocusPainted(false);
-        btn_entrar9.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar9.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro5.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/impresora.png"))); // NOI18N
+        rSButtonMetro5.setText("       Reportes");
+        rSButtonMetro5.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro5.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro5.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro5.setFocusPainted(false);
+        rSButtonMetro5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrar9ActionPerformed(evt);
+                rSButtonMetro5ActionPerformed(evt);
             }
         });
 
-        btn_usuario1.setBackground(new java.awt.Color(51, 102, 255));
-        btn_usuario1.setText("Configuraciones");
-        btn_usuario1.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_usuario1.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_usuario1.setFocusPainted(false);
-        btn_usuario1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_usuario1.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro6.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apagar.png"))); // NOI18N
+        rSButtonMetro6.setText("   Salir      ");
+        rSButtonMetro6.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro6.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro6.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro6.setFocusPainted(false);
+        rSButtonMetro6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_usuario1ActionPerformed(evt);
+                rSButtonMetro6ActionPerformed(evt);
             }
         });
 
-        btn_entrar5.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar5.setText("Salir");
-        btn_entrar5.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar5.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar5.setFocusPainted(false);
-        btn_entrar5.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar5.addActionListener(new java.awt.event.ActionListener() {
+        rSButtonMetro7.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/configuraciones.png"))); // NOI18N
+        rSButtonMetro7.setText("  Configuraciones");
+        rSButtonMetro7.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro7.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro7.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro7.setFocusPainted(false);
+        rSButtonMetro7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrar5ActionPerformed(evt);
+                rSButtonMetro7ActionPerformed(evt);
             }
         });
 
@@ -154,18 +175,17 @@ public class home extends javax.swing.JFrame {
         Panel_lateral.setLayout(Panel_lateralLayout);
         Panel_lateralLayout.setHorizontalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rSButtonMetro6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Panel_lateralLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbl_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                    .addComponent(btn_entradas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_home1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_entrar8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_marcas1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_entrar9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_usuario1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_entrar5, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(rSButtonMetro7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rSButtonMetro5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rSButtonMetro4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rSButtonMetro3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rSButtonMetro2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(rSButtonMetro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Panel_lateralLayout.setVerticalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,19 +193,19 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_entrar8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_entradas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_home1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_marcas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_entrar9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(btn_entrar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(rSButtonMetro6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -227,25 +247,24 @@ public class home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_entrar8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar8ActionPerformed
+    private void rSButtonMetro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro1ActionPerformed
         // TODO add your handling code here:
-        //regresamos al home
-       JOptionPane.showMessageDialog(null,"Aqi se mostrarán las ventas\n aún no está habilitada");
-    }//GEN-LAST:event_btn_entrar8ActionPerformed
+        JOptionPane.showMessageDialog(null,"No está Habilitado");
+    }//GEN-LAST:event_rSButtonMetro1ActionPerformed
 
-    private void btn_entradas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entradas1ActionPerformed
+    private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
         // TODO add your handling code here:
-         // TODO add your handling code here:
-        D_nuevo_producto d=new D_nuevo_producto(this,true);
+         D_nuevo_producto d=new D_nuevo_producto(this,true);
         d.setVisible(true);
         while(d.isShowing()){
             //no hace nada
         }
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
-    }//GEN-LAST:event_btn_entradas1ActionPerformed
+    }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 
-    private void btn_home1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_home1ActionPerformed
+    private void rSButtonMetro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro3ActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
          // TODO add your handling code here:
         D_entradas_salidas d=new D_entradas_salidas(this,true);
         d.setVisible(true);
@@ -253,29 +272,29 @@ public class home extends javax.swing.JFrame {
             //no hace nada
         }
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
-    }//GEN-LAST:event_btn_home1ActionPerformed
+    }//GEN-LAST:event_rSButtonMetro3ActionPerformed
 
-    private void btn_marcas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_marcas1ActionPerformed
+    private void rSButtonMetro4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro4ActionPerformed
         // TODO add your handling code here:
+         // TODO add your handling code here:
         // TODO add your handling code here:
         //abrir formulario 
         new D_marcas(new javax.swing.JFrame(),true).setVisible(true);
-    }//GEN-LAST:event_btn_marcas1ActionPerformed
+    }//GEN-LAST:event_rSButtonMetro4ActionPerformed
 
-    private void btn_entrar9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar9ActionPerformed
+    private void rSButtonMetro5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_entrar9ActionPerformed
+    }//GEN-LAST:event_rSButtonMetro5ActionPerformed
 
-    private void btn_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_usuario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_usuario1ActionPerformed
-
-    private void btn_entrar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar5ActionPerformed
+    private void rSButtonMetro6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro6ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        Login log=new Login();
-        log.setVisible(true);
-    }//GEN-LAST:event_btn_entrar5ActionPerformed
+        new Login().setVisible(true);
+    }//GEN-LAST:event_rSButtonMetro6ActionPerformed
+
+    private void rSButtonMetro7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rSButtonMetro7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,16 +338,16 @@ public class home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_lateral;
-    private rsbuttom.RSButtonMetro btn_entradas1;
-    private rsbuttom.RSButtonMetro btn_entrar5;
-    private rsbuttom.RSButtonMetro btn_entrar8;
-    private rsbuttom.RSButtonMetro btn_entrar9;
-    private rsbuttom.RSButtonMetro btn_home1;
-    private rsbuttom.RSButtonMetro btn_marcas1;
-    private rsbuttom.RSButtonMetro btn_usuario1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_pic;
     private javax.swing.JPanel panel_central;
     private javax.swing.JPanel panel_superior;
+    private rsbuttom.RSButtonMetro rSButtonMetro1;
+    private rsbuttom.RSButtonMetro rSButtonMetro2;
+    private rsbuttom.RSButtonMetro rSButtonMetro3;
+    private rsbuttom.RSButtonMetro rSButtonMetro4;
+    private rsbuttom.RSButtonMetro rSButtonMetro5;
+    private rsbuttom.RSButtonMetro rSButtonMetro6;
+    private rsbuttom.RSButtonMetro rSButtonMetro7;
     // End of variables declaration//GEN-END:variables
 }

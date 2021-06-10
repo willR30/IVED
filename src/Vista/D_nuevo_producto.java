@@ -196,14 +196,23 @@ public class D_nuevo_producto extends javax.swing.JDialog {
            if(Integer.parseInt(this.txt_cantidad.getText())<0){
                JOptionPane.showMessageDialog(null,"No se admiten campos negativos");
            }else{
-               //obtenemos la el id de la marca
-               Ctr_marcas cm=new Ctr_marcas();
-               int ID_marca=cm.ID_marcca(this.combo_marcas.getSelectedItem().toString().trim());
-               
                Ctr_productos ctr=new Ctr_productos();
-               float precio=Float.parseFloat(this.txt_precio.getText());
-               ctr.agregar_producto(this.txt_codigo.getText().trim(),this.txt_nombre.getText().trim(),ID_marca,this.txt_descripcion.getText().trim(),Integer.parseInt(this.txt_cantidad.getText()),precio);
-               this.hide();
+               boolean existe_codigo=ctr.validar_codigo_identificador_existente(this.txt_codigo.getText().trim());
+               //en caso de que el codigo no existe retorna un false
+               if(existe_codigo==false){
+                   //si existe un producto con ese codigo identificador
+                   Ctr_marcas cm=new Ctr_marcas();
+                    int ID_marca=cm.ID_marcca(this.combo_marcas.getSelectedItem().toString().trim());
+
+
+                    float precio=Float.parseFloat(this.txt_precio.getText());
+                    ctr.agregar_producto(this.txt_codigo.getText().trim(),this.txt_nombre.getText().trim(),ID_marca,this.txt_descripcion.getText().trim(),Integer.parseInt(this.txt_cantidad.getText()),precio);
+                    this.hide();
+               }else{
+                   JOptionPane.showMessageDialog(null,"No se puede registrar el producto con es codigo identificador");
+               }
+               //obtenemos la el id de la marca
+               
            }
         }
     }//GEN-LAST:event_btn_entrarActionPerformed

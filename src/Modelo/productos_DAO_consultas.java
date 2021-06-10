@@ -204,6 +204,28 @@ public class productos_DAO_consultas {
             }
             //retornamos el objeto
             return lista_grupos;
-        }
+    }
+    //validamos si existe un producto oon el mismo código didentificador
+    public ArrayList<Mod_productos>Validar_codigo_identificador(String codigo){
+    ArrayList lista_cod=new ArrayList();
+    Mod_productos mdp;
+    try{
+        Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+        String consulta="SELECT Codigo_Identificador FROM productos WHERE Codigo_Identificador=?";
+        PreparedStatement pst=accesoDB.prepareStatement(consulta);
+        //pasamos el parametro a la consulta
+        pst.setString(1, codigo);
+        ResultSet rs=pst.executeQuery();
+                while(rs.next()){
+                 mdp=new Mod_productos();
+                 mdp.setCodigo_identificador(rs.getString(1));
+                 lista_cod.add(mdp);
+                }
+                pst.close();
+    }catch(Exception ex){
+        JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception
+    }
+    return lista_cod;
+    }
 
 }

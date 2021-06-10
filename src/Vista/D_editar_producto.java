@@ -184,11 +184,11 @@ public class D_editar_producto extends javax.swing.JDialog {
     private void btn_entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar1ActionPerformed
         // TODO add your handling code here:
         //editar un producto
-         if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_codigo.getText().isEmpty()||txt_codigo.getText().isEmpty()||this.txt_precio.getText().isEmpty()){
+         if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_codigo.getText().isEmpty()||txt_codigo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
         }else{
-           if(Integer.parseInt(this.txt_cantidad.getText())<0){
-               JOptionPane.showMessageDialog(null,"No se admiten campos negativos");
+           if(Integer.parseInt(this.txt_cantidad.getText())<=0 ||this.txt_precio.getText().isEmpty() ||Integer.parseInt(this.txt_precio.getText())<=0){
+               JOptionPane.showMessageDialog(null,"No se admiten campos negativos  y Valor Cero");
            }else{
                //capturamos el id de la marca para pasarlo al método
                Ctr_marcas cm=new Ctr_marcas();

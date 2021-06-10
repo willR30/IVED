@@ -7,13 +7,23 @@ package Vista;
 
 import Controlador.Ctr_configuraciones;
 import Controlador.Ctr_usuario;
+import Modelo.Conexion;
 import java.awt.Image;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -25,6 +35,7 @@ public class Crear_usuario extends javax.swing.JFrame {
      * Creates new form Crear_usuario
      */
     private String path="";
+    File f;
     public Crear_usuario() {
         initComponents();
         Establecer_propiedades();
@@ -267,29 +278,25 @@ public class Crear_usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
         //este buton guardará la ruta de la imagen dentro de una variable y la mostrá en el panel
         JFileChooser fc = new JFileChooser();
-        fc.showOpenDialog(this);
-        String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
 
-        try {
-            File f = fc.getSelectedFile();
-            path = f.getAbsolutePath();
-            path = path.replace('\\', '/');
-            /*
-            int x=this.label_pic.getWidth();
-            int y=this.label_pic.getHeight();
-            ImageIcon imagen=new ImageIcon(getClass().getResource(path));//pasamos la ruta de la imagen la cual capturamos en path
-            Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(x,y,Image.SCALE_SMOOTH));//adapatamos la imagen al tamaño del panel
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & JPEG & PNG", "jpg", "jpeg", "png");
+        fc.setFileFilter(filter);
+
+        int seleccion = fc.showOpenDialog(null);
+        fc.setDialogTitle("Buscar imagen...");
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            f = fc.getSelectedFile();
+            ImageIcon i = null;
+            try {
+                i = new ImageIcon(f.toURI().toURL());
+                this.label_pic.setIcon(new ImageIcon(i.getImage().getScaledInstance(label_pic.getWidth(), label_pic.getHeight(), Image.SCALE_SMOOTH)));
+            } catch (MalformedURLException ex) {
+                JOptionPane.showMessageDialog(null, "Error en el formato o al encontrar la imagen.");
+                //Logger.getLogger(CargarImagenes.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
-            label_pic.setIcon(icono);
-            this.repaint();
-            */
             
-            //obtenemos las dimeasiones del label para dimensionar la imagen
-            label_pic.setIcon(new ImageIcon(path));
-            
-            
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btn_ruta_picActionPerformed
 
@@ -304,8 +311,8 @@ public class Crear_usuario extends javax.swing.JFrame {
             String contra=this.txt_contraseña.getText().trim();
             String confirma=this.txt_confrimar_contraseña.getText().trim();
             if(contra.equals(confirma)){
-                //todo bien
                 //aguí agrega al usuario
+                GuardarImagen();
                 new Ctr_usuario().agregar_usuario(this.txt_user_name.getText().trim(), contra);//pasamos el usuario tomado del campo de texto y la contraseñe
                 new Ctr_configuraciones().agregar_nombre_negocio(this.txt_nombre_negocio.getText().trim());//capturamos y agregamos el nombre del negocio
                 JOptionPane.showMessageDialog(null,"Inicia Sesion");
@@ -326,7 +333,25 @@ public class Crear_usuario extends javax.swing.JFrame {
     private void txt_confrimar_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_confrimar_contraseñaKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_confrimar_contraseñaKeyPressed
-
+    private void GuardarImagen(){
+        //en la tavla creamos una columna llamanda imagen de tipo longblod para almacenar bytes
+        /*String consulta="UPDATE configuraciones SET Imagen_negocio=?";
+        FileInputStream fis=null;
+        PreparedStatement ps=null;
+        
+        try {
+            Conexion conx=new Conexion();
+            File file=new File(f);
+            fis=new FileInputStream(file);
+            Connection accesoDB=conx.getConextion();
+            ps=accesoDB.prepareCall(consulta);
+            ps.setBinaryStream(1, fis,(int)file.length());
+            ps.executeUpdate();
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }   */
+        
+    }
     /**
      * @param args the command line arguments
      */

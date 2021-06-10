@@ -120,5 +120,13 @@ public class Ctr_productos {
             mod_grup.addRow(columna);//agregamos la fila
         }
     }
+    public boolean validar_codigo_identificador_existente(String codigo){
+        String cod=productos_DAO.Validar_codigo_identificador(codigo).get(0).getCodigo_identificador();
+        if(cod==codigo){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
 }
