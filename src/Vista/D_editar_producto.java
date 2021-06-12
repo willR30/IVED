@@ -81,6 +81,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
+        txt_nombre.setBorder(null);
         jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 48, 226, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -93,6 +94,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
+        txt_descripcion.setBorder(null);
         jPanel1.add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 134, 385, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -102,6 +104,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         txt_cantidad.setEditable(false);
         txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
+        txt_cantidad.setBorder(null);
         jPanel1.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 179, 123, -1));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -110,6 +113,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_codigo.setForeground(new java.awt.Color(0, 0, 0));
+        txt_codigo.setBorder(null);
         txt_codigo.setEnabled(false);
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,9 +123,9 @@ public class D_editar_producto extends javax.swing.JDialog {
         jPanel1.add(txt_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 15, 226, -1));
 
         combo_marcas.setBackground(new java.awt.Color(255, 255, 255));
-        combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        combo_marcas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         combo_marcas.setForeground(new java.awt.Color(0, 0, 0));
-        combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        combo_marcas.setBorder(null);
         jPanel1.add(combo_marcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 87, 212, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -130,6 +134,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_precio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_precio.setForeground(new java.awt.Color(0, 0, 0));
+        txt_precio.setBorder(null);
         txt_precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_precioActionPerformed(evt);

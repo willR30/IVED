@@ -123,8 +123,10 @@ public class Ctr_productos {
     public boolean validar_codigo_identificador_existente(String codigo){
         String cod=productos_DAO.Validar_codigo_identificador(codigo).get(0).getCodigo_identificador();
         if(cod==codigo){
+            //el producto si existe
             return true;
         }else{
+            //el producto no existe
             return false;
         }
     }

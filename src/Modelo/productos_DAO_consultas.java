@@ -52,25 +52,36 @@ public class productos_DAO_consultas {
     public void agregar_producto(String Codigo_identificador,String Nombre,int ID_marca,String Descripcion,int Cantidad,float Precio){
         
         String consulta="INSERT INTO productos(Codigo_identificador,Nombre,ID_marca,Descripcion,Cantidad,Precio)VALUES(?,?,?,?,?,?)";
+        String consulta_validacion="SELECT * FROM productos WHERE Codigo_Identificador=?";
         try{
             Connection accesoDB=conx.getConextion();
-            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            PreparedStatement pst=accesoDB.prepareStatement(consulta_validacion);
+            pst.setString(1, Codigo_identificador);
+            ResultSet rs=pst.executeQuery();
             
-            pst.setString(1,Codigo_identificador);
-            pst.setString(2,Nombre);
-            pst.setInt(3,ID_marca);
-            pst.setString(4,Descripcion);
-            pst.setInt(5,Cantidad);
-            pst.setFloat(6,Precio);
-            
-            int numafectada =pst.executeUpdate();
-            
-            if(numafectada<0){
-                JOptionPane.showMessageDialog(null,"Error al Agregar");
+            if(rs.next()){//si se encentran registros entonces ya existe un producto registrado con ese codigo
+                JOptionPane.showMessageDialog(null,"Ya existe un producto con ese código identificador");
                 
             }else{
-                JOptionPane.showMessageDialog(null,"Registro Agregado");
+                
+                pst=accesoDB.prepareStatement(consulta);
+                pst.setString(1,Codigo_identificador);
+                pst.setString(2,Nombre);
+                pst.setInt(3,ID_marca);
+                pst.setString(4,Descripcion);
+                pst.setInt(5,Cantidad);
+                pst.setFloat(6,Precio);
+
+                int numafectada =pst.executeUpdate();
+
+                if(numafectada<0){
+                    JOptionPane.showMessageDialog(null,"Error al Agregar");
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"Registro Agregado");
+                }
             }
+            
             pst.close();//cerramos la conexion
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);
@@ -212,6 +223,7 @@ public class productos_DAO_consultas {
     try{
         Connection accesoDB=conx.getConextion();//nos conectamos al servidor
         String consulta="SELECT Codigo_Identificador FROM productos WHERE Codigo_Identificador=?";
+        String consulta_validadcion="SELECT Codigo_Identificador FROM productos WHERE Codigo_Identificador=?";
         PreparedStatement pst=accesoDB.prepareStatement(consulta);
         //pasamos el parametro a la consulta
         pst.setString(1, codigo);

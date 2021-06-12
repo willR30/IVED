@@ -6,6 +6,8 @@
 package Vista;
 
 import Controlador.Ctr_productos;
+import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,10 @@ public class Panel_productos extends javax.swing.JPanel {
      */
     public Panel_productos() {
         initComponents();
+        this.Jtable_productos.getTableHeader().setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        // cambia el fondo del encabezado de la tabla
+        this.Jtable_productos.getTableHeader().setBackground(new Color(36,36,36));
+        this.Jtable_productos.getTableHeader().setForeground(Color.WHITE);
         Ctr_productos ctr=new Ctr_productos();
         ctr.llenar_tabla_grupos(Jtable_productos);
     }
