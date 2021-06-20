@@ -8,11 +8,17 @@ package Vista;
 import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
 import Modelo.Conexion;
+import static Vista.D_nuevo_producto.imagen;
+import img.Guardar;
+import java.awt.image.BufferedImage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import jbarcodebean.JBarcodeBean;
+import net.sourceforge.jbarcodebean.model.Code128;
 
 /**
  *
@@ -23,6 +29,8 @@ public class D_editar_producto extends javax.swing.JDialog {
     /**
      * Creates new form D_editar_producto
      */
+    JBarcodeBean barcode = new JBarcodeBean();
+    public static BufferedImage imagen = null;
     private String Codigo_identificador;
     private String Marca;
     public D_editar_producto(java.awt.Frame parent, boolean modal,String Codigo,String marca) {
@@ -38,6 +46,9 @@ public class D_editar_producto extends javax.swing.JDialog {
         ctr.buscar_por_ID(this.Codigo_identificador,this.txt_codigo,txt_nombre,this.combo_marcas , txt_descripcion, txt_cantidad,this.txt_precio);
         this.llenar_combobox_marca();
         this.combo_marcas.setSelectedItem(this.Marca);
+        
+        //mostramos el codigo qr en el label
+        generaCodigo(this.txt_codigo.getText());
         
     }
 
@@ -55,11 +66,11 @@ public class D_editar_producto extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_descripcion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txt_cantidad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -67,57 +78,68 @@ public class D_editar_producto extends javax.swing.JDialog {
         combo_marcas = new javax.swing.JComboBox<String>();
         jLabel9 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
-        btn_entrar = new rsbuttom.RSButtonMetro();
         btn_entrar1 = new rsbuttom.RSButtonMetro();
+        btn_entrar = new rsbuttom.RSButtonMetro();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_descripcion = new javax.swing.JTextArea();
+        lbl_qr = new javax.swing.JLabel();
+        btn_qr1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 52, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel7.setText("C$");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(392, 260, -1, -1));
 
-        txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel2.setText("Nombre");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        txt_nombre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(null);
-        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 48, 226, -1));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 226, -1));
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel3.setText("Marca");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 92, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 92, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setText("Descripción");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 138, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
-        txt_descripcion.setBorder(null);
-        jPanel1.add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 134, 385, -1));
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("Cantidad Disponible:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 183, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel6.setText("Cantidad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 270, -1, -1));
 
         txt_cantidad.setEditable(false);
-        txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_cantidad.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(null);
-        jPanel1.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 179, 123, -1));
+        jPanel1.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 270, 88, -1));
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel8.setText("Codigo Catalago");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 19, -1, -1));
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel8.setText("Codigo:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 15, -1, -1));
 
-        txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_codigo.setEditable(false);
+        txt_codigo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_codigo.setForeground(new java.awt.Color(0, 0, 0));
         txt_codigo.setBorder(null);
-        txt_codigo.setEnabled(false);
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codigoActionPerformed(evt);
+            }
+        });
+        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyTyped(evt);
             }
         });
         jPanel1.add(txt_codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 15, 226, -1));
@@ -128,11 +150,11 @@ public class D_editar_producto extends javax.swing.JDialog {
         combo_marcas.setBorder(null);
         jPanel1.add(combo_marcas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 87, 212, -1));
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel9.setText("Precio:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 224, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, -1, -1));
 
-        txt_precio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_precio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_precio.setForeground(new java.awt.Color(0, 0, 0));
         txt_precio.setBorder(null);
         txt_precio.addActionListener(new java.awt.event.ActionListener() {
@@ -140,20 +162,7 @@ public class D_editar_producto extends javax.swing.JDialog {
                 txt_precioActionPerformed(evt);
             }
         });
-        jPanel1.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 224, 123, -1));
-
-        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar.setText("Retirar de Stock");
-        btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar.setFocusPainted(false);
-        btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, -1, -1));
+        jPanel1.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 270, 123, -1));
 
         btn_entrar1.setBackground(new java.awt.Color(51, 102, 255));
         btn_entrar1.setText("Editar");
@@ -166,20 +175,55 @@ public class D_editar_producto extends javax.swing.JDialog {
                 btn_entrar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, -1));
+        jPanel1.add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 260, 100, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 535, 266));
+        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar.setText("Retirar de Stock");
+        btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_entrar.setFocusPainted(false);
+        btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 260, 140, -1));
+
+        txt_descripcion.setColumns(20);
+        txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        txt_descripcion.setRows(5);
+        txt_descripcion.setBorder(null);
+        txt_descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_descripcionKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txt_descripcion);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 570, -1));
+
+        lbl_qr.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_qr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lbl_qr, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 330, 100));
+
+        btn_qr1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_qr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga-directa.png"))); // NOI18N
+        btn_qr1.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_qr1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_qr1.setFocusPainted(false);
+        btn_qr1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_qr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qr1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_qr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_codigoActionPerformed
-
-    private void txt_precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_precioActionPerformed
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         //retirar del stock
@@ -192,7 +236,7 @@ public class D_editar_producto extends javax.swing.JDialog {
          if(this.txt_nombre.getText().isEmpty() || this.txt_descripcion.getText().isEmpty() || this.txt_codigo.getText().isEmpty()||txt_codigo.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Debe completar todos los campos");
         }else{
-           if(Integer.parseInt(this.txt_cantidad.getText())<=0 ||this.txt_precio.getText().isEmpty() ||Integer.parseInt(this.txt_precio.getText())<=0){
+           if(Integer.parseInt(this.txt_cantidad.getText())<=0 ||this.txt_precio.getText().isEmpty() ||Double.parseDouble(this.txt_precio.getText())<=0){
                JOptionPane.showMessageDialog(null,"No se admiten campos negativos  y Valor Cero");
            }else{
                //capturamos el id de la marca para pasarlo al método
@@ -206,6 +250,48 @@ public class D_editar_producto extends javax.swing.JDialog {
            }
         }
     }//GEN-LAST:event_btn_entrar1ActionPerformed
+
+    private void txt_codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_codigoActionPerformed
+
+    private void txt_precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_precioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_precioActionPerformed
+
+    private void txt_descripcionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descripcionKeyPressed
+        // TODO add your handling code here:
+        //limitamos la cantidad de caracteres en la descripcion 450
+        if(this.txt_descripcion.getText().length()>=450){
+            JOptionPane.showMessageDialog(this, "Haz alcanzado el limite de caracteres!", "Error", JOptionPane.ERROR_MESSAGE);
+            String texto=this.txt_descripcion.getText().substring(0,450);
+            this.txt_descripcion.setText(texto);
+        }
+
+    }//GEN-LAST:event_txt_descripcionKeyPressed
+
+    private void btn_qr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qr1ActionPerformed
+        // TODO add your handling code here:
+        if (imagen == null) {
+            JOptionPane.showMessageDialog(this, "Debes generar un código!!!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            if (new Guardar().guardarImagen()) {
+                imagen = null;
+                JOptionPane.showMessageDialog(this, "Código guardado con éxito!!!", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+
+    }//GEN-LAST:event_btn_qr1ActionPerformed
+
+    private void txt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_codigoKeyPressed
+
+    private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_codigoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -230,6 +316,21 @@ public class D_editar_producto extends javax.swing.JDialog {
           JOptionPane.showMessageDialog(null, ex);
         }
         
+    }
+    private void generaCodigo(String codigo) {
+        // nuestro tipo de codigo de barra
+        barcode.setCodeType(new Code128());
+        //barcode.setCodeType(new Code39());
+
+        // nuestro valor a codificar y algunas configuraciones mas
+        barcode.setCode(codigo);
+        barcode.setCheckDigit(true);
+        
+
+        imagen = barcode.draw(new BufferedImage(330,100, BufferedImage.TYPE_INT_RGB));
+
+        ImageIcon barras = new ImageIcon(imagen);
+        this.lbl_qr.setIcon(barras);
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -273,17 +374,21 @@ public class D_editar_producto extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro btn_entrar;
     private rsbuttom.RSButtonMetro btn_entrar1;
+    private rsbuttom.RSButtonMetro btn_qr1;
     private javax.swing.JComboBox<String> combo_marcas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_qr;
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_codigo;
-    private javax.swing.JTextField txt_descripcion;
+    private javax.swing.JTextArea txt_descripcion;
     private javax.swing.JTextField txt_nombre;
     private javax.swing.JTextField txt_precio;
     // End of variables declaration//GEN-END:variables

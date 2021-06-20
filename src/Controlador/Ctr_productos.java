@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -61,7 +62,7 @@ public class Ctr_productos {
         productos_DAO.agregar_producto(Codigo_identificador, Nombre, ID_marca, Descripcion, Cantidad, precio);
     }
     //este metodo es para completar los campos de texto en un frame
-    public void buscar_por_codigo(String Codigo,JTextField txt_ID,JTextField txt_nombre,JTextField txt_marca,JTextField txt_descripcion,JTextField txt_cantidad){
+    public void buscar_por_codigo(String Codigo,JTextField txt_ID,JTextField txt_nombre,JTextField txt_marca,JTextArea txt_descripcion,JTextField txt_cantidad){
         txt_ID.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCodigo_identificador()));
         txt_nombre.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getNombre());
         txt_marca.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getMarca());
@@ -72,7 +73,7 @@ public class Ctr_productos {
     public void actualizar_cantidad_unidades(int nueva_cantidad,String codigo_identificador){
         productos_DAO.editar_catidad_unidades(nueva_cantidad, codigo_identificador);
     }
-    public void buscar_por_ID(String ID,JTextField txt_codigo,JTextField txt_nombre,JComboBox cbx_marca,JTextField txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
+    public void buscar_por_ID(String ID,JTextField txt_codigo,JTextField txt_nombre,JComboBox cbx_marca,JTextArea txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
         //este metodo se utiliza para rellenar los campos del frame "edirar producto" y le pasamos como parametros los campos a  utilizar
         txt_nombre.setText(productos_DAO.buscar_por_ID(ID).get(0).getNombre());
         cbx_marca.setSelectedItem(productos_DAO.buscar_por_ID(ID).get(0).getMarca());
@@ -129,6 +130,14 @@ public class Ctr_productos {
             //el producto no existe
             return false;
         }
+    }
+    public void buscar_por_codigo_con_precio(String Codigo,JTextField txt_ID,JTextField txt_nombre,JTextField txt_marca,JTextArea txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
+        txt_ID.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCodigo_identificador()));
+        txt_nombre.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getNombre());
+        txt_marca.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getMarca());
+        txt_descripcion.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getDescripcion());
+        txt_cantidad.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCantidad()));
+        txt_precio.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getPrecio()));
     }
     
 }

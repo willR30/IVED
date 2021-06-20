@@ -45,6 +45,7 @@ public class Panel_productos extends javax.swing.JPanel {
         btn_buscar = new rsbuttom.RSButtonMetro();
         btn_buscar2 = new rsbuttom.RSButtonMetro();
         jLabel4 = new javax.swing.JLabel();
+        rSButtonMetro2 = new rsbuttom.RSButtonMetro();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -73,6 +74,11 @@ public class Panel_productos extends javax.swing.JPanel {
         Jtable_productos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Jtable_productosMouseClicked(evt);
+            }
+        });
+        Jtable_productos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Jtable_productosKeyPressed(evt);
             }
         });
         jScrollPane1.setViewportView(Jtable_productos);
@@ -117,6 +123,21 @@ public class Panel_productos extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Haga doble click sobre un producto para editarlo");
 
+        rSButtonMetro2.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        rSButtonMetro2.setText("  Nuevo Producto");
+        rSButtonMetro2.setColorHover(new java.awt.Color(51, 102, 255));
+        rSButtonMetro2.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setColorPressed(new java.awt.Color(84, 88, 91));
+        rSButtonMetro2.setFocusPainted(false);
+        rSButtonMetro2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        rSButtonMetro2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        rSButtonMetro2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSButtonMetro2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,7 +151,9 @@ public class Panel_productos extends javax.swing.JPanel {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -145,13 +168,14 @@ public class Panel_productos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(btn_buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
+                        .addComponent(jLabel3)
+                        .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4))
         );
@@ -208,6 +232,20 @@ public class Panel_productos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txt_codigoKeyPressed
 
+    private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
+        // TODO add your handling code here:
+        D_nuevo_producto d=new D_nuevo_producto(new javax.swing.JFrame(),true);
+        d.setVisible(true);
+        while(d.isShowing()){
+            //no hace nada
+        }
+        
+    }//GEN-LAST:event_rSButtonMetro2ActionPerformed
+
+    private void Jtable_productosKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Jtable_productosKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jtable_productosKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Jtable_productos;
@@ -216,6 +254,7 @@ public class Panel_productos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private rsbuttom.RSButtonMetro rSButtonMetro2;
     private javax.swing.JTextField txt_codigo;
     // End of variables declaration//GEN-END:variables
 }

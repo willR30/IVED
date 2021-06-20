@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -26,7 +27,10 @@ public class home extends javax.swing.JFrame {
         this.setTitle("Sistema de Invetariado Digital IVED");
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         Mostrarlogo();
+        //cambiamos el color del boton
+        
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
+        this.btn_inventario.setBackground(new Color(51,102,255));
     }
 
     /**
@@ -41,13 +45,13 @@ public class home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         Panel_lateral = new javax.swing.JPanel();
         lbl_pic = new javax.swing.JLabel();
-        rSButtonMetro1 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro2 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro3 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro4 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro5 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro6 = new rsbuttom.RSButtonMetro();
-        rSButtonMetro7 = new rsbuttom.RSButtonMetro();
+        btn_ventas = new rsbuttom.RSButtonMetro();
+        btn_inventario = new rsbuttom.RSButtonMetro();
+        btn_actualizar_stock = new rsbuttom.RSButtonMetro();
+        btn_marcas = new rsbuttom.RSButtonMetro();
+        btn_reportes = new rsbuttom.RSButtonMetro();
+        btn_salir = new rsbuttom.RSButtonMetro();
+        btn_configuraciones = new rsbuttom.RSButtonMetro();
         panel_superior = new javax.swing.JPanel();
         panel_central = new javax.swing.JPanel();
 
@@ -66,108 +70,108 @@ public class home extends javax.swing.JFrame {
 
         Panel_lateral.setBackground(new java.awt.Color(36, 36, 36));
 
-        rSButtonMetro1.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
-        rSButtonMetro1.setText("        Ventas");
-        rSButtonMetro1.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro1.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro1.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro1.setFocusPainted(false);
-        rSButtonMetro1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        rSButtonMetro1.addActionListener(new java.awt.event.ActionListener() {
+        btn_ventas.setBackground(new java.awt.Color(36, 36, 36));
+        btn_ventas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
+        btn_ventas.setText("        Ventas");
+        btn_ventas.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_ventas.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_ventas.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_ventas.setFocusPainted(false);
+        btn_ventas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_ventas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_ventas.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btn_ventas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro1ActionPerformed(evt);
+                btn_ventasActionPerformed(evt);
             }
         });
 
-        rSButtonMetro2.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
-        rSButtonMetro2.setText("  Nuevo Producto");
-        rSButtonMetro2.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro2.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro2.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro2.setFocusPainted(false);
-        rSButtonMetro2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro2.addActionListener(new java.awt.event.ActionListener() {
+        btn_inventario.setBackground(new java.awt.Color(36, 36, 36));
+        btn_inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/almacen.png"))); // NOI18N
+        btn_inventario.setText("        Inventario");
+        btn_inventario.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_inventario.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_inventario.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_inventario.setFocusPainted(false);
+        btn_inventario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_inventario.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_inventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro2ActionPerformed(evt);
+                btn_inventarioActionPerformed(evt);
             }
         });
 
-        rSButtonMetro3.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Stock.png"))); // NOI18N
-        rSButtonMetro3.setText("   Actualizar Stock");
-        rSButtonMetro3.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro3.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro3.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro3.setFocusPainted(false);
-        rSButtonMetro3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro3.addActionListener(new java.awt.event.ActionListener() {
+        btn_actualizar_stock.setBackground(new java.awt.Color(36, 36, 36));
+        btn_actualizar_stock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Stock.png"))); // NOI18N
+        btn_actualizar_stock.setText("   Actualizar Stock");
+        btn_actualizar_stock.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_actualizar_stock.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_actualizar_stock.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_actualizar_stock.setFocusPainted(false);
+        btn_actualizar_stock.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_actualizar_stock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_actualizar_stock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro3ActionPerformed(evt);
+                btn_actualizar_stockActionPerformed(evt);
             }
         });
 
-        rSButtonMetro4.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Marcas.png"))); // NOI18N
-        rSButtonMetro4.setText("        Marcas");
-        rSButtonMetro4.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro4.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro4.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro4.setFocusPainted(false);
-        rSButtonMetro4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro4.addActionListener(new java.awt.event.ActionListener() {
+        btn_marcas.setBackground(new java.awt.Color(36, 36, 36));
+        btn_marcas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Marcas.png"))); // NOI18N
+        btn_marcas.setText("        Marcas");
+        btn_marcas.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_marcas.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_marcas.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_marcas.setFocusPainted(false);
+        btn_marcas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_marcas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_marcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro4ActionPerformed(evt);
+                btn_marcasActionPerformed(evt);
             }
         });
 
-        rSButtonMetro5.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/impresora.png"))); // NOI18N
-        rSButtonMetro5.setText("       Reportes");
-        rSButtonMetro5.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro5.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro5.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro5.setFocusPainted(false);
-        rSButtonMetro5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro5.addActionListener(new java.awt.event.ActionListener() {
+        btn_reportes.setBackground(new java.awt.Color(36, 36, 36));
+        btn_reportes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/impresora.png"))); // NOI18N
+        btn_reportes.setText("       Reportes");
+        btn_reportes.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_reportes.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_reportes.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_reportes.setFocusPainted(false);
+        btn_reportes.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_reportes.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_reportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro5ActionPerformed(evt);
+                btn_reportesActionPerformed(evt);
             }
         });
 
-        rSButtonMetro6.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apagar.png"))); // NOI18N
-        rSButtonMetro6.setText("   Salir      ");
-        rSButtonMetro6.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro6.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro6.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro6.setFocusPainted(false);
-        rSButtonMetro6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro6.addActionListener(new java.awt.event.ActionListener() {
+        btn_salir.setBackground(new java.awt.Color(36, 36, 36));
+        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apagar.png"))); // NOI18N
+        btn_salir.setText("   Salir      ");
+        btn_salir.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_salir.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_salir.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_salir.setFocusPainted(false);
+        btn_salir.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro6ActionPerformed(evt);
+                btn_salirActionPerformed(evt);
             }
         });
 
-        rSButtonMetro7.setBackground(new java.awt.Color(36, 36, 36));
-        rSButtonMetro7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/configuraciones.png"))); // NOI18N
-        rSButtonMetro7.setText("  Configuraciones");
-        rSButtonMetro7.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro7.setColorNormal(new java.awt.Color(36, 36, 36));
-        rSButtonMetro7.setColorPressed(new java.awt.Color(84, 88, 91));
-        rSButtonMetro7.setFocusPainted(false);
-        rSButtonMetro7.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        rSButtonMetro7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        rSButtonMetro7.addActionListener(new java.awt.event.ActionListener() {
+        btn_configuraciones.setBackground(new java.awt.Color(36, 36, 36));
+        btn_configuraciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/configuraciones.png"))); // NOI18N
+        btn_configuraciones.setText("  Configuraciones");
+        btn_configuraciones.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_configuraciones.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_configuraciones.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_configuraciones.setFocusPainted(false);
+        btn_configuraciones.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_configuraciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_configuraciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonMetro7ActionPerformed(evt);
+                btn_configuracionesActionPerformed(evt);
             }
         });
 
@@ -175,17 +179,17 @@ public class home extends javax.swing.JFrame {
         Panel_lateral.setLayout(Panel_lateralLayout);
         Panel_lateralLayout.setHorizontalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSButtonMetro6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_configuraciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_reportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_marcas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_actualizar_stock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_inventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(Panel_lateralLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(rSButtonMetro7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(rSButtonMetro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Panel_lateralLayout.setVerticalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,19 +197,19 @@ public class home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rSButtonMetro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_inventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_ventas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_actualizar_stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rSButtonMetro7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_configuraciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(rSButtonMetro6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -247,22 +251,22 @@ public class home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSButtonMetro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro1ActionPerformed
+    private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"No está Habilitado");
-    }//GEN-LAST:event_rSButtonMetro1ActionPerformed
+        //llamamos el frame ventas
+        this.btn_inventario.setBackground(new Color(36,36,36));
+        new CambiaPanel(panel_central,new Panel_ventas());//nos aeguramos de que la clase este bien escrita
+        
+    }//GEN-LAST:event_btn_ventasActionPerformed
 
-    private void rSButtonMetro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro2ActionPerformed
+    private void btn_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inventarioActionPerformed
         // TODO add your handling code here:
-         D_nuevo_producto d=new D_nuevo_producto(this,true);
-        d.setVisible(true);
-        while(d.isShowing()){
-            //no hace nada
-        }
+        this.btn_inventario.setBackground(new Color(51,102,255));
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
-    }//GEN-LAST:event_rSButtonMetro2ActionPerformed
+        
+    }//GEN-LAST:event_btn_inventarioActionPerformed
 
-    private void rSButtonMetro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro3ActionPerformed
+    private void btn_actualizar_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_stockActionPerformed
         // TODO add your handling code here:
          // TODO add your handling code here:
          // TODO add your handling code here:
@@ -272,29 +276,29 @@ public class home extends javax.swing.JFrame {
             //no hace nada
         }
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
-    }//GEN-LAST:event_rSButtonMetro3ActionPerformed
+    }//GEN-LAST:event_btn_actualizar_stockActionPerformed
 
-    private void rSButtonMetro4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro4ActionPerformed
+    private void btn_marcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_marcasActionPerformed
         // TODO add your handling code here:
          // TODO add your handling code here:
         // TODO add your handling code here:
         //abrir formulario 
         new D_marcas(new javax.swing.JFrame(),true).setVisible(true);
-    }//GEN-LAST:event_rSButtonMetro4ActionPerformed
+    }//GEN-LAST:event_btn_marcasActionPerformed
 
-    private void rSButtonMetro5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro5ActionPerformed
+    private void btn_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSButtonMetro5ActionPerformed
+    }//GEN-LAST:event_btn_reportesActionPerformed
 
-    private void rSButtonMetro6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro6ActionPerformed
+    private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
         // TODO add your handling code here:
         this.dispose();
         new Login().setVisible(true);
-    }//GEN-LAST:event_rSButtonMetro6ActionPerformed
+    }//GEN-LAST:event_btn_salirActionPerformed
 
-    private void rSButtonMetro7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonMetro7ActionPerformed
+    private void btn_configuracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_rSButtonMetro7ActionPerformed
+    }//GEN-LAST:event_btn_configuracionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,16 +342,16 @@ public class home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_lateral;
+    private rsbuttom.RSButtonMetro btn_actualizar_stock;
+    private rsbuttom.RSButtonMetro btn_configuraciones;
+    private rsbuttom.RSButtonMetro btn_inventario;
+    private rsbuttom.RSButtonMetro btn_marcas;
+    private rsbuttom.RSButtonMetro btn_reportes;
+    private rsbuttom.RSButtonMetro btn_salir;
+    private rsbuttom.RSButtonMetro btn_ventas;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbl_pic;
     private javax.swing.JPanel panel_central;
     private javax.swing.JPanel panel_superior;
-    private rsbuttom.RSButtonMetro rSButtonMetro1;
-    private rsbuttom.RSButtonMetro rSButtonMetro2;
-    private rsbuttom.RSButtonMetro rSButtonMetro3;
-    private rsbuttom.RSButtonMetro rSButtonMetro4;
-    private rsbuttom.RSButtonMetro rSButtonMetro5;
-    private rsbuttom.RSButtonMetro rSButtonMetro6;
-    private rsbuttom.RSButtonMetro rSButtonMetro7;
     // End of variables declaration//GEN-END:variables
 }

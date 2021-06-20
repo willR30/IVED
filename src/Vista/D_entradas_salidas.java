@@ -6,7 +6,13 @@
 package Vista;
 
 import Controlador.Ctr_productos;
+import static Vista.D_nuevo_producto.imagen;
+import java.awt.image.BufferedImage;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
+import jbarcodebean.JBarcodeBean;
+import net.sourceforge.jbarcodebean.model.Code128;
 
 /**
  *
@@ -17,11 +23,17 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     /**
      * Creates new form D_entradas
      */
+    
+    JBarcodeBean barcode = new JBarcodeBean();
+    public static BufferedImage imagen = null;
     public D_entradas_salidas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("IVED-Entradas y/o Salidas de productos");
+        //geramos el codigo de barras a partirr del id
+        
+       
     }
 
     /**
@@ -41,11 +53,13 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         txt_marca = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txt_descripcion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txt_cantidad = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txt_ID = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txt_descripcion = new javax.swing.JTextArea();
+        lbl_qr = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         spiner_unidades_entrantes_salientes = new javax.swing.JSpinner();
@@ -70,49 +84,52 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel2.setText("Nombre");
+        jLabel2.setText("Nombre:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 47, -1, -1));
 
         txt_nombre.setEditable(false);
         txt_nombre.setBackground(new java.awt.Color(255, 255, 255));
-        txt_nombre.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_nombre.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 46, 263, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel3.setText("Marca");
+        jLabel3.setText("Marca:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 84, -1, -1));
 
         txt_marca.setEditable(false);
         txt_marca.setBackground(new java.awt.Color(255, 255, 255));
-        txt_marca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_marca.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_marca.setForeground(new java.awt.Color(0, 0, 0));
         txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txt_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 83, 263, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel4.setText("Descripción");
-
-        txt_descripcion.setEditable(false);
-        txt_descripcion.setBackground(new java.awt.Color(255, 255, 255));
-        txt_descripcion.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
-        txt_descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jLabel4.setText("Descripción:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 133, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel6.setText("Cantidad Disponible:");
+        jLabel6.setText("Cantidad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 261, -1, -1));
 
         txt_cantidad.setEditable(false);
         txt_cantidad.setBackground(new java.awt.Color(255, 255, 255));
-        txt_cantidad.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_cantidad.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel1.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 260, 123, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel8.setText("ID:");
+        jLabel8.setText("Codigo:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(7, 16, -1, -1));
 
         txt_ID.setEditable(false);
         txt_ID.setBackground(new java.awt.Color(255, 255, 255));
-        txt_ID.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        txt_ID.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_ID.addActionListener(new java.awt.event.ActionListener() {
@@ -120,67 +137,38 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 txt_IDActionPerformed(evt);
             }
         });
+        jPanel1.add(txt_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 15, 263, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txt_ID, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                .addComponent(txt_nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txt_marca, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txt_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txt_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txt_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        txt_descripcion.setBackground(new java.awt.Color(255, 255, 255));
+        txt_descripcion.setColumns(20);
+        txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        txt_descripcion.setRows(5);
+        txt_descripcion.setAutoscrolls(false);
+        txt_descripcion.setBorder(null);
+        txt_descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_descripcionKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(txt_descripcion);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 133, 611, 115));
+
+        lbl_qr.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_qr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(lbl_qr, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 15, 330, 100));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setText("Informacion de Producto:");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        spiner_unidades_entrantes_salientes.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        spiner_unidades_entrantes_salientes.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
+        spiner_unidades_entrantes_salientes.setModel(new javax.swing.SpinnerNumberModel());
         spiner_unidades_entrantes_salientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         spiner_unidades_entrantes_salientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        spiner_unidades_entrantes_salientes.setEditor(new javax.swing.JSpinner.NumberEditor(spiner_unidades_entrantes_salientes, ""));
+        spiner_unidades_entrantes_salientes.setRequestFocusEnabled(false);
 
         btn_buscar1.setBackground(new java.awt.Color(51, 102, 255));
         btn_buscar1.setText("Agregar unidades");
@@ -211,27 +199,26 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(44, 44, 44)
+                            .addGap(18, 18, 18)
                             .addComponent(spiner_unidades_entrantes_salientes, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(26, 26, 26)
-                            .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(spiner_unidades_entrantes_salientes, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btn_buscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8))
+                .addContainerGap())
         );
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -258,14 +245,13 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(52, 52, 52))))
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel1)
@@ -279,19 +265,22 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(txt_codigo_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7))
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 62, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -306,6 +295,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         // TODO add your handling code here:
         Ctr_productos ctr=new Ctr_productos();
         ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
+        generaCodigo(this.txt_ID.getText());//llamamos al metodo y pasamos como parametro
     }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void btn_buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar1ActionPerformed
@@ -354,16 +344,43 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }else{
                 //hacemos la busqyeda de los datos
                 Ctr_productos ctr=new Ctr_productos();
-                 ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);   
+                 ctr.buscar_por_codigo(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad);
+                 generaCodigo(this.txt_ID.getText());//llamamos al metodo y pasamos como parametro
                  
        
             }
         }
     }//GEN-LAST:event_txt_codigo_buscarKeyPressed
 
+    private void txt_descripcionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descripcionKeyPressed
+        // TODO add your handling code here:
+        //limitamos la cantidad de caracteres en la descripcion 450
+        if(this.txt_descripcion.getText().length()>=450){
+            JOptionPane.showMessageDialog(this, "Haz alcanzado el limite de caracteres!", "Error", JOptionPane.ERROR_MESSAGE);
+            String texto=this.txt_descripcion.getText().substring(0,450);
+            this.txt_descripcion.setText(texto);
+        }
+
+    }//GEN-LAST:event_txt_descripcionKeyPressed
+
     /**
      * @param args the command line arguments
      */
+     private void generaCodigo(String codigo) {
+        // nuestro tipo de codigo de barra
+        barcode.setCodeType(new Code128());
+        //barcode.setCodeType(new Code39());
+
+        // nuestro valor a codificar y algunas configuraciones mas
+        barcode.setCode(this.txt_ID.getText());
+        barcode.setCheckDigit(true);
+        
+
+        imagen = barcode.draw(new BufferedImage(330,100, BufferedImage.TYPE_INT_RGB));
+
+        ImageIcon barras = new ImageIcon(imagen);
+        this.lbl_qr.setIcon(barras);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -418,11 +435,13 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_qr;
     private javax.swing.JSpinner spiner_unidades_entrantes_salientes;
     private javax.swing.JTextField txt_ID;
     private javax.swing.JTextField txt_cantidad;
     private javax.swing.JTextField txt_codigo_buscar;
-    private javax.swing.JTextField txt_descripcion;
+    private javax.swing.JTextArea txt_descripcion;
     private javax.swing.JTextField txt_marca;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables

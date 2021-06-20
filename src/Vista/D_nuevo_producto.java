@@ -8,6 +8,7 @@ package Vista;
 import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
 import Modelo.Conexion;
+import img.Guardar;
 import java.awt.image.BufferedImage;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -65,6 +66,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         txt_descripcion = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         lbl_qr = new javax.swing.JLabel();
+        btn_qr1 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -96,6 +98,17 @@ public class D_nuevo_producto extends javax.swing.JDialog {
 
         txt_codigo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        txt_codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_codigoKeyTyped(evt);
+            }
+        });
 
         txt_precio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         txt_precio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -104,7 +117,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         jLabel6.setText("Precio:");
 
         btn_qr.setBackground(new java.awt.Color(51, 102, 255));
-        btn_qr.setText("QR");
+        btn_qr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/codigo_de_barras.png"))); // NOI18N
         btn_qr.setColorHover(new java.awt.Color(102, 102, 102));
         btn_qr.setColorNormal(new java.awt.Color(51, 102, 255));
         btn_qr.setFocusPainted(false);
@@ -116,6 +129,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         });
 
         btn_agregar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
         btn_agregar.setText("Agregar");
         btn_agregar.setColorHover(new java.awt.Color(102, 102, 102));
         btn_agregar.setColorNormal(new java.awt.Color(51, 102, 255));
@@ -144,6 +158,18 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         lbl_qr.setBackground(new java.awt.Color(255, 255, 255));
         lbl_qr.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btn_qr1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_qr1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga-directa.png"))); // NOI18N
+        btn_qr1.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_qr1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_qr1.setFocusPainted(false);
+        btn_qr1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_qr1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_qr1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,19 +179,24 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(28, 28, 28)
                                 .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbl_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbl_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_qr1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -182,20 +213,21 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)))))
+                                .addComponent(btn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(7, 7, 7)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -205,13 +237,14 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                             .addComponent(jLabel2)
                             .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addComponent(btn_qr1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbl_qr, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,14 +258,6 @@ public class D_nuevo_producto extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_qrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qrActionPerformed
-       if (this.txt_codigo.getText().length() < 1) {
-            JOptionPane.showMessageDialog(this, "Debes ingresar un valor!!!", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            generaCodigo(this.txt_codigo.getText());
-        }
-    }//GEN-LAST:event_btn_qrActionPerformed
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
@@ -271,6 +296,42 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         
     }//GEN-LAST:event_txt_descripcionKeyPressed
 
+    private void btn_qr1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qr1ActionPerformed
+        // TODO add your handling code here:
+        if (imagen == null) {
+            JOptionPane.showMessageDialog(this, "Debes generar un código!!!", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            if (new Guardar().guardarImagen()) {
+                imagen = null;
+                JOptionPane.showMessageDialog(this, "Código guardado con éxito!!!", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        
+    }//GEN-LAST:event_btn_qr1ActionPerformed
+
+    private void txt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_codigoKeyPressed
+
+    private void txt_codigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_codigoKeyTyped
+
+    private void txt_codigoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyReleased
+        // TODO add your handling code here:
+        generaCodigo(this.txt_codigo.getText());
+    }//GEN-LAST:event_txt_codigoKeyReleased
+
+    private void btn_qrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_qrActionPerformed
+        if (this.txt_codigo.getText().length() < 1) {
+            JOptionPane.showMessageDialog(this, "Debes ingresar un valor!!!", "Error", JOptionPane.ERROR_MESSAGE);
+        }else{
+            generaCodigo(this.txt_codigo.getText());
+        }
+    }//GEN-LAST:event_btn_qrActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -301,7 +362,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         //barcode.setCodeType(new Code39());
 
         // nuestro valor a codificar y algunas configuraciones mas
-        barcode.setCode(codigo);
+        barcode.setCode(this.txt_codigo.getText());
         barcode.setCheckDigit(true);
         
 
@@ -352,6 +413,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro btn_agregar;
     private rsbuttom.RSButtonMetro btn_qr;
+    private rsbuttom.RSButtonMetro btn_qr1;
     private javax.swing.JComboBox<String> combo_marcas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

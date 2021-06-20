@@ -97,17 +97,20 @@ public class productos_DAO_consultas {
                 pst.setString(1, Codigo);//pasamos el parametro
                 //ejecutamos la consulta
                 ResultSet rs=pst.executeQuery();
-                while(rs.next()){
-                 mdp=new Mod_productos();
-                 mdp.setCodigo_identificador(rs.getString(1));
-                 mdp.setNombre(rs.getString(2));
-                 mdp.setMarca(rs.getString(3));
-                 mdp.setDescripcion(rs.getString(4));
-                 mdp.setCantidad(rs.getInt(5));
-                 mdp.setPrecio(rs.getFloat(6));
-                 
-                 lista_grupos.add(mdp);
-                }
+                
+                    while(rs.next()){
+                    mdp=new Mod_productos();
+                    mdp.setCodigo_identificador(rs.getString(1));
+                    mdp.setNombre(rs.getString(2));
+                    mdp.setMarca(rs.getString(3));
+                    mdp.setDescripcion(rs.getString(4));
+                    mdp.setCantidad(rs.getInt(5));
+                    mdp.setPrecio(rs.getFloat(6));
+
+                    lista_grupos.add(mdp);
+                    }
+                
+                
                 pst.close();
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception
