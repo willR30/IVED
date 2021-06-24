@@ -7,6 +7,8 @@ package Vista;
 
 import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
+import java.awt.Color;
+import java.awt.Font;
 
 /**
  *
@@ -25,6 +27,11 @@ public class D_marcas extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         //llamamamos al metodo de la capa contrlador
         new Ctr_marcas().llenar_tabla_marcas(tabla_marcas);
+        //personalizamos la jtable
+        this.tabla_marcas.getTableHeader().setFont(new Font("Century Gothic", Font.PLAIN, 18));
+        // cambia el fondo del encabezado de la tabla
+        this.tabla_marcas.getTableHeader().setBackground(new Color(36,36,36));
+        this.tabla_marcas.getTableHeader().setForeground(Color.WHITE);
     }
 
     /**
@@ -42,7 +49,8 @@ public class D_marcas extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        tabla_marcas.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        tabla_marcas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        tabla_marcas.setForeground(new java.awt.Color(0, 0, 0));
         tabla_marcas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -55,6 +63,10 @@ public class D_marcas extends javax.swing.JDialog {
             }
         ));
         tabla_marcas.setRowHeight(22);
+        tabla_marcas.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        tabla_marcas.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        tabla_marcas.setShowHorizontalLines(false);
+        tabla_marcas.setShowVerticalLines(false);
         tabla_marcas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabla_marcasMouseClicked(evt);
@@ -62,10 +74,12 @@ public class D_marcas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(tabla_marcas);
 
-        btn_nueva_marca.setText("Nueva Marca");
+        btn_nueva_marca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
+        btn_nueva_marca.setText("Nueva");
         btn_nueva_marca.setColorHover(new java.awt.Color(102, 102, 102));
         btn_nueva_marca.setColorNormal(new java.awt.Color(51, 102, 255));
         btn_nueva_marca.setFocusable(false);
+        btn_nueva_marca.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btn_nueva_marca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_nueva_marcaActionPerformed(evt);
@@ -86,11 +100,11 @@ public class D_marcas extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_nueva_marca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         pack();

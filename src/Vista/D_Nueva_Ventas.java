@@ -6,11 +6,22 @@
 package Vista;
 
 import Controlador.Ctr_productos;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,11 +33,13 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
     /**
      * Creates new form D_ventas
      */
-    
-    private int controlador_de_rows=0;
-    private float sub_total,IVA,Total;
+    private int controlador_de_rows = 0;
+    private float sub_total, IVA, Total;
+    private int stock_de_producto_a_vender=0;//esta variable controla que dentro de la misma venta no se facturen mas productos que los que en ese momento hay disponible
     //creamos un objeto para dar formato a los decimales
     DecimalFormat df = new DecimalFormat("#.00");
+
+    //declaramos un arreglo donde guardaremos el detalle de los productos vendidos , es decir lo que está en el jtable
     public D_Nueva_Ventas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -37,9 +50,16 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         this.txt_sub_total.setText(String.valueOf(sub_total));
         this.txt_iva.setText(String.valueOf(IVA));
         this.txt_total.setText(String.valueOf(Total));
-        
+
         this.setTitle("IVED-Ventas");
+
+        //personalizar tabla de los productos a vender
+        this.Table_productos_ventas.getTableHeader().setBackground(new Color(36, 36, 36));
+        this.Table_productos_ventas.getTableHeader().setForeground(Color.WHITE);
+        this.Table_productos_ventas.getTableHeader().setFont(new Font("Century Gothic", Font.PLAIN, 12));
         
+        //establecemos la fecha actual para el jdatchooser
+        ObtenerFechaActual();
     }
 
     /**
@@ -230,11 +250,11 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             }
         });
 
-        btn_limpiar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_limpiar.setBackground(new java.awt.Color(79, 184, 80));
         btn_limpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar.png"))); // NOI18N
         btn_limpiar.setText("Limpiar Campos");
         btn_limpiar.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_limpiar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_limpiar.setColorNormal(new java.awt.Color(79, 184, 80));
         btn_limpiar.setFocusable(false);
         btn_limpiar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +283,7 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_productoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_agregar_al_carrito, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -279,7 +299,7 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(Panel_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(Panel_productoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_agregar_al_carrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_limpiar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(13, Short.MAX_VALUE))
@@ -292,18 +312,28 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Nombre", "Cantidad", "Precio Unitario", "Sub total"
+                "Codigo", "Nombre", "Cantidad", "Precio", "Sub Total"
             }
         ));
+        Table_productos_ventas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         Table_productos_ventas.setEnabled(false);
         Table_productos_ventas.setFocusable(false);
         Table_productos_ventas.setRowHeight(20);
+        Table_productos_ventas.setSelectionBackground(new java.awt.Color(51, 102, 255));
+        Table_productos_ventas.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Table_productos_ventas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Table_productos_ventasMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(Table_productos_ventas);
+        if (Table_productos_ventas.getColumnModel().getColumnCount() > 0) {
+            Table_productos_ventas.getColumnModel().getColumn(0).setPreferredWidth(100);
+            Table_productos_ventas.getColumnModel().getColumn(1).setPreferredWidth(350);
+            Table_productos_ventas.getColumnModel().getColumn(2).setPreferredWidth(100);
+            Table_productos_ventas.getColumnModel().getColumn(3).setPreferredWidth(100);
+            Table_productos_ventas.getColumnModel().getColumn(4).setPreferredWidth(100);
+        }
 
         btn_buscar3.setBackground(new java.awt.Color(51, 102, 255));
         btn_buscar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
@@ -318,11 +348,11 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             }
         });
 
-        btn_buscar4.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar4.setBackground(new java.awt.Color(255, 27, 45));
         btn_buscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/carrito-de-compras.png"))); // NOI18N
-        btn_buscar4.setText("Limpiar Productos");
+        btn_buscar4.setText("Limpiar Venta");
         btn_buscar4.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar4.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar4.setColorNormal(new java.awt.Color(255, 27, 45));
         btn_buscar4.setFocusable(false);
         btn_buscar4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar4.addActionListener(new java.awt.event.ActionListener() {
@@ -383,7 +413,10 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
         Jdate_fecha.setBackground(new java.awt.Color(255, 255, 255));
         Jdate_fecha.setForeground(new java.awt.Color(0, 0, 0));
+        Jdate_fecha.setAutoscrolls(true);
+        Jdate_fecha.setDateFormatString("dd-MM-yyyy");
         Jdate_fecha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        Jdate_fecha.setMinSelectableDate(new java.util.Date(-62135744316000L));
 
         txt_sub_total.setEditable(false);
         txt_sub_total.setBackground(new java.awt.Color(204, 204, 204));
@@ -429,35 +462,38 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 747, Short.MAX_VALUE)
                 .addGap(6, 6, 6))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel9)
-                .addGap(6, 6, 6)
-                .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17)
-                .addComponent(jLabel11)
-                .addGap(6, 6, 6)
-                .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel10)
-                .addGap(12, 12, 12)
-                .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(txt_sub_total, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(txt_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addComponent(btn_buscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(btn_buscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel9)
+                        .addGap(6, 6, 6)
+                        .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel11)
+                        .addGap(6, 6, 6)
+                        .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_sub_total, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_iva, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel14)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_total, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(btn_buscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(btn_buscar3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -465,19 +501,22 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Panel_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3))
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(7, 7, 7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel11)
+                                .addComponent(jLabel10))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10))))
-                .addGap(18, 18, 18)
+                        .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -517,16 +556,39 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
     private void btn_buscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar4ActionPerformed
         // TODO add your handling code here:
+        //en este boton se va a limpiar la venta en su totalidad
+        limpiar_toda_venta();
     }//GEN-LAST:event_btn_buscar4ActionPerformed
 
     private void btn_buscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar3ActionPerformed
         // TODO add your handling code here:
         //validamos que todos los parametros de l a venta sean los correctos
-        if(this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty()|| this.Jdate_fecha.getDate().toString()==""){
-            JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-            JOptionPane.showMessageDialog(null,"La Venta se completo con exito");
-        }
+        
+            if (this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty() || this.Jdate_fecha.getDate().toString() == "") {
+                JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String[][] Detalle_tabla_productos = new String[this.controlador_de_rows][5];
+                //llenamos el arreglo con el contenido de la table
+                for (int filas = 0; filas < this.controlador_de_rows; filas++) {
+                    //recorremos las columnas
+                    for (int columnas = 0; columnas < 5; columnas++) {
+                        Detalle_tabla_productos[filas][columnas] = this.Table_productos_ventas.getValueAt(filas, columnas).toString();
+                    }
+                }
+                SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyyy");
+                String fecha=formato.format(this.Jdate_fecha.getDate());
+                D_venta_realizada dv = new D_venta_realizada(new javax.swing.JFrame(), true, this.txt_cliente.getText(), fecha,
+                                                            this.txt_id_factura.getText(), Float.parseFloat(this.txt_sub_total.getText()), 
+                                                            Float.parseFloat(this.txt_iva.getText()), Float.parseFloat(this.txt_total.getText()),
+                                                            Detalle_tabla_productos, this.controlador_de_rows);
+                dv.setVisible(true);
+                while(dv.isShowing()){
+                    //no hace nada
+                }
+                limpiar_toda_venta();
+            }
+        
+
     }//GEN-LAST:event_btn_buscar3ActionPerformed
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
@@ -536,38 +598,49 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
     private void btn_agregar_al_carritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_al_carritoActionPerformed
         // TODO add your handling code here:
+
+        this.stock_de_producto_a_vender = Integer.parseInt(this.txt_cantidad.getText()) - Integer.parseInt(this.spin_cantidad_a_vender.getValue().toString());
         //validamos que la venta sea correcta
-        if(Integer.parseInt(this.spin_cantidad_a_vender.getValue().toString())==0 ||this.txt_codigo_buscar.getText()==""){
+        if (Integer.parseInt(this.spin_cantidad_a_vender.getValue().toString()) == 0 || this.txt_codigo_buscar.getText() == "" || this.stock_de_producto_a_vender > Integer.parseInt(this.txt_cantidad.getText()) || this.stock_de_producto_a_vender < 0) {
             JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
-           DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
-           modelPrincipal.addRow(new Object[]{"", "", ""});
-           this.Table_productos_ventas.setValueAt(this.txt_nombre.getText(), controlador_de_rows,0);
-           this.Table_productos_ventas.setValueAt(this.spin_cantidad_a_vender.getValue().toString(),controlador_de_rows,1);
-           this.Table_productos_ventas.setValueAt(this.txt_precio.getText().trim(),controlador_de_rows,2);
-           this.Table_productos_ventas.setValueAt((Double.parseDouble(this.txt_precio.getText())*Double.parseDouble(this.spin_cantidad_a_vender.getValue().toString())),controlador_de_rows,3);
-           controlador_de_rows++;
-           
-           //recorremos toda la columna de subtotales
-           this.sub_total=0;
-           for(int i=0;i<controlador_de_rows;i++){
-               this.sub_total+=Float.parseFloat(this.Table_productos_ventas.getValueAt(i,3).toString());
-           }
-           this.IVA=(float) (sub_total*0.15);
-           this.Total=sub_total+IVA;
-           df.format(IVA);
-           this.txt_sub_total.setText(String.valueOf(sub_total));
-           this.txt_iva.setText(String.valueOf(IVA));
-           this.txt_total.setText(String.valueOf(Total));
+        } else {
+
+            this.txt_cantidad.setText(String.valueOf(this.stock_de_producto_a_vender));//pasamos la nueva cantida de stock
+            //toca acutalizar las unidades en cuanto se agregan a la venta
+            Ctr_productos ctr = new Ctr_productos();
+            ctr.actualizar_cantidad_unidades(this.stock_de_producto_a_vender, this.txt_ID.getText());
+            DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
+            modelPrincipal.addRow(new Object[]{"", "", ""});
+            this.Table_productos_ventas.setValueAt(this.txt_ID.getText().trim(), controlador_de_rows, 0);
+            this.Table_productos_ventas.setValueAt(this.txt_nombre.getText(), controlador_de_rows, 1);
+            this.Table_productos_ventas.setValueAt(this.spin_cantidad_a_vender.getValue().toString(), controlador_de_rows, 2);
+            this.Table_productos_ventas.setValueAt(this.txt_precio.getText().trim(), controlador_de_rows, 3);
+            this.Table_productos_ventas.setValueAt((Double.parseDouble(this.txt_precio.getText()) * Double.parseDouble(this.spin_cantidad_a_vender.getValue().toString())), controlador_de_rows, 4);
+
+            controlador_de_rows++;
+
+            //recorremos toda la columna de subtotales
+            this.sub_total = 0;
+            for (int i = 0; i < controlador_de_rows; i++) {
+                this.sub_total += Float.parseFloat(this.Table_productos_ventas.getValueAt(i, 4).toString());
+            }
+            this.IVA = (float) (sub_total * 0.15);
+            this.Total = sub_total + IVA;
+            df.format(IVA);
+            this.txt_sub_total.setText(String.valueOf(sub_total));
+            this.txt_iva.setText(String.valueOf(IVA));
+            this.txt_total.setText(String.valueOf(Total));
+
         }
+
     }//GEN-LAST:event_btn_agregar_al_carritoActionPerformed
 
     private void txt_descripcionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descripcionKeyPressed
         // TODO add your handling code here:
         //limitamos la cantidad de caracteres en la descripcion 450
-        if(this.txt_descripcion.getText().length()>=450){
+        if (this.txt_descripcion.getText().length() >= 450) {
             JOptionPane.showMessageDialog(this, "Haz alcanzado el limite de caracteres!", "Error", JOptionPane.ERROR_MESSAGE);
-            String texto=this.txt_descripcion.getText().substring(0,450);
+            String texto = this.txt_descripcion.getText().substring(0, 450);
             this.txt_descripcion.setText(texto);
         }
     }//GEN-LAST:event_txt_descripcionKeyPressed
@@ -579,8 +652,8 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
     private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
         // TODO add your handling code here:
         // TODO add your handling code here:
-        Ctr_productos ctr=new Ctr_productos();
-        ctr.buscar_por_codigo_con_precio(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad,txt_precio);
+        Ctr_productos ctr = new Ctr_productos();
+        ctr.buscar_por_codigo_con_precio(txt_codigo_buscar.getText().trim(), txt_ID, txt_nombre, txt_marca, txt_descripcion, txt_cantidad, txt_precio);
         SpinnerNumberModel nm = new SpinnerNumberModel();
         nm.setMaximum(Integer.parseInt(this.txt_cantidad.getText().trim()));
         nm.setMinimum(0);
@@ -592,16 +665,16 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         // TODO add your handling code here:
         //al presionar enter accedemos a las opciones de busqyeda de la capa controlador
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            if(this.txt_codigo_buscar.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null,"Debes de insertar un código de busqueda");
-            }else{
+            if (this.txt_codigo_buscar.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debes de insertar un código de busqueda");
+            } else {
                 //hacemos la busqyeda de los datos
-                Ctr_productos ctr=new Ctr_productos();
-                ctr.buscar_por_codigo_con_precio(txt_codigo_buscar.getText().trim(),txt_ID,txt_nombre, txt_marca, txt_descripcion, txt_cantidad,txt_precio);
+                Ctr_productos ctr = new Ctr_productos();
+                ctr.buscar_por_codigo_con_precio(txt_codigo_buscar.getText().trim(), txt_ID, txt_nombre, txt_marca, txt_descripcion, txt_cantidad, txt_precio);
                 SpinnerNumberModel nm = new SpinnerNumberModel();
                 nm.setMaximum(Integer.parseInt(this.txt_cantidad.getText().trim()));
                 nm.setMinimum(0);
-                
+
                 this.spin_cantidad_a_vender.setModel(nm);
 
             }
@@ -627,36 +700,49 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
     private void Table_productos_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_productos_ventasMouseClicked
         // TODO add your handling code here:
         //al hacer doble click en el detalle se podrá eliminar o editar
-        if(evt.getClickCount()==2){
-            int select =this.Table_productos_ventas.rowAtPoint(evt.getPoint());
-            
-            String producto=this.Table_productos_ventas.getValueAt(select,0).toString();
-            
-            
-             DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
-             
-             float sub_total_eliminado=Float.parseFloat(this.Table_productos_ventas.getValueAt(select,3).toString());
-             
-                this.sub_total=sub_total-sub_total_eliminado;
-                this.IVA=(float) (sub_total*0.15);
-                this.Total=sub_total+IVA;
+        if (evt.getClickCount() == 2) {
+
+            int select = this.Table_productos_ventas.rowAtPoint(evt.getPoint());
+
+            String codigo_producto = this.Table_productos_ventas.getValueAt(select, 0).toString();
+            int opc = JOptionPane.showConfirmDialog(null, "Desea retirar de la factura el producto de Codigo " + codigo_producto + "?");
+
+            if (opc == 0) {
+                //detenemos la aplicacion---------------
+                int cantidades_regresan_inventario = Integer.parseInt(this.Table_productos_ventas.getValueAt(select, 2).toString());
+                Ctr_productos ctr = new Ctr_productos();
+                int stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
+                ctr.actualizar_cantidad_unidades((stock_disponible_al_momento + cantidades_regresan_inventario), codigo_producto);
+                DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
+
+                float sub_total_eliminado = Float.parseFloat(this.Table_productos_ventas.getValueAt(select, 3).toString());
+                //restamos el subtotal eliminado y lo volvemos a calcular
+                this.sub_total = sub_total - sub_total_eliminado;
+                this.IVA = (float) (sub_total * 0.15);
+                this.Total = sub_total + IVA;
                 df.format(IVA);
                 this.txt_sub_total.setText(String.valueOf(sub_total));
                 this.txt_iva.setText(String.valueOf(IVA));
                 this.txt_total.setText(String.valueOf(Total));
-                
-                 this.Table_productos_ventas.setModel(modelPrincipal);
-                 
+
+                this.Table_productos_ventas.setModel(modelPrincipal);
+                //mostramos las nuevas unidades disponibles
+                stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
+                this.txt_cantidad.setText(String.valueOf(stock_disponible_al_momento));
                 controlador_de_rows--;
-             modelPrincipal.removeRow(select);
-             
+                modelPrincipal.removeRow(select);
+
+            } else {
+
+            }
+
         }
     }//GEN-LAST:event_Table_productos_ventasMouseClicked
 
     /**
      * @param args the command line arguments
      */
-    private void limpiar_campos(){
+    private void limpiar_campos() {
         this.txt_ID.setText("");
         this.txt_cantidad.setText("");
         this.txt_codigo_buscar.setText("");
@@ -665,7 +751,35 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         this.txt_nombre.setText("");
         this.txt_precio.setText("");
         this.spin_cantidad_a_vender.setValue(0);
+        ObtenerFechaActual();
     }
+    private void ObtenerFechaActual(){
+        DateTimeFormatter dtf4 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String date=dtf4.format(LocalDateTime.now());
+        try {
+            Date Date = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            this.Jdate_fecha.setDate(Date);
+        } catch (ParseException ex) {
+            Logger.getLogger(D_Nueva_Ventas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    private void limpiar_toda_venta(){
+        //este metodo limpiara todos los campos de la factura
+        limpiar_campos();
+        DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
+        //eliminamos las filasd de la tabla con el detalle de los productos
+        for(int i=0;i<this.controlador_de_rows;i++){
+           modelPrincipal.removeRow(0);
+        }
+        this.Table_productos_ventas.setModel(modelPrincipal);
+        this.txt_sub_total.setText("0.0");
+        this.txt_iva.setText("0.0");
+        this.txt_total.setText("0.0");
+        this.txt_cliente.setText("");
+        this.txt_id_factura.setText("");
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

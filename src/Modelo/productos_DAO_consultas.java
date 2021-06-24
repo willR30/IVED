@@ -87,7 +87,8 @@ public class productos_DAO_consultas {
             JOptionPane.showMessageDialog(null, ex);
         }
     }
-    public ArrayList<Mod_productos>buscar_por_codigo(String Codigo){
+    public ArrayList<Mod_productos>buscar_por_codigo(String Codigo){//con este metodo se busca el producto desde
+        //actualizar stock y a la hora de realizar una venta
             ArrayList lista_grupos=new ArrayList();
             Mod_productos mdp;
             try{
@@ -98,7 +99,7 @@ public class productos_DAO_consultas {
                 //ejecutamos la consulta
                 ResultSet rs=pst.executeQuery();
                 
-                    while(rs.next()){
+                    if(rs.next()){
                     mdp=new Mod_productos();
                     mdp.setCodigo_identificador(rs.getString(1));
                     mdp.setNombre(rs.getString(2));
@@ -108,6 +109,8 @@ public class productos_DAO_consultas {
                     mdp.setPrecio(rs.getFloat(6));
 
                     lista_grupos.add(mdp);
+                    }else{
+                      JOptionPane.showMessageDialog(null,"No se encontró un registro con ese codigo", "¡Error!", JOptionPane.ERROR_MESSAGE);
                     }
                 
                 
@@ -149,7 +152,7 @@ public class productos_DAO_consultas {
                 pst.setString(1,Codigo_identificador);//pasamos el parametro
                 //ejecutamos la consulta
                 ResultSet rs=pst.executeQuery();
-                while(rs.next()){
+                if(rs.next()){
                  mdp=new Mod_productos();
                  mdp.setCodigo_identificador(rs.getString(1));
                  mdp.setNombre(rs.getString(2));
@@ -159,6 +162,8 @@ public class productos_DAO_consultas {
                  mdp.setPrecio(rs.getFloat(6));
                  
                  lista_grupos.add(mdp);
+                }else{
+                      JOptionPane.showMessageDialog(null,"No se encontró un registro con ese codigo", "¡Error!", JOptionPane.ERROR_MESSAGE);
                 }
                 pst.close();
             }catch(Exception ex){
@@ -202,7 +207,8 @@ public class productos_DAO_consultas {
                 ps.setString(1, codigo);
                 //ejecutamos la consulta
                 ResultSet rs=ps.executeQuery();
-                while(rs.next()){
+                
+                if(rs.next()){
                  mdp=new Mod_productos();
                  mdp.setCodigo_identificador(rs.getString(1));
                  mdp.setNombre(rs.getString(2));
@@ -211,6 +217,8 @@ public class productos_DAO_consultas {
                  mdp.setCantidad(rs.getInt(5));
                  mdp.setPrecio(rs.getFloat(6));
                  lista_grupos.add(mdp);
+                }else{
+                      JOptionPane.showMessageDialog(null,"No se encontró un registro con ese codigo", "¡Error!", JOptionPane.ERROR_MESSAGE);
                 }
                 ps.close();
             }catch(Exception ex){
@@ -242,5 +250,30 @@ public class productos_DAO_consultas {
     }
     return lista_cod;
     }
+    //obtener el stock dispinible de un producto solo sabiendo su codigo de indentifiacion
+    public ArrayList<Mod_productos>Obtener_stock_disponible(String codigo){
+        Mod_productos mdp_stock;
+        ArrayList array_stock=new ArrayList();
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="SELECT Cantidad FROM productos WHERE Codigo_Identificador=?";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos los parametros a la consutla
+            pst.setString(1, codigo);
+            //ejecutamos la consulta
+            ResultSet rs=pst.executeQuery();
+            if(rs.next()){
+                mdp_stock=new Mod_productos();
+                //si el producto se encuentra rescatamos los valores
+                mdp_stock.setCantidad(rs.getInt(1));
+                array_stock.add(mdp_stock);
+            }
+            pst.close();//cerramos la conexion
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos la exception visible
+        }
+        return array_stock;
+    }
+    
 
 }

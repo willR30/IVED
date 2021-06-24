@@ -132,12 +132,22 @@ public class Ctr_productos {
         }
     }
     public void buscar_por_codigo_con_precio(String Codigo,JTextField txt_ID,JTextField txt_nombre,JTextField txt_marca,JTextArea txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
-        txt_ID.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCodigo_identificador()));
-        txt_nombre.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getNombre());
-        txt_marca.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getMarca());
-        txt_descripcion.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getDescripcion());
-        txt_cantidad.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCantidad()));
-        txt_precio.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getPrecio()));
+        try{
+            txt_ID.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCodigo_identificador()));
+            txt_nombre.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getNombre());
+            txt_marca.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getMarca());
+            txt_descripcion.setText(productos_DAO.buscar_por_codigo(Codigo).get(0).getDescripcion());
+            txt_cantidad.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getCantidad()));
+            txt_precio.setText(String.valueOf(productos_DAO.buscar_por_codigo(Codigo).get(0).getPrecio())); 
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
+        
+    }
+    public int obtenterStock(String codigo){
+        //este metodo nos retorana la cantidad de productos disponibles 
+        int stock_disponible=productos_DAO.Obtener_stock_disponible(codigo).get(0).getCantidad();
+        return stock_disponible;
     }
     
 }

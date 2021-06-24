@@ -262,6 +262,7 @@ public class home extends javax.swing.JFrame {
     private void btn_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inventarioActionPerformed
         // TODO add your handling code here:
         this.btn_inventario.setBackground(new Color(51,102,255));
+        
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
         
     }//GEN-LAST:event_btn_inventarioActionPerformed

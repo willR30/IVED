@@ -123,11 +123,11 @@ public class Panel_productos extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Haga doble click sobre un producto para editarlo");
 
-        rSButtonMetro2.setBackground(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setBackground(new java.awt.Color(51, 102, 255));
         rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         rSButtonMetro2.setText("  Nuevo Producto");
-        rSButtonMetro2.setColorHover(new java.awt.Color(51, 102, 255));
-        rSButtonMetro2.setColorNormal(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setColorHover(new java.awt.Color(36, 36, 36));
+        rSButtonMetro2.setColorNormal(new java.awt.Color(51, 102, 255));
         rSButtonMetro2.setColorPressed(new java.awt.Color(84, 88, 91));
         rSButtonMetro2.setFocusPainted(false);
         rSButtonMetro2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
