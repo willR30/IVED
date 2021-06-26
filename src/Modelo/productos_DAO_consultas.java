@@ -133,7 +133,7 @@ public class productos_DAO_consultas {
             int numafectada=pst.executeUpdate();//ejecutams la consulta
               
             if(numafectada!=0){
-                    JOptionPane.showMessageDialog(null, "Unidades Actualizadas");
+                    //JOptionPane.showMessageDialog(null, "Unidades Actualizadas");
             }else{
                     JOptionPane.showMessageDialog(null, "No se puedo completar");
             }

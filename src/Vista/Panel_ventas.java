@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.Ctr_factura;
+import Controlador.Ctr_ventas;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -22,6 +24,13 @@ public class Panel_ventas extends javax.swing.JPanel {
         initComponents();
         perzonalizar_Jtables();//con este metodo personalizamos las jtables que se muestran en el panel
         
+        //mostramos las ventas en el jtable
+        Ctr_ventas  ctr=new Ctr_ventas();
+        ctr.llenar_tablas_ventas(Jtable_ventas);
+        
+        //llenamos las facturas en el jtable
+        Ctr_factura ctf=new Ctr_factura();
+        ctf.listar_todas_facturas(Jtable_facturas);
     }
 
     /**
@@ -51,6 +60,8 @@ public class Panel_ventas extends javax.swing.JPanel {
         Tab_general.setToolTipText("");
         Tab_general.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Tab_general.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+
+        Panel_facturas.setForeground(new java.awt.Color(255, 255, 255));
 
         Jtable_facturas.setBackground(new java.awt.Color(255, 255, 255));
         Jtable_facturas.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -106,7 +117,7 @@ public class Panel_ventas extends javax.swing.JPanel {
                     .addGroup(Panel_facturasLayout.createSequentialGroup()
                         .addComponent(btn_nueva_venta_FACTURAS, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 995, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1872, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Panel_facturasLayout.setVerticalGroup(
@@ -115,7 +126,7 @@ public class Panel_ventas extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btn_nueva_venta_FACTURAS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

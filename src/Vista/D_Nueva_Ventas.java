@@ -5,7 +5,9 @@
  */
 package Vista;
 
+import Controlador.Ctr_factura;
 import Controlador.Ctr_productos;
+import Controlador.Ctr_ventas;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
@@ -556,8 +558,20 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
     private void btn_buscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar4ActionPerformed
         // TODO add your handling code here:
+        //al limpiar o cancelar la venta , las unidades antes facturadas deben de regresar al inventario
+        int unidades_facturadas=0;
+        for(int i=0;i<this.controlador_de_rows;i++){
+            Ctr_productos ctr=new Ctr_productos();
+            
+            unidades_facturadas=Integer.parseInt(this.Table_productos_ventas.getValueAt(i,2).toString());
+            int nuevas_unidades=ctr.obtenterStock(this.Table_productos_ventas.getValueAt(i,0).toString())+unidades_facturadas;
+                   
+            //actualizamos las unidades
+            ctr.actualizar_cantidad_unidades(nuevas_unidades,this.Table_productos_ventas.getValueAt(i,0).toString());
+        }
         //en este boton se va a limpiar la venta en su totalidad
         limpiar_toda_venta();
+        this.controlador_de_rows=0;
     }//GEN-LAST:event_btn_buscar4ActionPerformed
 
     private void btn_buscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar3ActionPerformed
@@ -581,6 +595,18 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                                                             this.txt_id_factura.getText(), Float.parseFloat(this.txt_sub_total.getText()), 
                                                             Float.parseFloat(this.txt_iva.getText()), Float.parseFloat(this.txt_total.getText()),
                                                             Detalle_tabla_productos, this.controlador_de_rows);
+                //registramos la factura
+                Ctr_factura cf=new Ctr_factura();
+                cf.Registrar_factura(this.txt_id_factura.getText().trim(), fecha,this.txt_cliente.getText().trim(), sub_total, IVA, Total,"Activa");
+                //registramos la venta de los productos
+                Ctr_ventas cv=new Ctr_ventas();
+                for(int i=0;i<this.controlador_de_rows;i++){
+                    String codigo_identificador=this.Table_productos_ventas.getValueAt(i,0).toString();
+                    int Cantidad_vendida=Integer.parseInt(this.Table_productos_ventas.getValueAt(i,2).toString());
+                    float Precio_unitario=Float.parseFloat(this.Table_productos_ventas.getValueAt(i,3).toString());
+                    String Codigo_factura=this.txt_id_factura.getText().trim();
+                    cv.agregar_venta(codigo_identificador, Cantidad_vendida, Precio_unitario, Codigo_factura);
+                }
                 dv.setVisible(true);
                 while(dv.isShowing()){
                     //no hace nada

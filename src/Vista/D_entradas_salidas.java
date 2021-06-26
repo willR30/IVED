@@ -307,6 +307,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())+Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
                 Ctr_productos ctr=new Ctr_productos();
                 ctr.actualizar_cantidad_unidades(nueva_cantidad,this.txt_ID.getText());
+                JOptionPane.showMessageDialog(null, "Unidades Actualizadas");
                 this.hide();
             }
             
@@ -321,11 +322,12 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         //retirar unidades
         try{
             if(Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())>Integer.parseInt(this.txt_cantidad.getText()) || Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString())<=0 ){
-                JOptionPane.showMessageDialog(null,"No se puede Retirar esa cantidad");
+                JOptionPane.showMessageDialog(null,"No se puede Retirar esa cantidad","Error",JOptionPane.ERROR_MESSAGE);
             }else{
                 int nueva_cantidad=Integer.parseInt(this.txt_cantidad.getText().trim())-Integer.parseInt(this.spiner_unidades_entrantes_salientes.getValue().toString());
                 Ctr_productos ctr=new Ctr_productos();
                 ctr.actualizar_cantidad_unidades(nueva_cantidad,this.txt_ID.getText());
+                JOptionPane.showMessageDialog(null, "Unidades Actualizadas");
                 this.hide();
             }
             
