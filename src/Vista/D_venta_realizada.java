@@ -32,7 +32,7 @@ public class D_venta_realizada extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("IVED");
+        this.setTitle("IVED-Venta Relizada");
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         //hacemos locales los parametros que recibimos del frame anterios
         this.cliente=cliente;

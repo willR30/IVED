@@ -149,7 +149,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/img/almacen.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="        Inventario"/>
+            <Property name="text" type="java.lang.String" value="        Productos"/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="66" red="33" type="rgb"/>
             </Property>
@@ -263,7 +263,7 @@
             </Property>
             <Property name="text" type="java.lang.String" value="   Salir      "/>
             <Property name="colorHover" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="33" type="rgb"/>
+              <Color blue="2d" green="1b" red="ff" type="rgb"/>
             </Property>
             <Property name="colorNormal" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="24" green="24" red="24" type="rgb"/>

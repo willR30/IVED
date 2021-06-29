@@ -61,9 +61,9 @@ public class configuraciones_DAO_consultas {
             int numafectada=pst.executeUpdate();//ejecutams la consulta
               
             if(numafectada!=0){
-                    JOptionPane.showMessageDialog(null, "Usuario actualizado");
+                    //JOptionPane.showMessageDialog(null, "Usuario actualizado");
             }else{
-                    JOptionPane.showMessageDialog(null, "No se puedo completarz");
+                    //JOptionPane.showMessageDialog(null, "No se puedo completarz");
             }
             pst.close();
         }catch(Exception ex){

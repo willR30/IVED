@@ -40,6 +40,8 @@ public class D_editar_producto extends javax.swing.JDialog {
         this.Marca=marca;
         this.setTitle("Editar propiedades de producto");
         this.setLocationRelativeTo(null);
+        //establecemos el logo de jframe
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         
         //--------------------
         Ctr_productos ctr=new Ctr_productos();
@@ -79,11 +81,11 @@ public class D_editar_producto extends javax.swing.JDialog {
         jLabel9 = new javax.swing.JLabel();
         txt_precio = new javax.swing.JTextField();
         btn_entrar1 = new rsbuttom.RSButtonMetro();
-        btn_entrar = new rsbuttom.RSButtonMetro();
         jScrollPane1 = new javax.swing.JScrollPane();
         txt_descripcion = new javax.swing.JTextArea();
         lbl_qr = new javax.swing.JLabel();
         btn_qr1 = new rsbuttom.RSButtonMetro();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -165,6 +167,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         jPanel1.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 270, 123, -1));
 
         btn_entrar1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_entrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
         btn_entrar1.setText("Editar");
         btn_entrar1.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar1.setColorNormal(new java.awt.Color(51, 102, 255));
@@ -175,20 +178,7 @@ public class D_editar_producto extends javax.swing.JDialog {
                 btn_entrar1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 260, 100, -1));
-
-        btn_entrar.setBackground(new java.awt.Color(51, 102, 255));
-        btn_entrar.setText("Retirar de Stock");
-        btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_entrar.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_entrar.setFocusPainted(false);
-        btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_entrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btn_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(464, 260, 140, -1));
+        jPanel1.add(btn_entrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(564, 260, 150, -1));
 
         txt_descripcion.setColumns(20);
         txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -220,15 +210,14 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
         jPanel1.add(btn_qr1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 40, -1));
 
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel5.setText("Guardar Código:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
-        //retirar del stock
-       
-    }//GEN-LAST:event_btn_entrarActionPerformed
 
     private void btn_entrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar1ActionPerformed
         // TODO add your handling code here:
@@ -372,13 +361,13 @@ public class D_editar_producto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro btn_entrar;
     private rsbuttom.RSButtonMetro btn_entrar1;
     private rsbuttom.RSButtonMetro btn_qr1;
     private javax.swing.JComboBox<String> combo_marcas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

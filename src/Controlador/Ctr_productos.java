@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.Mod_productos;
+import Modelo.Mod_ventas;
 import Modelo.productos_DAO_consultas;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
@@ -149,5 +150,30 @@ public class Ctr_productos {
         int stock_disponible=productos_DAO.Obtener_stock_disponible(codigo).get(0).getCantidad();
         return stock_disponible;
     }
-    
+    public void productos_de_una_factra(String codigo,JTable tabla_detalle){
+        DefaultTableModel mod_prod =new DefaultTableModel(){
+             @Override
+             public boolean isCellEditable(int rowIndex,int columnIndex){return false;}//bloqueamos las celdas
+        };
+        tabla_detalle.setModel(mod_prod);
+        //agregamos las columas con las que vamos a gtrbajar
+        mod_prod.addColumn("Codigo");
+        mod_prod.addColumn("Nombre");
+        mod_prod.addColumn("Cantidad Vendida");
+        mod_prod.addColumn("PU Vendido");
+        
+        Object[]columna  = new Object[4];
+        
+        int cantRegistros=productos_DAO.Productos_de_una_factura(codigo).size();//el codigo que pasamos el codigo de la factura
+        ArrayList<Mod_ventas>lista_prod=productos_DAO.Productos_de_una_factura(codigo);
+        
+        for(int i=0;i<cantRegistros;i++){
+            columna[0]=lista_prod.get(i).getCodigo_identificador();
+            columna[1]=lista_prod.get(i).getNombre();
+            columna[2]=lista_prod.get(i).getCantidad_vendida();
+            columna[3]=lista_prod.get(i).getPrecio_unitario();
+            mod_prod.addRow(columna);//agregamos la columa a la tabla
+        }
+        
+    }
 }

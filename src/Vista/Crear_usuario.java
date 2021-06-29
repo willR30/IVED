@@ -55,12 +55,9 @@ public class Crear_usuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_user_name = new javax.swing.JTextField();
         txt_contraseña = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
         btn_crear_usuario = new rsbuttom.RSButtonMetro();
-        btn_ruta_pic = new rsbuttom.RSButtonMetro();
         jLabel4 = new javax.swing.JLabel();
         txt_nombre_negocio = new javax.swing.JTextField();
-        label_pic = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txt_confrimar_contraseña = new javax.swing.JPasswordField();
 
@@ -93,29 +90,16 @@ public class Crear_usuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Logo del Negocio(Opcional):");
-
         btn_crear_usuario.setBackground(new java.awt.Color(51, 102, 255));
+        btn_crear_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
         btn_crear_usuario.setText("Crear");
         btn_crear_usuario.setColorHover(new java.awt.Color(102, 102, 102));
         btn_crear_usuario.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_crear_usuario.setFocusPainted(false);
         btn_crear_usuario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_crear_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_crear_usuarioActionPerformed(evt);
-            }
-        });
-
-        btn_ruta_pic.setBackground(new java.awt.Color(51, 102, 255));
-        btn_ruta_pic.setText("...");
-        btn_ruta_pic.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_ruta_pic.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_ruta_pic.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_ruta_pic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_ruta_picActionPerformed(evt);
             }
         });
 
@@ -131,9 +115,6 @@ public class Crear_usuario extends javax.swing.JFrame {
                 txt_nombre_negocioKeyPressed(evt);
             }
         });
-
-        label_pic.setBackground(new java.awt.Color(153, 153, 153));
-        label_pic.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,22 +138,18 @@ public class Crear_usuario extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(txt_confrimar_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_confrimar_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                             .addComponent(jLabel4)
-                            .addComponent(txt_nombre_negocio, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_nombre_negocio, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                             .addComponent(jLabel1)
-                            .addComponent(txt_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_user_name, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                             .addComponent(jLabel2)
-                            .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_ruta_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
+                        .addGap(12, 12, 12))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btn_crear_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_crear_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,15 +170,9 @@ public class Crear_usuario extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(6, 6, 6)
                 .addComponent(txt_confrimar_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(btn_ruta_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addComponent(btn_crear_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -274,32 +245,6 @@ public class Crear_usuario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txt_contraseñaKeyPressed
 
-    private void btn_ruta_picActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ruta_picActionPerformed
-        // TODO add your handling code here:
-        //este buton guardará la ruta de la imagen dentro de una variable y la mostrá en el panel
-        JFileChooser fc = new JFileChooser();
-
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & JPEG & PNG", "jpg", "jpeg", "png");
-        fc.setFileFilter(filter);
-
-        int seleccion = fc.showOpenDialog(null);
-        fc.setDialogTitle("Buscar imagen...");
-
-        if (seleccion == JFileChooser.APPROVE_OPTION) {
-            f = fc.getSelectedFile();
-            ImageIcon i = null;
-            try {
-                i = new ImageIcon(f.toURI().toURL());
-                this.label_pic.setIcon(new ImageIcon(i.getImage().getScaledInstance(label_pic.getWidth(), label_pic.getHeight(), Image.SCALE_SMOOTH)));
-            } catch (MalformedURLException ex) {
-                JOptionPane.showMessageDialog(null, "Error en el formato o al encontrar la imagen.");
-                //Logger.getLogger(CargarImagenes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            
-        }
-    }//GEN-LAST:event_btn_ruta_picActionPerformed
-
     private void btn_crear_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_crear_usuarioActionPerformed
         // TODO add your handling code here:
         //crear usuario
@@ -312,7 +257,7 @@ public class Crear_usuario extends javax.swing.JFrame {
             String confirma=this.txt_confrimar_contraseña.getText().trim();
             if(contra.equals(confirma)){
                 //aguí agrega al usuario
-                GuardarImagen();
+                
                 new Ctr_usuario().agregar_usuario(this.txt_user_name.getText().trim(), contra);//pasamos el usuario tomado del campo de texto y la contraseñe
                 new Ctr_configuraciones().agregar_nombre_negocio(this.txt_nombre_negocio.getText().trim());//capturamos y agregamos el nombre del negocio
                 JOptionPane.showMessageDialog(null,"Inicia Sesion");
@@ -321,7 +266,7 @@ public class Crear_usuario extends javax.swing.JFrame {
                 this.dispose();
                 new Login().setVisible(true);
             }else{
-                JOptionPane.showMessageDialog(null,"La contraseñas no coinciden");
+                JOptionPane.showMessageDialog(null,"La contraseñas no son iguales","¡Error!",JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_btn_crear_usuarioActionPerformed
@@ -333,25 +278,8 @@ public class Crear_usuario extends javax.swing.JFrame {
     private void txt_confrimar_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_confrimar_contraseñaKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_confrimar_contraseñaKeyPressed
-    private void GuardarImagen(){
-        //en la tavla creamos una columna llamanda imagen de tipo longblod para almacenar bytes
-        /*String consulta="UPDATE configuraciones SET Imagen_negocio=?";
-        FileInputStream fis=null;
-        PreparedStatement ps=null;
-        
-        try {
-            Conexion conx=new Conexion();
-            File file=new File(f);
-            fis=new FileInputStream(file);
-            Connection accesoDB=conx.getConextion();
-            ps=accesoDB.prepareCall(consulta);
-            ps.setBinaryStream(1, fis,(int)file.length());
-            ps.executeUpdate();
-        } catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
-        }   */
-        
-    }
+         
+    
     /**
      * @param args the command line arguments
      */
@@ -359,7 +287,9 @@ public class Crear_usuario extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setTitle("Crear usuario");
+        this.setTitle("IVED-Crear usuario");
+        //establecemos la imagen como incono del programa
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -395,14 +325,11 @@ public class Crear_usuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private rsbuttom.RSButtonMetro btn_crear_usuario;
-    private rsbuttom.RSButtonMetro btn_ruta_pic;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel label_pic;
     private javax.swing.JPasswordField txt_confrimar_contraseña;
     private javax.swing.JPasswordField txt_contraseña;
     private javax.swing.JTextField txt_nombre_negocio;

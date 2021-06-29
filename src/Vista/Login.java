@@ -108,36 +108,39 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_contraseña, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                             .addComponent(jLabel1)
-                            .addComponent(txt_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txt_user_name, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                            .addComponent(jLabel2))
+                        .addGap(13, 13, 13))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
-                .addGap(6, 6, 6)
-                .addComponent(txt_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(6, 6, 6)
-                .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(label_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label_pic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1)
+                        .addGap(6, 6, 6)
+                        .addComponent(txt_user_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(6, 6, 6)
+                        .addComponent(txt_contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,61 +159,30 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
         // TODO add your handling code here:
-        String user_name = this.txt_user_name.getText().trim();
-        String Contraseña = this.txt_contraseña.getText().trim();
-        Ctr_usuario ctr_user = new Ctr_usuario();
-        int validacion = 0;
-        validacion = ctr_user.login(user_name, Contraseña);
-        
-        if (validacion == 1) {
-                    
-                    JOptionPane.showMessageDialog(null,"Bienvenido");
-                    home h=new home();
-                    h.setVisible(true);
-                    this.dispose();
-                    
-                    
-        } else {
-                    JOptionPane.showMessageDialog(null, "Error al iniciar secion! intente de nuevo");
-                    this.txt_contraseña.setText("");
-                    this.txt_user_name.setText("");
-        }
+        iniciar_sesion();
     }//GEN-LAST:event_btn_entrarActionPerformed
 
     private void txt_user_nameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_user_nameKeyPressed
         // TODO add your handling code here:
         //al presionar la tecla enter que se inicien las opciones de validacion
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            if (this.txt_user_name.getText().isEmpty() || this.txt_contraseña.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se admiten campos nulos!");
-            } else {
-                String user_name = this.txt_user_name.getText().trim();
-                String Contraseña = this.txt_contraseña.getText().trim();
-                Ctr_usuario ctr_user = new Ctr_usuario();
-                int validacion = 0;
-                validacion = ctr_user.login(user_name, Contraseña);
-
-                if (validacion == 1) {
-                    //mostramos el home principa
-                    home home=new home();
-                    JOptionPane.showMessageDialog(null, "Bienvenido");
-                    home.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al iniciar secion! intente de nuevo");
-                    this.txt_contraseña.setText("");
-                    this.txt_user_name.setText("");
-                }
-
-            }
+            iniciar_sesion();
         }
     }//GEN-LAST:event_txt_user_nameKeyPressed
 
     private void txt_contraseñaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_contraseñaKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == evt.VK_ENTER) {
-            if (this.txt_user_name.getText().isEmpty() || this.txt_contraseña.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se admiten campos nulos!");
+            iniciar_sesion();
+        }
+    }//GEN-LAST:event_txt_contraseñaKeyPressed
+
+    /**
+     * @param args the command line arguments
+     */
+    private void iniciar_sesion(){
+        if (this.txt_user_name.getText().isEmpty() || this.txt_contraseña.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se admiten campos nulos!","¡Error!",JOptionPane.ERROR_MESSAGE);
             } else {
                 String user_name = this.txt_user_name.getText().trim();
                 String Contraseña = this.txt_contraseña.getText().trim();
@@ -224,26 +196,18 @@ public class Login extends javax.swing.JFrame {
                     home.setVisible(true);
                     this.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Error al iniciar secion! intente de nuevo");
+                    JOptionPane.showMessageDialog(null, "Error al iniciar secion! intente de nuevo","¡Error!",JOptionPane.ERROR_MESSAGE);
                     this.txt_contraseña.setText("");
                     this.txt_user_name.setText("");
                 }
             }
-        }
-    }//GEN-LAST:event_txt_contraseñaKeyPressed
-
-    /**
-     * @param args the command line arguments
-     */
+    }
     public void mostrar_login(){
         initComponents();//iniciamos los componentes del formulario
         establecer_propiedades_iniciales();//llamamos al metodo de las propiedades iniciales
         Mostrarlogo();
     }
-    public void mostrar_imagen_negocio(){
-       
-        
-    }
+    
     public void establecer_propiedades_iniciales(){
         this.setTitle("IVED-inicio de sesión");
         this.setLocationRelativeTo(null);

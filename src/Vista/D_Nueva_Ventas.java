@@ -578,7 +578,7 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         // TODO add your handling code here:
         //validamos que todos los parametros de l a venta sean los correctos
         
-            if (this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty() || this.Jdate_fecha.getDate().toString() == "") {
+            if (this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty() || this.Jdate_fecha.getDate().toString() == "" ||this.controlador_de_rows==0) {
                 JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 String[][] Detalle_tabla_productos = new String[this.controlador_de_rows][5];

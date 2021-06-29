@@ -9,6 +9,7 @@ import Controlador.Ctr_marcas;
 import Controlador.Ctr_productos;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -32,6 +33,8 @@ public class D_marcas extends javax.swing.JDialog {
         // cambia el fondo del encabezado de la tabla
         this.tabla_marcas.getTableHeader().setBackground(new Color(36,36,36));
         this.tabla_marcas.getTableHeader().setForeground(Color.WHITE);
+        //establecemos el logo del software
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
     }
 
     /**
@@ -118,7 +121,7 @@ public class D_marcas extends javax.swing.JDialog {
         while(dm.isShowing()){
             //no hace nada
         }
-        new Ctr_marcas().llenar_tabla_marcas(tabla_marcas);
+        new Ctr_marcas().llenar_tabla_marcas(tabla_marcas);//actulizamos las marcas registradas
     }//GEN-LAST:event_btn_nueva_marcaActionPerformed
 
     private void tabla_marcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_marcasMouseClicked

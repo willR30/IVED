@@ -9,6 +9,7 @@ import Controlador.Ctr_factura;
 import Controlador.Ctr_ventas;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,17 +20,16 @@ public class Panel_ventas extends javax.swing.JPanel {
     /**
      * Creates new form Panel_ventas
      */
-    
     public Panel_ventas() {
         initComponents();
         perzonalizar_Jtables();//con este metodo personalizamos las jtables que se muestran en el panel
-        
+
         //mostramos las ventas en el jtable
-        Ctr_ventas  ctr=new Ctr_ventas();
+        Ctr_ventas ctr = new Ctr_ventas();
         ctr.llenar_tablas_ventas(Jtable_ventas);
-        
+
         //llenamos las facturas en el jtable
-        Ctr_factura ctf=new Ctr_factura();
+        Ctr_factura ctf = new Ctr_factura();
         ctf.listar_todas_facturas(Jtable_facturas);
     }
 
@@ -221,32 +221,45 @@ public class Panel_ventas extends javax.swing.JPanel {
 
     private void btn_nueva_venta_FACTURASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_venta_FACTURASActionPerformed
         // TODO add your handling code here:
-        D_Nueva_Ventas d=new D_Nueva_Ventas(new javax.swing.JFrame(),true);
+        D_Nueva_Ventas d = new D_Nueva_Ventas(new javax.swing.JFrame(), true);
         d.setVisible(true);
-        while(d.isShowing()){
+        while (d.isShowing()) {
             //no hace nada
         }
+        //actualizamos las ventas y las facturas
+        new Ctr_ventas().llenar_tablas_ventas(Jtable_ventas);
+        new Ctr_factura().listar_todas_facturas(Jtable_facturas);
+    
     }//GEN-LAST:event_btn_nueva_venta_FACTURASActionPerformed
 
     private void Jtable_facturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtable_facturasMouseClicked
         // TODO add your handling code here:
         if(evt.getClickCount()==2){
             int select =this.Jtable_facturas.rowAtPoint(evt.getPoint());
-
-            String Codigo_identificador=this.Jtable_facturas.getValueAt(select,0).toString();
-            String Marca=this.Jtable_facturas.getValueAt(select,2).toString();
-            D_editar_producto d= new D_editar_producto(new javax.swing.JFrame(),true,Codigo_identificador,Marca);
-            d.setVisible(true);
-
-            while(d.isShowing()){
-
+            String codigo_factura=this.Jtable_facturas.getValueAt(select,0).toString();
+            String Fecha=this.Jtable_facturas.getValueAt(select,1).toString();
+            String Cliente=this.Jtable_facturas.getValueAt(select,2).toString();
+            float Sub_total=Float.parseFloat(this.Jtable_facturas.getValueAt(select,3).toString());
+            float IVA=Float.parseFloat(this.Jtable_facturas.getValueAt(select,4).toString());
+            float Total=Float.parseFloat(this.Jtable_facturas.getValueAt(select,5).toString());
+            String Estado=this.Jtable_facturas.getValueAt(select,6).toString();
+           
+            D_detalle_factura dv=new D_detalle_factura(new javax.swing.JFrame(),true,Cliente,Fecha,codigo_factura,Sub_total,IVA,Total,Estado);
+            dv.setVisible(true);
+            while(dv.isShowing()){
+                //no hace nada , solo espera que el frame se cierre
             }
-
+            //actualizamos las ventas y las facturas
+            new Ctr_ventas().llenar_tablas_ventas(Jtable_ventas);
+            new Ctr_factura().listar_todas_facturas(Jtable_facturas);
         }
     }//GEN-LAST:event_Jtable_facturasMouseClicked
 
     private void Jtable_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Jtable_ventasMouseClicked
         // TODO add your handling code here:
+        //al hacer doble click se mostrara el detalle de la venta
+
+        
     }//GEN-LAST:event_Jtable_ventasMouseClicked
 
     private void btn_nueva_venta_VENTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_venta_VENTASActionPerformed

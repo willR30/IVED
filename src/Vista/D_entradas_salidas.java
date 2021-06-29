@@ -33,7 +33,8 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         this.setTitle("IVED-Entradas y/o Salidas de productos");
         //geramos el codigo de barras a partirr del id
         
-       
+       //establecemos el minimo en el spiner
+        
     }
 
     /**
@@ -139,6 +140,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         });
         jPanel1.add(txt_ID, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 15, 263, -1));
 
+        txt_descripcion.setEditable(false);
         txt_descripcion.setBackground(new java.awt.Color(255, 255, 255));
         txt_descripcion.setColumns(20);
         txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -171,6 +173,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         spiner_unidades_entrantes_salientes.setRequestFocusEnabled(false);
 
         btn_buscar1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Entrada.png"))); // NOI18N
         btn_buscar1.setText("Agregar unidades");
         btn_buscar1.setColorHover(new java.awt.Color(0, 0, 0));
         btn_buscar1.setColorNormal(new java.awt.Color(51, 102, 255));
@@ -182,10 +185,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }
         });
 
-        btn_buscar2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setBackground(new java.awt.Color(237, 22, 40));
+        btn_buscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Salida.png"))); // NOI18N
         btn_buscar2.setText("Retirar Unidades");
         btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setColorNormal(new java.awt.Color(237, 22, 40));
         btn_buscar2.setFocusable(false);
         btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar2.addActionListener(new java.awt.event.ActionListener() {

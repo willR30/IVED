@@ -64,7 +64,7 @@ public class marcas_DAO_consultas {
                 JOptionPane.showMessageDialog(null,"Error al Agregar");
                 
             }else{
-                JOptionPane.showMessageDialog(null,"Registro Agregado");
+                JOptionPane.showMessageDialog(null,"Marca Agregada");
             }
             pst.close();//cerramos la conexion
         }catch(Exception ex){

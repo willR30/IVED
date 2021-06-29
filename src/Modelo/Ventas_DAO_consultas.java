@@ -37,10 +37,10 @@ public class Ventas_DAO_consultas {
             int numafectada = pst.executeUpdate();
 
             if (numafectada < 0) {
-                JOptionPane.showMessageDialog(null, "Error al Agregar");
+                //JOptionPane.showMessageDialog(null, "Error al Agregar");
 
             } else {
-                JOptionPane.showMessageDialog(null, "Registro Agregado");
+                //JOptionPane.showMessageDialog(null, "Registro Agregado");
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex, "¡Erro!", JOptionPane.ERROR_MESSAGE);
@@ -74,5 +74,6 @@ public class Ventas_DAO_consultas {
         }
         return lista_ventas;
     }
+    
 
 }

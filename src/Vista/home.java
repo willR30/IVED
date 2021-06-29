@@ -26,6 +26,7 @@ public class home extends javax.swing.JFrame {
         this.setDefaultCloseOperation(0);//evitamos que se cierre el formulario al oprimirce la X
         this.setTitle("Sistema de Invetariado Digital IVED");
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+        this.btn_inventario.setColorNormal(new Color(51,102,255));
         Mostrarlogo();
         //cambiamos el color del boton
         
@@ -88,7 +89,7 @@ public class home extends javax.swing.JFrame {
 
         btn_inventario.setBackground(new java.awt.Color(36, 36, 36));
         btn_inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/almacen.png"))); // NOI18N
-        btn_inventario.setText("        Inventario");
+        btn_inventario.setText("        Productos");
         btn_inventario.setColorHover(new java.awt.Color(51, 102, 255));
         btn_inventario.setColorNormal(new java.awt.Color(36, 36, 36));
         btn_inventario.setColorPressed(new java.awt.Color(84, 88, 91));
@@ -149,7 +150,7 @@ public class home extends javax.swing.JFrame {
         btn_salir.setBackground(new java.awt.Color(36, 36, 36));
         btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/apagar.png"))); // NOI18N
         btn_salir.setText("   Salir      ");
-        btn_salir.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_salir.setColorHover(new java.awt.Color(255, 27, 45));
         btn_salir.setColorNormal(new java.awt.Color(36, 36, 36));
         btn_salir.setColorPressed(new java.awt.Color(84, 88, 91));
         btn_salir.setFocusPainted(false);
@@ -254,14 +255,20 @@ public class home extends javax.swing.JFrame {
     private void btn_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ventasActionPerformed
         // TODO add your handling code here:
         //llamamos el frame ventas
-        this.btn_inventario.setBackground(new Color(36,36,36));
+        this.btn_ventas.setColorNormal(new Color(51,102,255));
+        this.btn_inventario.setColorNormal(new Color(36,36,36));
+        this.btn_configuraciones.setColorNormal(new Color(36,36,36));
+        this.btn_reportes.setColorNormal(new Color(36,36,36));
         new CambiaPanel(panel_central,new Panel_ventas());//nos aeguramos de que la clase este bien escrita
         
     }//GEN-LAST:event_btn_ventasActionPerformed
 
     private void btn_inventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inventarioActionPerformed
         // TODO add your handling code here:
-        this.btn_inventario.setBackground(new Color(51,102,255));
+        this.btn_inventario.setColorNormal(new Color(51,102,255));
+        this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_configuraciones.setColorNormal(new Color(36,36,36));
+        this.btn_reportes.setColorNormal(new Color(36,36,36));
         
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
         
@@ -289,6 +296,10 @@ public class home extends javax.swing.JFrame {
 
     private void btn_reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_reportesActionPerformed
         // TODO add your handling code here:
+        this.btn_inventario.setColorNormal(new Color(36,36,36));
+        this.btn_reportes.setColorNormal(new Color(51,102,255));
+        this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_configuraciones.setColorNormal(new Color(36,36,36));
     }//GEN-LAST:event_btn_reportesActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
@@ -299,6 +310,11 @@ public class home extends javax.swing.JFrame {
 
     private void btn_configuracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_configuracionesActionPerformed
         // TODO add your handling code here:
+        this.btn_inventario.setColorNormal(new Color(36,36,36));
+        this.btn_reportes.setColorNormal(new Color(36,36,36));
+        this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_configuraciones.setColorNormal(new Color(51,102,255));
+       
     }//GEN-LAST:event_btn_configuracionesActionPerformed
 
     /**

@@ -107,10 +107,10 @@ public class Panel_productos extends javax.swing.JPanel {
             }
         });
 
-        btn_buscar2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setBackground(new java.awt.Color(79, 184, 80));
         btn_buscar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/actualizar.png"))); // NOI18N
         btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setColorNormal(new java.awt.Color(79, 184, 80));
         btn_buscar2.setFocusPainted(false);
         btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,6 @@ public class Panel_productos extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Haga doble click sobre un producto para editarlo");
 
-        rSButtonMetro2.setBackground(new java.awt.Color(51, 102, 255));
         rSButtonMetro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/nuevo.png"))); // NOI18N
         rSButtonMetro2.setText("  Nuevo Producto");
         rSButtonMetro2.setColorHover(new java.awt.Color(36, 36, 36));
@@ -143,37 +142,43 @@ public class Panel_productos extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(477, 477, 477)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addGap(493, 493, 493))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
+                .addGap(2, 2, 2)
                 .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jScrollPane1)
+                .addGap(6, 6, 6))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(477, 477, 477)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3)
-                        .addComponent(rSButtonMetro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(btn_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(3, 3, 3)
+                            .addComponent(btn_buscar2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,7 +209,7 @@ public class Panel_productos extends javax.swing.JPanel {
         // TODO add your handling code here:
         Ctr_productos ctr=new Ctr_productos();
         if(this.txt_codigo.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Debes de ingresar el código de catálago de un producto");
+            JOptionPane.showMessageDialog(null,"Debes de ingresar el código de catálago de un producto","¡Error!",JOptionPane.ERROR_MESSAGE);
             ctr.llenar_tabla_grupos(Jtable_productos);
         }else{
             
@@ -223,7 +228,7 @@ public class Panel_productos extends javax.swing.JPanel {
         if(evt.getKeyCode() == evt.VK_ENTER) {
             Ctr_productos ctr=new Ctr_productos();
             if(this.txt_codigo.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null,"Debes de ingresar el código de catálago de un producto");
+                 JOptionPane.showMessageDialog(null,"Debes de ingresar el código de catálago de un producto","¡Error!",JOptionPane.ERROR_MESSAGE);
                 ctr.llenar_tabla_grupos(Jtable_productos);
             }else{
 
@@ -239,6 +244,9 @@ public class Panel_productos extends javax.swing.JPanel {
         while(d.isShowing()){
             //no hace nada
         }
+        //actualizamos los productos registrados
+        Ctr_productos ctr=new Ctr_productos();
+        ctr.llenar_tabla_grupos(Jtable_productos);
         
     }//GEN-LAST:event_rSButtonMetro2ActionPerformed
 

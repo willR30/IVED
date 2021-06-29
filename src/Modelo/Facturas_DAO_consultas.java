@@ -66,9 +66,10 @@ public class Facturas_DAO_consultas {
 
             if (numafectada < 0) {
                 JOptionPane.showMessageDialog(null, "Error al Agregar");
+                
 
             } else {
-                JOptionPane.showMessageDialog(null, "Factura Agregada");
+                JOptionPane.showMessageDialog(null, "Factura Agregada ");
             }
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, Fecha,"¡Error! "+ex,JOptionPane.ERROR_MESSAGE, null);
