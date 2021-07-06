@@ -29,7 +29,12 @@ public class Ctr_configuraciones {
     public void agregar_nombre_negocio(String Nombre){
         conf_DAO.Agregar_nombre_negocio(Nombre);//nos conectamos a la capa de modelo y psasmos el nombre como parametro
     }
-    
-    
+    //activar-desactivar modulo de ventas*/
+    public void Activar_Desactivar_Ventas(int valor){
+        conf_DAO.Activar_Descativar_modulo_ventas(valor);
+    }
+    public int EstadoModuloVentas(){
+        return conf_DAO.EstadoModuloVentas().get(0).getModuloVentasEstado();
+    }
         
 }

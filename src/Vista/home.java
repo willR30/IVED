@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.Ctr_configuraciones;
 import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -259,7 +260,17 @@ public class home extends javax.swing.JFrame {
         this.btn_inventario.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(36,36,36));
         this.btn_reportes.setColorNormal(new Color(36,36,36));
-        new CambiaPanel(panel_central,new Panel_ventas());//nos aeguramos de que la clase este bien escrita
+        
+        //validamos si el modulo de ventas esta disponible
+        Ctr_configuraciones ctr=new Ctr_configuraciones();
+        int estadoModuloVentas=ctr.EstadoModuloVentas();
+        if(estadoModuloVentas==1){
+            new CambiaPanel(panel_central,new Panel_ventas());//nos aeguramos de que la clase este bien escrita
+        }else{
+            JOptionPane.showMessageDialog(null,"El modulo de ventas no está disponible","Aviso",JOptionPane.ERROR_MESSAGE);
+            new CambiaPanel(panel_central,new Panel_en_blanco());
+        }
+        
         
     }//GEN-LAST:event_btn_ventasActionPerformed
 
@@ -300,6 +311,7 @@ public class home extends javax.swing.JFrame {
         this.btn_reportes.setColorNormal(new Color(51,102,255));
         this.btn_ventas.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(36,36,36));
+        new CambiaPanel(panel_central,new Panel_reportes());//nos aeguramos de que la clase este bien escrita
     }//GEN-LAST:event_btn_reportesActionPerformed
 
     private void btn_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salirActionPerformed
@@ -314,7 +326,7 @@ public class home extends javax.swing.JFrame {
         this.btn_reportes.setColorNormal(new Color(36,36,36));
         this.btn_ventas.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(51,102,255));
-       
+        new CambiaPanel(panel_central,new Panel_configuraciones());//nos aeguramos de que la clase este bien escrita
     }//GEN-LAST:event_btn_configuracionesActionPerformed
 
     /**

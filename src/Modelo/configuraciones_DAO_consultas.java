@@ -78,13 +78,7 @@ public class configuraciones_DAO_consultas {
             //pasamos los parametros de la cosnutla , en este caso el nomre del negocio
             pst.setString(1, Nombre);
             
-            int numafectada=pst.executeUpdate();//ejecutams la consulta
-              
-            if(numafectada!=0){
-                    JOptionPane.showMessageDialog(null, "Nombre de negocio agregado");
-            }else{
-                    JOptionPane.showMessageDialog(null, "No se puedo agregar el nombre del negocio");
-            }
+            
             pst.close();
             
         }catch(Exception ex){
@@ -92,6 +86,44 @@ public class configuraciones_DAO_consultas {
         }
         
     }
-    //-------------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------
+    public void Activar_Descativar_modulo_ventas(int valor){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="UPDATE configuraciones SET ModuloVentasActivo=?";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos los parametros a la consulta
+            pst.setInt(1, valor);
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+            if(numafectada!=0){
+                    //JOptionPane.showMessageDialog(null, "Nombre de negocio agregado");
+            }else{
+                    //JOptionPane.showMessageDialog(null, "No se puedo agregar el nombre del negocio");
+            }
+            pst.close();
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception
+        }
+    }
+    public ArrayList<Mod_configuraciones> EstadoModuloVentas(){
+        ArrayList estadoVentas=new ArrayList();
+        Mod_configuraciones mod_conf;
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="SELECT ModuloVentasActivo FROM configuraciones";
+            PreparedStatement pst=accesoDB.prepareCall(consulta);
+            ResultSet rs=pst.executeQuery();//ejecutamos la consulta
+            while(rs.next()){
+                mod_conf=new Mod_configuraciones();
+                mod_conf.setModuloVentasEstado(rs.getInt(1));
+                estadoVentas.add(mod_conf);
+            }
+            pst.close();//cerramos la conexion
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return estadoVentas;
+    }
     
 }
