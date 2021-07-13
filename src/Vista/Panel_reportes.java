@@ -9,6 +9,8 @@ import Modelo.Conexion;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
@@ -159,51 +161,98 @@ public class Panel_reportes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_lista_productosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productosActionPerformed
-        // TODO add your handling code here:
         Generar_reporte_listar_productos();
     }//GEN-LAST:event_btn_lista_productosActionPerformed
 
     private void btn_lista_productos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos1ActionPerformed
         // TODO add your handling code here:
         //abrimos el frame donde se eleccionara
-        R_seleccionar_producto_reporte dspr=new R_seleccionar_producto_reporte(new javax.swing.JFrame(),true);
+        D_seleccionar_producto_reporte dspr=new D_seleccionar_producto_reporte(new javax.swing.JFrame(),true);
         dspr.setVisible(true);
     }//GEN-LAST:event_btn_lista_productos1ActionPerformed
 
     private void btn_lista_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos2ActionPerformed
         // TODO add your handling code here:
+        Generar_reportes_lista_marcas();
     }//GEN-LAST:event_btn_lista_productos2ActionPerformed
 
     private void btn_lista_productos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos3ActionPerformed
         // TODO add your handling code here:
+        //hacemos visible el frame donde se escogera la facutra con la que se va a trabajar
+        new D_seleccionar_factura_reporte(new javax.swing.JFrame(),true).setVisible(true);
     }//GEN-LAST:event_btn_lista_productos3ActionPerformed
 
     private void btn_lista_productos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos4ActionPerformed
         // TODO add your handling code here:
+        //listamos todas las facturas
+        Generar_reporte_listar_facturas();
     }//GEN-LAST:event_btn_lista_productos4ActionPerformed
     private void Generar_reporte_listar_productos() {
-        try {
-            Conexion con = new Conexion();
-            Connection conn = con.getConextion();
-            //String path = "src\\Reportes\\R_lista_productos.jasper";
-            //hacemos el mapeo de los parametros
-            JasperReport reporte =(JasperReport) JRLoader.loadObject(getClass().getResource("\\Reportes\\R_lista_productos.jasper"));
+     try {
+            // TODO add your handling code here:
+            Conexion con =new Conexion();
+            Connection conn=con.getConextion();//nos conectamos al servidor
             
-            //llenamos el rpeorte
-            JasperPrint jprint = JasperFillManager.fillReport(reporte,null,conn);
+            JasperReport reporte=null;
+            String path="src\\Reportes\\R_lista_productos.jasper";
             
+            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            //llenamos el reporte
+            JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
             //creamos la vista del reporte
-            JasperViewer view = new JasperViewer(jprint, false);
-
+            JasperViewer view=new JasperViewer(jprint,false);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            JOptionPane.showMessageDialog(null, "El reporte ha sido generado con exito");
-
-            view.setVisible(true);
-            view.setTitle("IVED Lista de productos");
-           // view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
+            view.setTitle("IVED-Lsta de Productos");
+            view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+            view.setVisible(true);//hacemos visible el reporte
+        } catch (JRException ex) {
+            Logger.getLogger(Panel_reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    private void Generar_reportes_lista_marcas(){
+        //aqui generamos el reporte donde se listaran las marcas
+        try {
+            // TODO add your handling code here:
+            Conexion con =new Conexion();
+            Connection conn=con.getConextion();//nos conectamos al servidor
+            
+            JasperReport reporte=null;
+            String path="src\\Reportes\\R_lista_marcas.jasper";
+            
+            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            //llenamos el reporte
+            JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
+            //creamos la vista del reporte
+            JasperViewer view=new JasperViewer(jprint,false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setTitle("IVED-Lsta de Productos");
+            view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+            view.setVisible(true);//hacemos visible el reporte
+        } catch (JRException ex) {
+            Logger.getLogger(Panel_reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    private void Generar_reporte_listar_facturas() {
+     try {
+            // TODO add your handling code here:
+            Conexion con =new Conexion();
+            Connection conn=con.getConextion();//nos conectamos al servidor
+            
+            JasperReport reporte=null;
+            String path="src\\Reportes\\R_listar_facturas.jasper";
+            
+            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            //llenamos el reporte
+            JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
+            //creamos la vista del reporte
+            JasperViewer view=new JasperViewer(jprint,false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setTitle("IVED-Lista de Facturas");
+            view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+            view.setVisible(true);//hacemos visible el reporte
+        } catch (JRException ex) {
+            Logger.getLogger(Panel_reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }   
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -27,4 +27,7 @@ public class Ctr_usuario {
         //nos conectamos con la capa modelo y pasamos los parametros
         usuario_DAO.Agregar_usuario(user_name, contraseña);
     }
+    public void EditarUsuario(String user_name,String contraseña){
+        usuario_DAO.EditarUsuario(user_name, contraseña);
+    }
 }

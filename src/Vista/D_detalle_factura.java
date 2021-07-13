@@ -6,8 +6,21 @@
 package Vista;
 
 import Controlador.Ctr_productos;
+import Modelo.Conexion;
+import java.sql.Connection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -300,11 +313,38 @@ public class D_detalle_factura extends javax.swing.JDialog {
 
     private void btn_anular_factura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_anular_factura1ActionPerformed
         // TODO add your handling code here:
+        GenerarReporte(this.lbl_cod_factura.getText().trim());
     }//GEN-LAST:event_btn_anular_factura1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    private void GenerarReporte(String Cod){
+        try {
+            // TODO add your handling code here:
+            Conexion con =new Conexion();
+            Connection conn=con.getConextion();//nos conectamos al servidor
+            
+            JasperReport reporte=null;
+            String path="src\\Reportes\\R_Detalle_de_factura.jasper";
+            //realizamos un mapeo de los parametros que le vamos a pasar al reporte
+            Map parametro=new HashMap();
+            parametro.put("factura",Cod);
+            
+            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            //llenamos el reporte
+            JasperPrint jprint=JasperFillManager.fillReport(reporte,parametro,conn);
+            //creamos la vista del reporte
+            JasperViewer view=new JasperViewer(jprint,false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+            view.setTitle("IVED-Detalle de Factura");
+            this.dispose();
+            view.setVisible(true);//hacemos visible el reporte
+        } catch (JRException ex) {
+            Logger.getLogger(Panel_reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

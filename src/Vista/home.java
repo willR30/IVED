@@ -54,6 +54,7 @@ public class home extends javax.swing.JFrame {
         btn_reportes = new rsbuttom.RSButtonMetro();
         btn_salir = new rsbuttom.RSButtonMetro();
         btn_configuraciones = new rsbuttom.RSButtonMetro();
+        btn_ayuda = new rsbuttom.RSButtonMetro();
         panel_superior = new javax.swing.JPanel();
         panel_central = new javax.swing.JPanel();
 
@@ -177,6 +178,21 @@ public class home extends javax.swing.JFrame {
             }
         });
 
+        btn_ayuda.setBackground(new java.awt.Color(36, 36, 36));
+        btn_ayuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/informacion.png"))); // NOI18N
+        btn_ayuda.setText("        Ayuda");
+        btn_ayuda.setColorHover(new java.awt.Color(51, 102, 255));
+        btn_ayuda.setColorNormal(new java.awt.Color(36, 36, 36));
+        btn_ayuda.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_ayuda.setFocusPainted(false);
+        btn_ayuda.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_ayuda.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btn_ayuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_ayudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_lateralLayout = new javax.swing.GroupLayout(Panel_lateral);
         Panel_lateral.setLayout(Panel_lateralLayout);
         Panel_lateralLayout.setHorizontalGroup(
@@ -192,6 +208,7 @@ public class home extends javax.swing.JFrame {
                 .addComponent(lbl_pic, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(btn_ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btn_ayuda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Panel_lateralLayout.setVerticalGroup(
             Panel_lateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +227,9 @@ public class home extends javax.swing.JFrame {
                 .addComponent(btn_reportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_configuraciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_ayuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addComponent(btn_salir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -260,6 +279,7 @@ public class home extends javax.swing.JFrame {
         this.btn_inventario.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(36,36,36));
         this.btn_reportes.setColorNormal(new Color(36,36,36));
+        this.btn_ayuda.setColorNormal(new Color(36,36,36));
         
         //validamos si el modulo de ventas esta disponible
         Ctr_configuraciones ctr=new Ctr_configuraciones();
@@ -280,6 +300,7 @@ public class home extends javax.swing.JFrame {
         this.btn_ventas.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(36,36,36));
         this.btn_reportes.setColorNormal(new Color(36,36,36));
+        this.btn_ayuda.setColorNormal(new Color(36,36,36));
         
         new CambiaPanel(panel_central,new Panel_productos());//nos aeguramos de que la clase este bien escrita
         
@@ -310,6 +331,7 @@ public class home extends javax.swing.JFrame {
         this.btn_inventario.setColorNormal(new Color(36,36,36));
         this.btn_reportes.setColorNormal(new Color(51,102,255));
         this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_ayuda.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(36,36,36));
         new CambiaPanel(panel_central,new Panel_reportes());//nos aeguramos de que la clase este bien escrita
     }//GEN-LAST:event_btn_reportesActionPerformed
@@ -325,9 +347,20 @@ public class home extends javax.swing.JFrame {
         this.btn_inventario.setColorNormal(new Color(36,36,36));
         this.btn_reportes.setColorNormal(new Color(36,36,36));
         this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_ayuda.setColorNormal(new Color(36,36,36));
         this.btn_configuraciones.setColorNormal(new Color(51,102,255));
         new CambiaPanel(panel_central,new Panel_configuraciones());//nos aeguramos de que la clase este bien escrita
     }//GEN-LAST:event_btn_configuracionesActionPerformed
+
+    private void btn_ayudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ayudaActionPerformed
+        // TODO add your handling code here:
+        this.btn_inventario.setColorNormal(new Color(36,36,36));
+        this.btn_reportes.setColorNormal(new Color(36,36,36));
+        this.btn_ventas.setColorNormal(new Color(36,36,36));
+        this.btn_configuraciones.setColorNormal(new Color(36,36,36));
+        this.btn_ayuda.setColorNormal(new Color(51,102,255));
+        new CambiaPanel(panel_central,new Panel_ayuda());//nos aeguramos de que la clase este bien escrita
+    }//GEN-LAST:event_btn_ayudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -372,6 +405,7 @@ public class home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Panel_lateral;
     private rsbuttom.RSButtonMetro btn_actualizar_stock;
+    private rsbuttom.RSButtonMetro btn_ayuda;
     private rsbuttom.RSButtonMetro btn_configuraciones;
     private rsbuttom.RSButtonMetro btn_inventario;
     private rsbuttom.RSButtonMetro btn_marcas;

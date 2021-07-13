@@ -320,6 +320,16 @@ public class D_nuevo_producto extends javax.swing.JDialog {
 
     private void txt_codigoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_codigoKeyPressed
         // TODO add your handling code here:
+        //validamos que solo se agregen nuemeros
+        char validar=evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            //si es un numero, todo bien
+        }else{
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo debe escribir numeros","¡Error!",JOptionPane.ERROR_MESSAGE);
+            this.txt_codigo.setText("");
+        }
         
     }//GEN-LAST:event_txt_codigoKeyPressed
 

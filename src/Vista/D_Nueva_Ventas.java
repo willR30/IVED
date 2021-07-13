@@ -412,6 +412,11 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                 txt_id_facturaActionPerformed(evt);
             }
         });
+        txt_id_factura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_id_facturaKeyPressed(evt);
+            }
+        });
 
         Jdate_fecha.setBackground(new java.awt.Color(255, 255, 255));
         Jdate_fecha.setForeground(new java.awt.Color(0, 0, 0));
@@ -764,6 +769,20 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
         }
     }//GEN-LAST:event_Table_productos_ventasMouseClicked
+
+    private void txt_id_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_facturaKeyPressed
+        // TODO add your handling code here:
+        //validamos que solo se admitan numeros como codigo de factura
+        char validar=evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            //si es un numero, todo bien
+        }else{
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo debe escribir numeros","¡Error!",JOptionPane.ERROR_MESSAGE);
+            this.txt_id_factura.setText("");
+        }
+    }//GEN-LAST:event_txt_id_facturaKeyPressed
 
     /**
      * @param args the command line arguments

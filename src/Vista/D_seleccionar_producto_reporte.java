@@ -24,16 +24,17 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
+
 /**
  *
  * @author DELL
  */
-public class R_seleccionar_producto_reporte extends javax.swing.JDialog {
+public class D_seleccionar_producto_reporte extends javax.swing.JDialog {
 
     /**
      * Creates new form R_seleccionar_producto_reporte
      */
-    public R_seleccionar_producto_reporte(java.awt.Frame parent, boolean modal) {
+    public D_seleccionar_producto_reporte(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setPropiedadesIniciales();
@@ -121,39 +122,8 @@ public class R_seleccionar_producto_reporte extends javax.swing.JDialog {
         // TODO add your handling code here:
         if (evt.getClickCount() == 2) {
             int select = this.Jtable_productos.rowAtPoint(evt.getPoint());
-
-            try {
-            // TODO add your handling code here:
-                //llamamos a la conexion
-                String codigo_producto=this.Jtable_productos.getValueAt(select,0).toString();
-                Conexion con = new Conexion();
-                Connection conn = con.getConextion();
-
-                //JasperReport reporte=null;
-                String path = "src\\Reportes\\R_informes_grupo_periodo.jasper";
-
-                //hacemos el mapeo de los parametros
-                Map parametro = new HashMap();
-                parametro.put("codigo",codigo_producto);
-
-//              JasperReport reporte=reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
-                JasperReport reporte = (JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_detalle_producto.jasper"));
-                //llenamos el rpeorte
-                JasperPrint jprint = JasperFillManager.fillReport(reporte, parametro, conn);
-
-                //creamos la vista del reporte
-                JasperViewer view = new JasperViewer(jprint, false);
-
-                view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                JOptionPane.showMessageDialog(null, "El reporte ha sido generado con exito");
-                this.dispose();
-                view.setVisible(true);
-                view.setTitle("IDCO-Detalle de informes por grupo y periodo");
-
-            } catch (JRException ex) {
-                Logger.getLogger(R_seleccionar_producto_reporte.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
+            String Cod=this.Jtable_productos.getValueAt(select,0).toString();
+            GenerarReporte(Cod);
         }
     }//GEN-LAST:event_Jtable_productosMouseClicked
 
@@ -164,6 +134,32 @@ public class R_seleccionar_producto_reporte extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
+    private void GenerarReporte(String Cod){
+        try {
+            // TODO add your handling code here:
+            Conexion con =new Conexion();
+            Connection conn=con.getConextion();//nos conectamos al servidor
+            
+            JasperReport reporte=null;
+            String path="src\\Reportes\\R_detalle_producto.jasper";
+            //realizamos un mapeo de los parametros que le vamos a pasar al reporte
+            Map parametro=new HashMap();
+            parametro.put("codigo",Cod);
+            
+            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            //llenamos el reporte
+            JasperPrint jprint=JasperFillManager.fillReport(reporte,parametro,conn);
+            //creamos la vista del reporte
+            JasperViewer view=new JasperViewer(jprint,false);
+            view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
+            view.setTitle("IVED-Detalle de Producto");
+            this.dispose();
+            view.setVisible(true);//hacemos visible el reporte
+        } catch (JRException ex) {
+            Logger.getLogger(Panel_reportes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void setPropiedadesIniciales() {
         this.setTitle("IVED-Selecciona un producto para ver sus detalles");
         this.setLocationRelativeTo(null);
@@ -175,6 +171,8 @@ public class R_seleccionar_producto_reporte extends javax.swing.JDialog {
         //llenamos el jtable con los productos
         Ctr_productos ctr = new Ctr_productos();
         ctr.llenar_tabla_grupos(Jtable_productos);
+        
+        
     }
 
     public static void main(String args[]) {
@@ -191,20 +189,21 @@ public class R_seleccionar_producto_reporte extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(R_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(D_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(R_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(D_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(R_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(D_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(R_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(D_seleccionar_producto_reporte.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                R_seleccionar_producto_reporte dialog = new R_seleccionar_producto_reporte(new javax.swing.JFrame(), true);
+                D_seleccionar_producto_reporte dialog = new D_seleccionar_producto_reporte(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

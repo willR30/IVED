@@ -39,33 +39,72 @@ public class Panel_configuraciones extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         Check_modulo_ventas = new javax.swing.JCheckBox();
-        Check_modulo_ventas1 = new javax.swing.JCheckBox();
+        btn_lista_productos1 = new rsbuttom.RSButtonMetro();
+        btn_lista_productos2 = new rsbuttom.RSButtonMetro();
+        btn_lista_productos3 = new rsbuttom.RSButtonMetro();
 
         setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.LINE_AXIS));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        Check_modulo_ventas.setBackground(new java.awt.Color(255, 255, 255));
+        Check_modulo_ventas.setBackground(new java.awt.Color(51, 102, 255));
         Check_modulo_ventas.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        Check_modulo_ventas.setForeground(new java.awt.Color(0, 0, 0));
+        Check_modulo_ventas.setForeground(new java.awt.Color(255, 255, 255));
         Check_modulo_ventas.setSelected(true);
-        Check_modulo_ventas.setText("Modulo de ventas");
+        Check_modulo_ventas.setText("    Modulo de ventas");
+        Check_modulo_ventas.setToolTipText("");
         Check_modulo_ventas.setFocusable(false);
+        Check_modulo_ventas.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         Check_modulo_ventas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 Check_modulo_ventasItemStateChanged(evt);
             }
         });
+        Check_modulo_ventas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Check_modulo_ventasActionPerformed(evt);
+            }
+        });
 
-        Check_modulo_ventas1.setBackground(new java.awt.Color(255, 255, 255));
-        Check_modulo_ventas1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        Check_modulo_ventas1.setForeground(new java.awt.Color(0, 0, 0));
-        Check_modulo_ventas1.setSelected(true);
-        Check_modulo_ventas1.setText("Modulo Actualizar Stock");
-        Check_modulo_ventas1.setFocusable(false);
-        Check_modulo_ventas1.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                Check_modulo_ventas1ItemStateChanged(evt);
+        btn_lista_productos1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_lista_productos1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/usuario.png"))); // NOI18N
+        btn_lista_productos1.setText("Datos de usuario");
+        btn_lista_productos1.setColorHover(new java.awt.Color(36, 36, 36));
+        btn_lista_productos1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_lista_productos1.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_lista_productos1.setFocusPainted(false);
+        btn_lista_productos1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_lista_productos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_lista_productos1ActionPerformed(evt);
+            }
+        });
+
+        btn_lista_productos2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_lista_productos2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga-directa.png"))); // NOI18N
+        btn_lista_productos2.setText("Respaldo de Datos");
+        btn_lista_productos2.setColorHover(new java.awt.Color(36, 36, 36));
+        btn_lista_productos2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_lista_productos2.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_lista_productos2.setFocusPainted(false);
+        btn_lista_productos2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_lista_productos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_lista_productos2ActionPerformed(evt);
+            }
+        });
+
+        btn_lista_productos3.setBackground(new java.awt.Color(51, 102, 255));
+        btn_lista_productos3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/subir.png"))); // NOI18N
+        btn_lista_productos3.setText("Cargar datos Respaldados");
+        btn_lista_productos3.setColorHover(new java.awt.Color(36, 36, 36));
+        btn_lista_productos3.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_lista_productos3.setColorPressed(new java.awt.Color(84, 88, 91));
+        btn_lista_productos3.setFocusPainted(false);
+        btn_lista_productos3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        btn_lista_productos3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_lista_productos3ActionPerformed(evt);
             }
         });
 
@@ -76,18 +115,24 @@ public class Panel_configuraciones extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Check_modulo_ventas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Check_modulo_ventas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_lista_productos1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_lista_productos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_lista_productos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Check_modulo_ventas, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE))
                 .addContainerGap(763, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(Check_modulo_ventas)
-                .addGap(36, 36, 36)
-                .addComponent(Check_modulo_ventas1)
-                .addContainerGap(429, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(Check_modulo_ventas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(btn_lista_productos1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btn_lista_productos2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btn_lista_productos3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         add(jPanel1);
@@ -105,14 +150,31 @@ public class Panel_configuraciones extends javax.swing.JPanel {
         
     }//GEN-LAST:event_Check_modulo_ventasItemStateChanged
 
-    private void Check_modulo_ventas1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_Check_modulo_ventas1ItemStateChanged
+    private void btn_lista_productos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Check_modulo_ventas1ItemStateChanged
+        //abrimos el frame donde se eleccionara
+        D_editar_datos_usuario du=new D_editar_datos_usuario(new javax.swing.JFrame(),true);
+        du.setVisible(true);
+    }//GEN-LAST:event_btn_lista_productos1ActionPerformed
+
+    private void btn_lista_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_lista_productos2ActionPerformed
+
+    private void btn_lista_productos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_lista_productos3ActionPerformed
+
+    private void Check_modulo_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Check_modulo_ventasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Check_modulo_ventasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox Check_modulo_ventas;
-    private javax.swing.JCheckBox Check_modulo_ventas1;
+    private rsbuttom.RSButtonMetro btn_lista_productos1;
+    private rsbuttom.RSButtonMetro btn_lista_productos2;
+    private rsbuttom.RSButtonMetro btn_lista_productos3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

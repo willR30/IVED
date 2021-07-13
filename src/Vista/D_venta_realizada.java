@@ -5,14 +5,27 @@
  */
 package Vista;
 
+import Modelo.Conexion;
 import java.awt.image.ImageObserver;
+import java.sql.Connection;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -90,7 +103,6 @@ public class D_venta_realizada extends javax.swing.JDialog {
         lbl_subtotal = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         Table_productos_ventas = new javax.swing.JTable();
-        btn_buscar4 = new rsbuttom.RSButtonMetro();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -182,19 +194,6 @@ public class D_venta_realizada extends javax.swing.JDialog {
             Table_productos_ventas.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
-        btn_buscar4.setBackground(new java.awt.Color(51, 102, 255));
-        btn_buscar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/descarga-directa.png"))); // NOI18N
-        btn_buscar4.setText("Guardar");
-        btn_buscar4.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar4.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_buscar4.setFocusable(false);
-        btn_buscar4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_buscar4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_buscar4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -213,7 +212,7 @@ public class D_venta_realizada extends javax.swing.JDialog {
                                 .addGap(12, 12, 12)
                                 .addComponent(lbl_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel5)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,9 +224,7 @@ public class D_venta_realizada extends javax.swing.JDialog {
                                     .addGap(78, 78, 78)
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_total)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btn_buscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbl_total))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 752, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_cliente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 753, javax.swing.GroupLayout.PREFERRED_SIZE)))))
@@ -270,11 +267,8 @@ public class D_venta_realizada extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(lbl_total)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btn_buscar4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(lbl_total))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, "card2");
@@ -291,13 +285,11 @@ public class D_venta_realizada extends javax.swing.JDialog {
         
     }//GEN-LAST:event_Table_productos_ventasMouseClicked
 
-    private void btn_buscar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_buscar4ActionPerformed
-
     /**
      * @param args the command line arguments
      */
+    
+    
     private void setValoresIniciales(){
         
         try{
@@ -355,7 +347,6 @@ public class D_venta_realizada extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Table_productos_ventas;
-    private rsbuttom.RSButtonMetro btn_buscar4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

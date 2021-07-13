@@ -57,7 +57,7 @@ public class usuario_DAO_consultas {
         Mod_usuario login_usuario = null;
         try {
             Connection accesoDB = conx.getConextion();//nos conectamos al servidor
-            String consulta = "SELECT usuario,contra FROM usuario WHERE ID_usuario=3";
+            String consulta = "SELECT usuario,contra FROM usuario";
             PreparedStatement ps = accesoDB.prepareStatement(consulta);
              //pasamos los parametros a la consulta
 
@@ -67,7 +67,7 @@ public class usuario_DAO_consultas {
             while (rs.next()) {
                 login_usuario = new Mod_usuario();
                 login_usuario.setUsuario(rs.getString(1));
-
+                login_usuario.setContra(rs.getString(2));
                 log.add(login_usuario);
             }
             accesoDB.close();//cerramos la conexion a la base de datos
@@ -103,6 +103,28 @@ public class usuario_DAO_consultas {
             JOptionPane.showMessageDialog(null, ex);//hacemos visibles las exception
         }
 
+    }
+    public void EditarUsuario(String user_name, String contraseña){
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="UPDATE usuario SET usuario=?,contra=?";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos los parametros a la consulta
+            pst.setString(1,user_name);
+            pst.setString(2,contraseña);
+            
+            int numafectada = pst.executeUpdate();
+
+            if (numafectada < 0) {
+                JOptionPane.showMessageDialog(null, "Error al Actualiar usuario", "¡Error!", JOptionPane.ERROR_MESSAGE);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario Actualizado", "Completado", JOptionPane.INFORMATION_MESSAGE);
+            }
+            pst.close();//cerramos la conexion
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
     }
 
 }
