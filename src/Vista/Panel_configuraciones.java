@@ -159,6 +159,7 @@ public class Panel_configuraciones extends javax.swing.JPanel {
 
     private void btn_lista_productos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos2ActionPerformed
         // TODO add your handling code here:
+        new D_descargar_datos(new javax.swing.JFrame(),true).setVisible(true);
     }//GEN-LAST:event_btn_lista_productos2ActionPerformed
 
     private void btn_lista_productos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos3ActionPerformed

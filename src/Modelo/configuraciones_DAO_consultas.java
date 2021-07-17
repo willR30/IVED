@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -124,6 +125,21 @@ public class configuraciones_DAO_consultas {
             JOptionPane.showMessageDialog(null, ex);
         }
         return estadoVentas;
+    }
+    private void DescargarDatos(String ruta){//solamente resivimos la ruta donde se va a guardar el respaldo
+        //nos conectamos con la clase conexion para obtener el usuario y la conexion
+        String usuario="root",password=null,rutabackup=ruta,bd="idco";
+        try {
+            //omitimos el parametro para la contraseña puesto que el servidor no tendrá contraseña 
+            //si no lo omitimos se quedará esperando una contraseña que nunca llegara y por lo tanto el servidor se quedara pegado
+            //la cadena de t texto debera pasarce tal cual esta indicada abajo
+            String command = "C:\\wamp\\bin\\mysql\\mysql5.5.24\\bin\\mysqldump --opt -u "+usuario+" "+bd+" -r"+rutabackup;
+            Runtime rt = Runtime.getRuntime();
+            rt.exec(command);
+            JOptionPane.showMessageDialog(null,"Backup creado exitosamente!");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            }
     }
     
 }
