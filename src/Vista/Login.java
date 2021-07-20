@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        
+        initComponents();
         //establecemos las propiedades iniciales para el formulario
         mostrar_login();
         
@@ -203,7 +203,7 @@ public class Login extends javax.swing.JFrame {
             }
     }
     public void mostrar_login(){
-        initComponents();//iniciamos los componentes del formulario
+        //iniciamos los componentes del formulario
         establecer_propiedades_iniciales();//llamamos al metodo de las propiedades iniciales
         Mostrarlogo();
     }
