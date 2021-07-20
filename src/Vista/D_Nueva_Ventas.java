@@ -823,6 +823,7 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         this.txt_total.setText("0.0");
         this.txt_cliente.setText("");
         this.txt_id_factura.setText("");
+        this.controlador_de_rows=0;
     }
 
     public static void main(String args[]) {

@@ -5,11 +5,16 @@
  */
 package Modelo;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -126,9 +131,10 @@ public class configuraciones_DAO_consultas {
         }
         return estadoVentas;
     }
-    private void DescargarDatos(String ruta){//solamente resivimos la ruta donde se va a guardar el respaldo
-        //nos conectamos con la clase conexion para obtener el usuario y la conexion
-        String usuario="root",password=null,rutabackup=ruta,bd="idco";
+    public void DescargarDatos(String ruta){//solamente resivimos la ruta donde se va a guardar el respaldo
+        //nos conectamos con la clase conexion para obtener el usuario y la contraseña
+        Conexion conexion=new Conexion();
+        String usuario=conexion.getUser(),password=conexion.getContra(),rutabackup=ruta,bd="ived";
         try {
             //omitimos el parametro para la contraseña puesto que el servidor no tendrá contraseña 
             //si no lo omitimos se quedará esperando una contraseña que nunca llegara y por lo tanto el servidor se quedara pegado
@@ -140,6 +146,74 @@ public class configuraciones_DAO_consultas {
         } catch (IOException ex) {
             ex.printStackTrace();
             }
+    }
+    public void Restaurar_Backup(String ruta) {
+       //boton de restaurar los datos
+        Conexion conexion=new Conexion();
+        String usuario=conexion.getUser(),contraseña=conexion.getContra();
+        try{
+            String comando="C:\\wamp\\bin\\mysql\\mysql5.5.24\\bin\\mysql -u "+usuario+" ived";
+            Process p=Runtime.getRuntime().exec(comando);
+            OutputStream os=p.getOutputStream();
+            FileInputStream fis=new FileInputStream(ruta);
+            
+            byte[] buffer =new byte[1000];
+            
+            int leido=fis.read(buffer);
+            
+            while(leido>0){
+                os.write(buffer,0,leido);
+                leido=fis.read(buffer);
+            }
+            //cerramos todas las conexiones que teniamos
+            os.flush();
+            os.close();
+            fis.close();
+            JOptionPane.showMessageDialog(null,"Los datos fueron cargados exitosamente! :-)");
+            
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
+    public void ActivarProducto(){
+        Connection accesoDB=conx.getConextion();
+        String consulta="UPDATE configuraciones SET ProductoActivado=?";
+        try {
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);
+            //pasamos los parametros de la consulta
+            pst.setInt(1,1);
+            int numafectada=pst.executeUpdate();//ejecutams la consulta
+              
+            if(numafectada!=0){
+                    JOptionPane.showMessageDialog(null, "Producto Activado");
+            }else{
+                    JOptionPane.showMessageDialog(null, "No se pudo Activar el producto");
+            }
+            pst.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(configuraciones_DAO_consultas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public ArrayList<Mod_configuraciones>  EstadoProducto(){
+        ArrayList estado_producto=new ArrayList();
+        Mod_configuraciones mcon=null;
+        try{
+            Connection accesoDB=conx.getConextion();//nos conectamos al servidor
+            String consulta="SELECT ProductoActivado FROM configuraciones ";
+            PreparedStatement pst=accesoDB.prepareStatement(consulta);//pasamos la consulta al servidor
+            ResultSet rs=pst.executeQuery();//ejecutamos la consulta
+            while(rs.next()){
+                mcon=new Mod_configuraciones();
+                mcon.setProductoActivado(rs.getInt(1));
+                estado_producto.add(mcon);
+            }
+            pst.close();//cerramos la conexion
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);//hacemos visible la exception
+        }
+        return estado_producto;
     }
     
 }

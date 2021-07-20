@@ -164,6 +164,7 @@ public class Panel_configuraciones extends javax.swing.JPanel {
 
     private void btn_lista_productos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_lista_productos3ActionPerformed
         // TODO add your handling code here:
+        new D_cargar_datos(new javax.swing.JFrame(),true).setVisible(true);
     }//GEN-LAST:event_btn_lista_productos3ActionPerformed
 
     private void Check_modulo_ventasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Check_modulo_ventasActionPerformed

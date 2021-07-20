@@ -13,6 +13,7 @@ public class Mod_configuraciones {
     private int Usuario_creado_val;//validará el si el usario ha sido creado o no , solo admitirá un usuario en el software
     private String Nombre_negocio;
     private int ModuloVentasEstado;
+    private int ProductoActivado;
     
     public int getUsuario_creado_val() {
         return Usuario_creado_val;
@@ -36,6 +37,14 @@ public class Mod_configuraciones {
 
     public void setModuloVentasEstado(int ModuloVentasEstado) {
         this.ModuloVentasEstado = ModuloVentasEstado;
+    }
+
+    public int getProductoActivado() {
+        return ProductoActivado;
+    }
+
+    public void setProductoActivado(int ProductoActivado) {
+        this.ProductoActivado = ProductoActivado;
     }
 
    

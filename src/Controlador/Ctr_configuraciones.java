@@ -36,5 +36,17 @@ public class Ctr_configuraciones {
     public int EstadoModuloVentas(){
         return conf_DAO.EstadoModuloVentas().get(0).getModuloVentasEstado();
     }
+    public void ActivarProducto(){
+        conf_DAO.ActivarProducto();
+    }
+    public int EstadoProducto(){
+        return conf_DAO.EstadoProducto().get(0).getProductoActivado();//nos conectamos con el metodo del servidor
+    }
+    public void DescargarDatos(String ruta){
+        conf_DAO.DescargarDatos(ruta);
+    }
+    public void CargarDatos(String ruta){
+        conf_DAO.Restaurar_Backup(ruta);
+    }
         
 }

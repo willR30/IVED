@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.Ctr_configuraciones;
+import Modelo.main;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -56,11 +58,10 @@ public class Activacion_proucto extends javax.swing.JFrame {
         txt_cod2 = new javax.swing.JTextField();
         txt_cod3 = new javax.swing.JTextField();
         txt_cod4 = new javax.swing.JTextField();
-        btn_actualizar_usuario = new rsbuttom.RSButtonMetro();
-        btn_actualizar_usuario1 = new rsbuttom.RSButtonMetro();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        btn_activar = new rsbuttom.RSButtonMetro();
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,32 +112,6 @@ public class Activacion_proucto extends javax.swing.JFrame {
             }
         });
 
-        btn_actualizar_usuario.setBackground(new java.awt.Color(51, 102, 255));
-        btn_actualizar_usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
-        btn_actualizar_usuario.setText("Activar");
-        btn_actualizar_usuario.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_actualizar_usuario.setColorNormal(new java.awt.Color(51, 102, 255));
-        btn_actualizar_usuario.setFocusPainted(false);
-        btn_actualizar_usuario.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_actualizar_usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_actualizar_usuarioActionPerformed(evt);
-            }
-        });
-
-        btn_actualizar_usuario1.setBackground(new java.awt.Color(255, 27, 45));
-        btn_actualizar_usuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Listo.png"))); // NOI18N
-        btn_actualizar_usuario1.setText("Cancelar");
-        btn_actualizar_usuario1.setColorHover(new java.awt.Color(102, 102, 102));
-        btn_actualizar_usuario1.setColorNormal(new java.awt.Color(255, 27, 45));
-        btn_actualizar_usuario1.setFocusPainted(false);
-        btn_actualizar_usuario1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        btn_actualizar_usuario1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_actualizar_usuario1ActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("-");
@@ -149,6 +124,19 @@ public class Activacion_proucto extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("-");
 
+        btn_activar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_activar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/candado.png"))); // NOI18N
+        btn_activar.setText("Activar");
+        btn_activar.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_activar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_activar.setFocusable(false);
+        btn_activar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_activar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_activarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -156,28 +144,26 @@ public class Activacion_proucto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_actualizar_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_actualizar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txt_cod1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel5)
-                                .addGap(16, 16, 16)
-                                .addComponent(txt_cod2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel6)
-                                .addGap(13, 13, 13)
-                                .addComponent(txt_cod3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel8)))
+                        .addComponent(txt_cod1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addGap(16, 16, 16)
+                        .addComponent(txt_cod2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
                         .addGap(13, 13, 13)
-                        .addComponent(txt_cod4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_cod3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)))
+                .addGap(13, 13, 13)
+                .addComponent(txt_cod4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_activar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,10 +180,8 @@ public class Activacion_proucto extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_actualizar_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_actualizar_usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btn_activar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1);
@@ -233,6 +217,16 @@ public class Activacion_proucto extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_cod4KeyPressed
 
     private void btn_actualizar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_usuarioActionPerformed
+        
+
+    }//GEN-LAST:event_btn_actualizar_usuarioActionPerformed
+
+    private void btn_actualizar_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_usuario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_actualizar_usuario1ActionPerformed
+
+    private void btn_activarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_activarActionPerformed
+        // TODO add your handling code here:
         try {
             // TODO add your handling code here:
             //validamos que la ruta no esté vacía
@@ -245,12 +239,7 @@ public class Activacion_proucto extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Activacion_proucto.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }//GEN-LAST:event_btn_actualizar_usuarioActionPerformed
-
-    private void btn_actualizar_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizar_usuario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_actualizar_usuario1ActionPerformed
+    }//GEN-LAST:event_btn_activarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -288,7 +277,12 @@ public class Activacion_proucto extends javax.swing.JFrame {
 
     private void validar_activacion_producto(String code_usuario, String fichero) {
         if (code_usuario.equals(fichero)) {
-            JOptionPane.showMessageDialog(null, "El producto fué Activado");
+            Ctr_configuraciones ctr=new Ctr_configuraciones();
+            ctr.ActivarProducto();
+            main m=new main();
+            main.ValidarLoginCreacionUsuario();
+            this.dispose();
+            //JOptionPane.showMessageDialog(null, "Producto Activado");
         } else {
             JOptionPane.showMessageDialog(null, "El producto no pudo ser Activado");
         }
@@ -406,8 +400,7 @@ public class Activacion_proucto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private rsbuttom.RSButtonMetro btn_actualizar_usuario;
-    private rsbuttom.RSButtonMetro btn_actualizar_usuario1;
+    private rsbuttom.RSButtonMetro btn_activar;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
