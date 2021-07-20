@@ -25,7 +25,7 @@ public class home extends javax.swing.JFrame {
         //propiedades iniciales
         this.setExtendedState(MAXIMIZED_BOTH);//aqui ponemos por defecto maximizado este jframe
         this.setDefaultCloseOperation(0);//evitamos que se cierre el formulario al oprimirce la X
-        this.setTitle("Sistema de Invetariado Digital IVED");
+        this.setTitle("IVED");
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         this.btn_inventario.setColorNormal(new Color(51,102,255));
         Mostrarlogo();

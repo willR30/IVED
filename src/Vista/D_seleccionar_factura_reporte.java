@@ -154,7 +154,7 @@ public class D_seleccionar_factura_reporte extends javax.swing.JDialog {
             Map parametro=new HashMap();
             parametro.put("factura",Cod);
             
-            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte=(JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_Detalle_de_factura.jasper"));
             //llenamos el reporte
             JasperPrint jprint=JasperFillManager.fillReport(reporte,parametro,conn);
             //creamos la vista del reporte

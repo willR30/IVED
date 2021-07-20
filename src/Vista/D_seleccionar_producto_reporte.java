@@ -146,7 +146,7 @@ public class D_seleccionar_producto_reporte extends javax.swing.JDialog {
             Map parametro=new HashMap();
             parametro.put("codigo",Cod);
             
-            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte=(JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_detalle_producto.jasper"));
             //llenamos el reporte
             JasperPrint jprint=JasperFillManager.fillReport(reporte,parametro,conn);
             //creamos la vista del reporte

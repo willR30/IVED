@@ -196,13 +196,14 @@ public class Panel_reportes extends javax.swing.JPanel {
             JasperReport reporte=null;
             String path="src\\Reportes\\R_lista_productos.jasper";
             
-            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            
+            reporte=(JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_lista_productos.jasper"));
             //llenamos el reporte
             JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
             //creamos la vista del reporte
             JasperViewer view=new JasperViewer(jprint,false);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            view.setTitle("IVED-Lsta de Productos");
+            view.setTitle("IVED-Lista de Productos");
             view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
             view.setVisible(true);//hacemos visible el reporte
         } catch (JRException ex) {
@@ -219,13 +220,13 @@ public class Panel_reportes extends javax.swing.JPanel {
             JasperReport reporte=null;
             String path="src\\Reportes\\R_lista_marcas.jasper";
             
-            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte=(JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_lista_marcas.jasper"));
             //llenamos el reporte
             JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
             //creamos la vista del reporte
             JasperViewer view=new JasperViewer(jprint,false);
             view.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-            view.setTitle("IVED-Lsta de Productos");
+            view.setTitle("IVED-Lista de Marcas");
             view.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
             view.setVisible(true);//hacemos visible el reporte
         } catch (JRException ex) {
@@ -241,7 +242,7 @@ public class Panel_reportes extends javax.swing.JPanel {
             JasperReport reporte=null;
             String path="src\\Reportes\\R_listar_facturas.jasper";
             
-            reporte=(JasperReport) JRLoader.loadObjectFromFile(path);
+            reporte=(JasperReport) JRLoader.loadObject(getClass().getResource("/Reportes/R_listar_facturas.jasper"));
             //llenamos el reporte
             JasperPrint jprint=JasperFillManager.fillReport(reporte, null,conn);
             //creamos la vista del reporte
