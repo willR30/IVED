@@ -22,5 +22,8 @@ public class Ctr_usuario {
     public void listar_usuario(JTextField txt_usuario,JTextField txt_contraseña){
         txt_usuario.setText(usuario_DAO.listar_usuario().get(0).getUsuario());
         txt_contraseña.setText(usuario_DAO.listar_usuario().get(0).getContra());
+    }    
+    public void EditarUsuario(String usuario,String contraseña){
+        usuario_DAO.EditarUsuario(usuario, contraseña);
     }
 }

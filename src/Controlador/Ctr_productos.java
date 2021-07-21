@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -72,7 +73,7 @@ public class Ctr_productos {
     public void actualizar_cantidad(int nueva_cantidad,int id){
         productos_DAO.editar_catidad(nueva_cantidad, id);
     }
-    public void buscar_por_ID(int ID,JTextField txt_codigo,JTextField txt_nombre,JComboBox cbx_marca,JTextField txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
+    public void buscar_por_ID(int ID,JTextField txt_codigo,JTextField txt_nombre,JComboBox cbx_marca,JTextArea txt_descripcion,JTextField txt_cantidad,JTextField txt_precio){
         
         txt_nombre.setText(productos_DAO.buscar_por_ID(ID).get(0).getNombre());
         cbx_marca.setSelectedItem(productos_DAO.buscar_por_ID(ID).get(0).getMarca());

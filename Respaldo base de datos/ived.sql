@@ -42,13 +42,6 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`ID_producto`, `Nombre`, `Marca`, `Descripcion`, `Cantidad`, `Codigo_catalago`, `Precio`) VALUES
-(1, 'Crema Avena', 'Oriflame', 'hidrata la cara ,aplicarce por la noche', 20, 'CRk2021', 150),
-(2, 'Shampoo Natural', 'Oriflame', 'repara cabellos maltratados por color', 2, '1234', 22.5),
-(3, 'Jabon de fresa', 'Oriflame', 'jabon para granos', 60, 'asdf', 260.33),
-(4, 'volare', 'Oriflame', 'es perfume para mujer', 40, '4567', 150),
-(5, 'Mascarilla de aguacate', 'Oriflame', 'elimina los granos usar por la noche', 23, '3366', 600);
-
 -- --------------------------------------------------------
 
 --
@@ -66,7 +59,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID_usuario`, `usuario`, `contra`) VALUES
-(3, 'ger', 'asd');
+(3, 'Administrador', 'asd');
 
 --
 -- Índices para tablas volcadas

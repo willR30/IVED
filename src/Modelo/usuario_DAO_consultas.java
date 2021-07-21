@@ -69,6 +69,7 @@ public class usuario_DAO_consultas {
              while(rs.next()){
                  login_usuario=new Mod_usuario();
                  login_usuario.setUsuario(rs.getString(1));
+                 login_usuario.setContra(rs.getString(2));
                  
                  log.add(login_usuario);
              }
@@ -79,5 +80,29 @@ public class usuario_DAO_consultas {
          }
          return log;//retornamos el objeto
      }
+      //-----------------------------------------------------------------------------------------
+      public void EditarUsuario(String usuario,String contraseña){
+          try{
+              Connection accesoDB=conx.getConextion();
+              String consulta="UPDATE usuario SET usuario=?,contra=?";
+              PreparedStatement pst=accesoDB.prepareCall(consulta);
+              //pasamos los parametros de la consulta
+              pst.setString(1, usuario);
+              pst.setString(2, contraseña);
+               int numafectada =pst.executeUpdate();
+            
+            if(numafectada<0){
+                JOptionPane.showMessageDialog(null,"Error al Actualizar");
+                
+            }else{
+                JOptionPane.showMessageDialog(null,"Usuario Actualizado");
+            }
+            pst.close();//cerramos la conexion
+              
+              
+          }catch(Exception ex){
+              JOptionPane.showMessageDialog(null, ex);
+          }
+      }
       
 }

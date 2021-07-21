@@ -21,7 +21,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("IVED-Entradas y/o Salidas de productos");
+        this.setTitle("Entradas y/o Salidas de productos");
     }
 
     /**
@@ -175,10 +175,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         spiner_unidades_entrantes_salientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         spiner_unidades_entrantes_salientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        btn_buscar1.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setBackground(new java.awt.Color(3, 152, 158));
         btn_buscar1.setText("Agregar unidades");
         btn_buscar1.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar1.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar1.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_buscar1.setFocusable(false);
         btn_buscar1.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,10 +187,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
             }
         });
 
-        btn_buscar2.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setBackground(new java.awt.Color(3, 152, 158));
         btn_buscar2.setText("Retirar Unidades");
         btn_buscar2.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar2.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar2.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_buscar2.setFocusable(false);
         btn_buscar2.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,10 +230,11 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel7.setText("Cantidad de unidades:");
 
-        btn_buscar.setBackground(new java.awt.Color(51, 102, 255));
+        btn_buscar.setBackground(new java.awt.Color(3, 152, 158));
         btn_buscar.setText("Buscar");
         btn_buscar.setColorHover(new java.awt.Color(0, 0, 0));
-        btn_buscar.setColorNormal(new java.awt.Color(51, 102, 255));
+        btn_buscar.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_buscar.setFocusable(false);
         btn_buscar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +284,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
