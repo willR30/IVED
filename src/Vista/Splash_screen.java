@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author DELL
@@ -17,6 +19,7 @@ public class Splash_screen extends javax.swing.JFrame {
     public Splash_screen() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
     }
 
     /**

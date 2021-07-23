@@ -42,6 +42,8 @@ public class home extends javax.swing.JFrame {
         btn_entradas = new rsbuttom.RSButtonMetro();
         btn_entrar5 = new rsbuttom.RSButtonMetro();
         jLabel1 = new javax.swing.JLabel();
+        btn_entrar6 = new rsbuttom.RSButtonMetro();
+        btn_entrar7 = new rsbuttom.RSButtonMetro();
         panel_central = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -109,33 +111,65 @@ public class home extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/K (7).png"))); // NOI18N
 
+        btn_entrar6.setBackground(new java.awt.Color(3, 152, 158));
+        btn_entrar6.setText("Soporte");
+        btn_entrar6.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar6.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_entrar6.setFocusPainted(false);
+        btn_entrar6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrar6ActionPerformed(evt);
+            }
+        });
+
+        btn_entrar7.setBackground(new java.awt.Color(3, 152, 158));
+        btn_entrar7.setText("Acerca de");
+        btn_entrar7.setColorHover(new java.awt.Color(102, 102, 102));
+        btn_entrar7.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_entrar7.setFocusPainted(false);
+        btn_entrar7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        btn_entrar7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_entrar7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel_superiorLayout = new javax.swing.GroupLayout(panel_superior);
         panel_superior.setLayout(panel_superiorLayout);
         panel_superiorLayout.setHorizontalGroup(
             panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_superiorLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btn_entrar5, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_entradas, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_entrar6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_entrar7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_entrar4, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(jLabel1))
         );
         panel_superiorLayout.setVerticalGroup(
             panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel_superiorLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btn_entradas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_entrar4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_entrar5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panel_superiorLayout.createSequentialGroup()
+                        .addGroup(panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_entradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_entrar4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_entrar5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_entrar6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_entrar7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(6, 6, 6))))
         );
 
         panel_central.setBackground(new java.awt.Color(102, 102, 102));
@@ -150,12 +184,10 @@ public class home extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(panel_central, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 472, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(panel_central, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,13 +217,23 @@ public class home extends javax.swing.JFrame {
         while(d.isShowing()){
             //no hace nada
         }
-        new CambiaPanel(panel_central,new Panel_home());//nos aeguramos de que la clase este bien escrita
+        new CambiaPanel(panel_central,new Panel_home());
     }//GEN-LAST:event_btn_entradasActionPerformed
 
     private void btn_entrar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar5ActionPerformed
         // TODO add your handling code here:
         new D_editar_usuario(this,true).setVisible(true);
     }//GEN-LAST:event_btn_entrar5ActionPerformed
+
+    private void btn_entrar6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar6ActionPerformed
+        // TODO add your handling code here:
+        new D_vista_soporte(new javax.swing.JFrame(),true).setVisible(true);
+    }//GEN-LAST:event_btn_entrar6ActionPerformed
+
+    private void btn_entrar7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrar7ActionPerformed
+        // TODO add your handling code here:
+        new D_acerca_de(new javax.swing.JFrame(),true).setVisible(true);
+    }//GEN-LAST:event_btn_entrar7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,6 +274,8 @@ public class home extends javax.swing.JFrame {
     private rsbuttom.RSButtonMetro btn_entradas;
     private rsbuttom.RSButtonMetro btn_entrar4;
     private rsbuttom.RSButtonMetro btn_entrar5;
+    private rsbuttom.RSButtonMetro btn_entrar6;
+    private rsbuttom.RSButtonMetro btn_entrar7;
     private rsbuttom.RSButtonMetro btn_home;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

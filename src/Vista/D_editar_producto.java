@@ -71,6 +71,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
+        txt_nombre.setBorder(null);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Marca");
@@ -84,12 +85,14 @@ public class D_editar_producto extends javax.swing.JDialog {
         txt_cantidad.setEditable(false);
         txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
+        txt_cantidad.setBorder(null);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel8.setText("Codigo Catalago");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_codigo.setForeground(new java.awt.Color(0, 0, 0));
+        txt_codigo.setBorder(null);
         txt_codigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_codigoActionPerformed(evt);
@@ -101,6 +104,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         btn_home.setForeground(new java.awt.Color(255, 255, 255));
         btn_home.setText("Editar");
         btn_home.setBorder(null);
+        btn_home.setFocusPainted(false);
         btn_home.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_homeActionPerformed(evt);
@@ -108,7 +112,7 @@ public class D_editar_producto extends javax.swing.JDialog {
         });
 
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Oriflame", "Avon", "Arabela", "Otra" }));
+        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avon", "Arabela", "Colgate", "Coca-Cola", "Faisan", "Maggi", "Marfil", "Maseca", "Naturas", "Nivea", "Oriflame", "Palmolive", "Pepsi", "Rexona", "Tipo Pelon", "Tio Nacho", "Toña", "Victoria", "No especificada" }));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -116,6 +120,7 @@ public class D_editar_producto extends javax.swing.JDialog {
 
         txt_precio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_precio.setForeground(new java.awt.Color(0, 0, 0));
+        txt_precio.setBorder(null);
         txt_precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_precioActionPerformed(evt);
@@ -191,18 +196,20 @@ public class D_editar_producto extends javax.swing.JDialog {
                         .addGap(8, 8, 8)
                         .addComponent(jLabel4))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel6)
-                        .addGap(21, 21, 21)
+                        .addGap(57, 57, 57)
                         .addComponent(jLabel9))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
                         .addGap(13, 13, 13)
                         .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_home, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 535, 300));

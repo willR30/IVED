@@ -80,6 +80,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         btn_entrar.setText("Agregar");
         btn_entrar.setColorHover(new java.awt.Color(102, 102, 102));
         btn_entrar.setColorNormal(new java.awt.Color(3, 152, 158));
+        btn_entrar.setFocusPainted(false);
         btn_entrar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btn_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
