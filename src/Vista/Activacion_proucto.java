@@ -36,7 +36,7 @@ public class Activacion_proucto extends javax.swing.JFrame {
     public Activacion_proucto() {
         initComponents();
         //establecemos las propiedades iniciales
-        this.setTitle("IVED-Acticacion de Producto");
+        this.setTitle("IVED-Acticavión de Producto");
         this.setLocationRelativeTo(null);
         this.setIconImage(new ImageIcon(getClass().getResource("/img/IVED_isotipo.png")).getImage());
         this.setResizable(false);
