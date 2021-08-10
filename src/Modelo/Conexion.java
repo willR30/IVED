@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Conexion {
     private final String base ="ived" ;//asegurate del que este nombre este bien escrito
     private final String user="root";
-    private final String contra="GERTRUDIStortuga";//GERTRUDIStortuga";
+    private final String contra="";//GERTRUDIStortuga";
     private final String url="jdbc:mysql://localhost/"+base;//no es necesario especificar el puerto que se esta usando
     private Connection cnx=null;//esta variable guardara la conexion
     

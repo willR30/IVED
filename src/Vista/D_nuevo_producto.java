@@ -58,11 +58,11 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         combo_marcas.setBackground(new java.awt.Color(255, 255, 255));
         combo_marcas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         combo_marcas.setForeground(new java.awt.Color(0, 0, 0));
-        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avon", "Arabela", "Colgate", "Coca-Cola", "Faisan", "Maggi", "Marfil", "Maseca", "Naturas", "Nivea", "Oriflame", "Palmolive", "Pepsi", "Rexona", "Tipo Pelon", "Tio Nacho", "Toña", "Victoria", "No especificada" }));
+        combo_marcas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "No especificada", "Avon", "Arabela", "Colgate", "Coca-Cola", "Faisan", "Maggi", "Marfil", "Maseca", "Naturas", "Nivea", "Oriflame", "Palmolive", "Pepsi", "Rexona", "Tipo Pelon", "Tio Nacho", "Toña", "Victoria" }));
         combo_marcas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel5.setText("Código Catlago:");
+        jLabel5.setText("Código producto:");
 
         txt_codigo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         txt_codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -89,7 +89,7 @@ public class D_nuevo_producto extends javax.swing.JDialog {
         });
 
         txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
+        txt_nombre.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         txt_descripcion.setColumns(20);
         txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -121,20 +121,19 @@ public class D_nuevo_producto extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(combo_marcas, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(51, 51, 51)
-                                .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txt_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel6))
+                                    .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(35, 35, 35)
                         .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(15, 15, 15))

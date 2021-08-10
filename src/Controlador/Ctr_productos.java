@@ -31,12 +31,12 @@ public class Ctr_productos {
         };
         tabla_productos.setModel(mod_grup);
         //creamos la columnas
-        mod_grup.addColumn("ID_producto");
+        mod_grup.addColumn("ID producto");
         mod_grup.addColumn("Nombre del producto");
         mod_grup.addColumn("Marca del producto");
         mod_grup.addColumn("Descripcion del producto");
         mod_grup.addColumn("Cantidad disponible");
-        mod_grup.addColumn("Código de Catálago");
+        mod_grup.addColumn("Código de Producto");
         mod_grup.addColumn("Precio en Cordobas");
         
         Object[]columna  = new Object[7];

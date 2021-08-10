@@ -33,6 +33,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jLabel1 = new javax.swing.JLabel();
         txt_codigo_buscar = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -54,11 +55,23 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         btn_buscar = new rsbuttom.RSButtonMetro();
 
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Buscar por Código de catálago");
 
+        txt_codigo_buscar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_codigo_buscar.setForeground(new java.awt.Color(0, 0, 0));
         txt_codigo_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_codigo_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -73,7 +86,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel2.setText("Nombre");
 
         txt_nombre.setEditable(false);
-        txt_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_nombre.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -81,7 +94,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel3.setText("Marca");
 
         txt_marca.setEditable(false);
-        txt_marca.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_marca.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_marca.setForeground(new java.awt.Color(0, 0, 0));
         txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -89,7 +102,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel4.setText("Descripción");
 
         txt_descripcion.setEditable(false);
-        txt_descripcion.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_descripcion.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_descripcion.setForeground(new java.awt.Color(0, 0, 0));
         txt_descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -97,7 +110,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel6.setText("Cantidad Disponible:");
 
         txt_cantidad.setEditable(false);
-        txt_cantidad.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_cantidad.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
@@ -105,7 +118,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
         jLabel8.setText("ID:");
 
         txt_ID.setEditable(false);
-        txt_ID.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_ID.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_ID.addActionListener(new java.awt.event.ActionListener() {
@@ -399,6 +412,7 @@ public class D_entradas_salidas extends javax.swing.JDialog {
     private rsbuttom.RSButtonMetro btn_buscar;
     private rsbuttom.RSButtonMetro btn_buscar1;
     private rsbuttom.RSButtonMetro btn_buscar2;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
