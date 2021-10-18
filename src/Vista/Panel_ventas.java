@@ -221,14 +221,19 @@ public class Panel_ventas extends javax.swing.JPanel {
 
     private void btn_nueva_venta_FACTURASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nueva_venta_FACTURASActionPerformed
         // TODO add your handling code here:
-        D_Nueva_Ventas d = new D_Nueva_Ventas(new javax.swing.JFrame(), true);
-        d.setVisible(true);
-        while (d.isShowing()) {
-            //no hace nada
+        try{
+            D_Nueva_Ventas d = new D_Nueva_Ventas(new javax.swing.JFrame(), true);
+            d.setVisible(true);
+            while (d.isShowing()) {
+                //no hace nada
+            }
+            //actualizamos las ventas y las facturas
+            new Ctr_ventas().llenar_tablas_ventas(Jtable_ventas);
+            new Ctr_factura().listar_todas_facturas(Jtable_facturas);
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
         }
-        //actualizamos las ventas y las facturas
-        new Ctr_ventas().llenar_tablas_ventas(Jtable_ventas);
-        new Ctr_factura().listar_todas_facturas(Jtable_facturas);
+        
     
     }//GEN-LAST:event_btn_nueva_venta_FACTURASActionPerformed
 
