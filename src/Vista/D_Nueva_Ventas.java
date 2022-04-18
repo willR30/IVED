@@ -108,10 +108,10 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         txt_id_factura = new javax.swing.JTextField();
-        Jdate_fecha = new com.toedter.calendar.JDateChooser();
         txt_sub_total = new javax.swing.JTextField();
         txt_iva = new javax.swing.JTextField();
         txt_total = new javax.swing.JTextField();
+        Jdate_fecha = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -124,7 +124,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         jLabel1.setText("Codigo:");
 
         txt_codigo_buscar.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        txt_codigo_buscar.setForeground(new java.awt.Color(0, 0, 0));
         txt_codigo_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_codigo_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,7 +158,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_nombre.setEditable(false);
         txt_nombre.setBackground(new java.awt.Color(255, 255, 255));
         txt_nombre.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_nombre.setForeground(new java.awt.Color(0, 0, 0));
         txt_nombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 400, -1));
 
@@ -170,7 +168,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_marca.setEditable(false);
         txt_marca.setBackground(new java.awt.Color(255, 255, 255));
         txt_marca.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_marca.setForeground(new java.awt.Color(0, 0, 0));
         txt_marca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.add(txt_marca, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 260, -1));
 
@@ -185,7 +182,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_cantidad.setEditable(false);
         txt_cantidad.setBackground(new java.awt.Color(255, 255, 255));
         txt_cantidad.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_cantidad.setForeground(new java.awt.Color(0, 0, 0));
         txt_cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.add(txt_cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, 123, -1));
 
@@ -196,7 +192,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_ID.setEditable(false);
         txt_ID.setBackground(new java.awt.Color(255, 255, 255));
         txt_ID.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_ID.setForeground(new java.awt.Color(0, 0, 0));
         txt_ID.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +223,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_precio.setEditable(false);
         txt_precio.setBackground(new java.awt.Color(255, 255, 255));
         txt_precio.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_precio.setForeground(new java.awt.Color(0, 0, 0));
         txt_precio.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jPanel3.add(txt_precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 123, -1));
 
@@ -265,7 +259,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             }
         });
 
-        Table_productos_ventas.setBackground(new java.awt.Color(255, 255, 255));
         Table_productos_ventas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         Table_productos_ventas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,7 +271,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         Table_productos_ventas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         Table_productos_ventas.setEnabled(false);
         Table_productos_ventas.setFocusable(false);
-        Table_productos_ventas.setRowHeight(20);
         Table_productos_ventas.setSelectionBackground(new java.awt.Color(51, 102, 255));
         Table_productos_ventas.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Table_productos_ventas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -363,12 +355,10 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Cliente:");
 
         txt_cliente.setBackground(new java.awt.Color(204, 204, 204));
         txt_cliente.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_cliente.setForeground(new java.awt.Color(0, 0, 0));
         txt_cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,32 +368,26 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Fecha:");
 
         jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Factura N°:");
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Sub total:");
 
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("IVA:");
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Total:");
 
         txt_id_factura.setBackground(new java.awt.Color(204, 204, 204));
         txt_id_factura.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_id_factura.setForeground(new java.awt.Color(0, 0, 0));
         txt_id_factura.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_id_factura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -416,17 +400,9 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             }
         });
 
-        Jdate_fecha.setBackground(new java.awt.Color(255, 255, 255));
-        Jdate_fecha.setForeground(new java.awt.Color(0, 0, 0));
-        Jdate_fecha.setAutoscrolls(true);
-        Jdate_fecha.setDateFormatString("dd-MM-yyyy");
-        Jdate_fecha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        Jdate_fecha.setMinSelectableDate(new java.util.Date(-62135744316000L));
-
         txt_sub_total.setEditable(false);
         txt_sub_total.setBackground(new java.awt.Color(204, 204, 204));
         txt_sub_total.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_sub_total.setForeground(new java.awt.Color(0, 0, 0));
         txt_sub_total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_sub_total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,7 +413,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_iva.setEditable(false);
         txt_iva.setBackground(new java.awt.Color(204, 204, 204));
         txt_iva.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_iva.setForeground(new java.awt.Color(0, 0, 0));
         txt_iva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_iva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -448,7 +423,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         txt_total.setEditable(false);
         txt_total.setBackground(new java.awt.Color(204, 204, 204));
         txt_total.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        txt_total.setForeground(new java.awt.Color(0, 0, 0));
         txt_total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         txt_total.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -490,25 +464,26 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
                             .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(12, 12, 12)
                             .addComponent(jLabel10)
-                            .addGap(18, 18, 18)
-                            .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(Panel_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(332, 332, 332)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Panel_producto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Panel_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(txt_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11)
                         .addComponent(txt_id_factura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10))
-                    .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                    .addComponent(Jdate_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
@@ -528,6 +503,32 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_totalActionPerformed
+
+    private void txt_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ivaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ivaActionPerformed
+
+    private void txt_sub_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sub_totalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_sub_totalActionPerformed
+
+    private void txt_id_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_facturaKeyPressed
+        // TODO add your handling code here:
+        //validamos que solo se admitan numeros como codigo de factura
+        char validar=evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            //si es un numero, todo bien
+        }else{
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Solo debe escribir numeros","¡Error!",JOptionPane.ERROR_MESSAGE);
+            this.txt_id_factura.setText("");
+        }
+    }//GEN-LAST:event_txt_id_facturaKeyPressed
+
     private void txt_id_facturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_id_facturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_id_facturaActionPerformed
@@ -542,10 +543,10 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         int unidades_facturadas=0;
         for(int i=0;i<this.controlador_de_rows;i++){
             Ctr_productos ctr=new Ctr_productos();
-            
+
             unidades_facturadas=Integer.parseInt(this.Table_productos_ventas.getValueAt(i,2).toString());
             int nuevas_unidades=ctr.obtenterStock(this.Table_productos_ventas.getValueAt(i,0).toString())+unidades_facturadas;
-                   
+
             //actualizamos las unidades
             ctr.actualizar_cantidad_unidades(nuevas_unidades,this.Table_productos_ventas.getValueAt(i,0).toString());
         }
@@ -557,45 +558,86 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
     private void btn_buscar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscar3ActionPerformed
         // TODO add your handling code here:
         //validamos que todos los parametros de l a venta sean los correctos
-        
-            if (this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty() || this.Jdate_fecha.getDate().toString() == "" ||this.controlador_de_rows==0) {
-                JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
-            } else {
-                String[][] Detalle_tabla_productos = new String[this.controlador_de_rows][5];
-                //llenamos el arreglo con el contenido de la table
-                for (int filas = 0; filas < this.controlador_de_rows; filas++) {
-                    //recorremos las columnas
-                    for (int columnas = 0; columnas < 5; columnas++) {
-                        Detalle_tabla_productos[filas][columnas] = this.Table_productos_ventas.getValueAt(filas, columnas).toString();
-                    }
+
+        if (this.txt_cliente.getText().isEmpty() || this.txt_id_factura.getText().isEmpty() || this.Jdate_fecha.getDate().toString() == "" ||this.controlador_de_rows==0) {
+            JOptionPane.showMessageDialog(this, "No se pudo completar la venta", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String[][] Detalle_tabla_productos = new String[this.controlador_de_rows][5];
+            //llenamos el arreglo con el contenido de la table
+            for (int filas = 0; filas < this.controlador_de_rows; filas++) {
+                //recorremos las columnas
+                for (int columnas = 0; columnas < 5; columnas++) {
+                    Detalle_tabla_productos[filas][columnas] = this.Table_productos_ventas.getValueAt(filas, columnas).toString();
                 }
-                SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyyy");
-                String fecha=formato.format(this.Jdate_fecha.getDate());
-                D_venta_realizada dv = new D_venta_realizada(new javax.swing.JFrame(), true, this.txt_cliente.getText(), fecha,
-                                                            this.txt_id_factura.getText(), Float.parseFloat(this.txt_sub_total.getText()), 
-                                                            Float.parseFloat(this.txt_iva.getText()), Float.parseFloat(this.txt_total.getText()),
-                                                            Detalle_tabla_productos, this.controlador_de_rows);
-                //registramos la factura
-                Ctr_factura cf=new Ctr_factura();
-                cf.Registrar_factura(this.txt_id_factura.getText().trim(), fecha,this.txt_cliente.getText().trim(), sub_total, IVA, Total,"Activa");
-                //registramos la venta de los productos
-                Ctr_ventas cv=new Ctr_ventas();
-                for(int i=0;i<this.controlador_de_rows;i++){
-                    String codigo_identificador=this.Table_productos_ventas.getValueAt(i,0).toString();
-                    int Cantidad_vendida=Integer.parseInt(this.Table_productos_ventas.getValueAt(i,2).toString());
-                    float Precio_unitario=Float.parseFloat(this.Table_productos_ventas.getValueAt(i,3).toString());
-                    String Codigo_factura=this.txt_id_factura.getText().trim();
-                    cv.agregar_venta(codigo_identificador, Cantidad_vendida, Precio_unitario, Codigo_factura);
-                }
-                dv.setVisible(true);
-                while(dv.isShowing()){
-                    //no hace nada
-                }
-                limpiar_toda_venta();
             }
-        
+            SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyyy");
+            String fecha=formato.format(this.Jdate_fecha.getDate());
+            D_venta_realizada dv = new D_venta_realizada(new javax.swing.JFrame(), true, this.txt_cliente.getText(), fecha,
+                this.txt_id_factura.getText(), Float.parseFloat(this.txt_sub_total.getText()),
+                Float.parseFloat(this.txt_iva.getText()), Float.parseFloat(this.txt_total.getText()),
+                Detalle_tabla_productos, this.controlador_de_rows);
+            //registramos la factura
+            Ctr_factura cf=new Ctr_factura();
+            cf.Registrar_factura(this.txt_id_factura.getText().trim(), fecha,this.txt_cliente.getText().trim(), sub_total, IVA, Total,"Activa");
+            //registramos la venta de los productos
+            Ctr_ventas cv=new Ctr_ventas();
+            for(int i=0;i<this.controlador_de_rows;i++){
+                String codigo_identificador=this.Table_productos_ventas.getValueAt(i,0).toString();
+                int Cantidad_vendida=Integer.parseInt(this.Table_productos_ventas.getValueAt(i,2).toString());
+                float Precio_unitario=Float.parseFloat(this.Table_productos_ventas.getValueAt(i,3).toString());
+                String Codigo_factura=this.txt_id_factura.getText().trim();
+                cv.agregar_venta(codigo_identificador, Cantidad_vendida, Precio_unitario, Codigo_factura);
+            }
+            dv.setVisible(true);
+            while(dv.isShowing()){
+                //no hace nada
+            }
+            limpiar_toda_venta();
+        }
 
     }//GEN-LAST:event_btn_buscar3ActionPerformed
+
+    private void Table_productos_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_productos_ventasMouseClicked
+        // TODO add your handling code here:
+        //al hacer doble click en el detalle se podrá eliminar o editar
+        if (evt.getClickCount() == 2) {
+
+            int select = this.Table_productos_ventas.rowAtPoint(evt.getPoint());
+
+            String codigo_producto = this.Table_productos_ventas.getValueAt(select, 0).toString();
+            int opc = JOptionPane.showConfirmDialog(null, "Desea retirar de la factura el producto de Codigo " + codigo_producto + "?");
+
+            if (opc == 0) {
+                //detenemos la aplicacion---------------
+                int cantidades_regresan_inventario = Integer.parseInt(this.Table_productos_ventas.getValueAt(select, 2).toString());
+                Ctr_productos ctr = new Ctr_productos();
+                int stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
+                ctr.actualizar_cantidad_unidades((stock_disponible_al_momento + cantidades_regresan_inventario), codigo_producto);
+                DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
+
+                float sub_total_eliminado = Float.parseFloat(this.Table_productos_ventas.getValueAt(select, 3).toString());
+                //restamos el subtotal eliminado y lo volvemos a calcular
+                this.sub_total = sub_total - sub_total_eliminado;
+                this.IVA = (float) (sub_total * 0.15);
+                this.Total = sub_total + IVA;
+                df.format(IVA);
+                this.txt_sub_total.setText(String.valueOf(sub_total));
+                this.txt_iva.setText(String.valueOf(IVA));
+                this.txt_total.setText(String.valueOf(Total));
+
+                this.Table_productos_ventas.setModel(modelPrincipal);
+                //mostramos las nuevas unidades disponibles
+                stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
+                this.txt_cantidad.setText(String.valueOf(stock_disponible_al_momento));
+                controlador_de_rows--;
+                modelPrincipal.removeRow(select);
+
+            } else {
+
+            }
+
+        }
+    }//GEN-LAST:event_Table_productos_ventasMouseClicked
 
     private void btn_limpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limpiarActionPerformed
         // TODO add your handling code here:
@@ -638,7 +680,6 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
             this.txt_total.setText(String.valueOf(Total));
 
         }
-
     }//GEN-LAST:event_btn_agregar_al_carritoActionPerformed
 
     private void txt_descripcionKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_descripcionKeyPressed
@@ -687,77 +728,9 @@ public class D_Nueva_Ventas extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txt_codigo_buscarKeyPressed
 
-    private void txt_sub_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sub_totalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_sub_totalActionPerformed
-
-    private void txt_ivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ivaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ivaActionPerformed
-
-    private void txt_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_totalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_totalActionPerformed
-
     private void txt_codigo_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_codigo_buscarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_codigo_buscarActionPerformed
-
-    private void Table_productos_ventasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Table_productos_ventasMouseClicked
-        // TODO add your handling code here:
-        //al hacer doble click en el detalle se podrá eliminar o editar
-        if (evt.getClickCount() == 2) {
-
-            int select = this.Table_productos_ventas.rowAtPoint(evt.getPoint());
-
-            String codigo_producto = this.Table_productos_ventas.getValueAt(select, 0).toString();
-            int opc = JOptionPane.showConfirmDialog(null, "Desea retirar de la factura el producto de Codigo " + codigo_producto + "?");
-
-            if (opc == 0) {
-                //detenemos la aplicacion---------------
-                int cantidades_regresan_inventario = Integer.parseInt(this.Table_productos_ventas.getValueAt(select, 2).toString());
-                Ctr_productos ctr = new Ctr_productos();
-                int stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
-                ctr.actualizar_cantidad_unidades((stock_disponible_al_momento + cantidades_regresan_inventario), codigo_producto);
-                DefaultTableModel modelPrincipal = (DefaultTableModel) this.Table_productos_ventas.getModel();
-
-                float sub_total_eliminado = Float.parseFloat(this.Table_productos_ventas.getValueAt(select, 3).toString());
-                //restamos el subtotal eliminado y lo volvemos a calcular
-                this.sub_total = sub_total - sub_total_eliminado;
-                this.IVA = (float) (sub_total * 0.15);
-                this.Total = sub_total + IVA;
-                df.format(IVA);
-                this.txt_sub_total.setText(String.valueOf(sub_total));
-                this.txt_iva.setText(String.valueOf(IVA));
-                this.txt_total.setText(String.valueOf(Total));
-
-                this.Table_productos_ventas.setModel(modelPrincipal);
-                //mostramos las nuevas unidades disponibles
-                stock_disponible_al_momento = ctr.obtenterStock(codigo_producto);
-                this.txt_cantidad.setText(String.valueOf(stock_disponible_al_momento));
-                controlador_de_rows--;
-                modelPrincipal.removeRow(select);
-
-            } else {
-
-            }
-
-        }
-    }//GEN-LAST:event_Table_productos_ventasMouseClicked
-
-    private void txt_id_facturaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_id_facturaKeyPressed
-        // TODO add your handling code here:
-        //validamos que solo se admitan numeros como codigo de factura
-        char validar=evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            //si es un numero, todo bien
-        }else{
-            getToolkit().beep();
-            evt.consume();
-            JOptionPane.showMessageDialog(null,"Solo debe escribir numeros","¡Error!",JOptionPane.ERROR_MESSAGE);
-            this.txt_id_factura.setText("");
-        }
-    }//GEN-LAST:event_txt_id_facturaKeyPressed
 
     /**
      * @param args the command line arguments
